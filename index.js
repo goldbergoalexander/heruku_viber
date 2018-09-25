@@ -60,7 +60,8 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 }
 
 const logger = createLogger();
-
+const HEROKU_URL = 'https://hidden-harbor-18514.herokuapp.com';
+//const NOW_URL = 
 const VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY = '4870a95da0e7d652-3fd1d514a93e52c2-18a38455c3f26ee6';
 
 //if (!process.env.VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY) {
@@ -87,14 +88,15 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
     }
 });
 
-var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com"
+
 
 
 bot.onTextMessage(/./, (message, response) => {
     checkUrlAvailability(response, message.text);
 });
 
-if (process.env.NOW_URL || process.env.HEROKU_URL) {
+//if (process.env.NOW_URL || process.env.HEROKU_URL) {
+	if (process.env.HEROKU_URL) {
     const http = require('http');
     const port = process.env.PORT || 8080;
 
