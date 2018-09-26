@@ -71,7 +71,7 @@ const VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY = '4870a95da0e7d652-3fd1d514a93e52c2
 
 // Creating the bot with access token, name and avatar
 const bot = new ViberBot(logger, {
-    authToken: process.env.VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY, // Learn how to get your access token at developers.viber.com
+    authToken: '4870a95da0e7d652-3fd1d514a93e52c2-18a38455c3f26ee6', // Learn how to get your access token at developers.viber.com
     name: "alldata",
     avatar: "https://raw.githubusercontent.com/devrelv/drop/master/151-icon.png" // Just a placeholder avatar to display the user
 });
