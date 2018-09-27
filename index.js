@@ -49,7 +49,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
             if (body.search('is up') !== -1) {
                 say(botResponse, 'ОК! ' + urlToCheck + '. Єтот сайт работает.');
             } else if (body.search('Мда') !== -1) {
-                say(botResponse, 'Емм ' + urlToCheck + '. Єто не похоже на адрес веб-сайта.? Пожалуйста придерживайтесь формата `test.com`');
+                say(botResponse, 'Емм  ' + urlToCheck + '. Єто не похоже на адрес веб-сайта.? Пожалуйста придерживайтесь формата `test.com`');
             } else if (body.search('down from here') !== -1) {
                 say(botResponse, 'Мда! ' + urlToCheck + '. Не рабочий.');
             } else {
