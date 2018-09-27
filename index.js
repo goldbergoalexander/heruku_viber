@@ -53,7 +53,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
             } else if (body.search('down from here') !== -1) {
                 say(botResponse, 'Мда! ' + urlToCheck + '. Не рабочий.');
             } else {
-                say(botResponse, 'Snap...Something is wrong with isup.me.');
+                say(botResponse, 'Проблемка...Что-то не так с isup.me.');
             }
         }
     })
