@@ -17,7 +17,7 @@ function createLogger() {
         level: "debug" // We recommend using the debug level for development
     });
 
-//    logger.add(winston.transports.Console, toYAML.config());
+//logger.add(winston.transports.Console, toYAML.config());
 
 logger.add(new winston.transports.Console({
     format: winston.format.simple()
@@ -60,20 +60,21 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 }
 
 const logger = createLogger();
-const HEROKU_URL = 'https://hidden-harbor-18514.herokuapp.com';
+//const HEROKU_URL = 'https://hidden-harbor-18514.herokuapp.com';
 //const NOW_URL = 
-const VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY = '4870a95da0e7d652-3fd1d514a93e52c2-18a38455c3f26ee6';
-
-//if (!process.env.VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY) {
-//    logger.debug('Could not find the Viber account access token key in your environment variable. Please make sure you followed readme guide.');
-//    return;
-//}
+//const VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY = '4870a95da0e7d652-3fd1d514a93e52c2-18a38455c3f26ee6';
+/*
+if (!process.env.VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY) {
+    logger.debug('Could not find the Viber account access token key in your environment variable. Please make sure you followed readme guide.');
+    return;
+}
+*/
 
 // Creating the bot with access token, name and avatar
 const bot = new ViberBot(logger, {
-    authToken: '4870a95da0e7d652-3fd1d514a93e52c2-18a38455c3f26ee6', // Learn how to get your access token at developers.viber.com
+    authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
     name: "alldata",
-    avatar: "https://raw.githubusercontent.com/devrelv/drop/master/151-icon.png" // Just a placeholder avatar to display the user
+    avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 });
 
 // The user will get those messages on first registration
@@ -89,7 +90,7 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 });
 
 
-
+var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
 
 bot.onTextMessage(/./, (message, response) => {
     checkUrlAvailability(response, message.text);
@@ -98,14 +99,14 @@ bot.onTextMessage(/./, (message, response) => {
 //if (process.env.NOW_URL || process.env.HEROKU_URL) {
 	if (process.env.HEROKU_URL) {
     const http = require('http');
-    const port = process.env.PORT || 8080;
+    const port = process.env.PORT || 8090;
 
-    http.createServer(bot.middleware()).listen(port, () => bot.setWebhook(process.env.NOW_URL || process.env.HEROKU_URL));
+    http.createServer(bot.middleware()).listen(port, () => bot.setWebhook(process.env.HEROKU_URL));
 } else {
     logger.debug('Could not find the now.sh/Heroku environment variables. Trying to use the local ngrok server.');
     return ngrok.getPublicUrl().then(publicUrl => {
         const http = require('http');
-        const port = process.env.PORT || 8080;
+        const port = process.env.PORT || 8090;
 
         http.createServer(bot.middleware()).listen(port, () => bot.setWebhook(publicUrl));
 
