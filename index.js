@@ -32,11 +32,11 @@ function say(response, message) {
 function checkUrlAvailability(botResponse, urlToCheck) {
 
     if (urlToCheck === '') {
-        say(botResponse, 'I need a URL to check');
+        say(botResponse, 'Я должен проверить');
         return;
     }
 
-    say(botResponse, 'One second...Let me check!');
+    say(botResponse, 'Подождите ...дайте мне проверить!');
 
     var url = urlToCheck.replace(/^http:\/\//, '');
     request('http://isup.me/' + url, function(error, requestResponse, body) {
@@ -47,11 +47,11 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 
         if (!error && requestResponse.statusCode === 200) {
             if (body.search('is up') !== -1) {
-                say(botResponse, 'Hooray! ' + urlToCheck + '. looks good to me.');
+                say(botResponse, 'ОК! ' + urlToCheck + '. Єтот сайт работает.');
             } else if (body.search('Huh') !== -1) {
-                say(botResponse, 'Hmmmmm ' + urlToCheck + '. does not look like a website to me. Typo? please follow the format `test.com`');
+                say(botResponse, 'Hmmmmm ' + urlToCheck + '. Єто не похоже на адрес веб-сайта.? Пожалуйста придерживайтесь формата `test.com`');
             } else if (body.search('down from here') !== -1) {
-                say(botResponse, 'Oh no! ' + urlToCheck + '. is broken.');
+                say(botResponse, 'Мда! ' + urlToCheck + '. Не рабочий.');
             } else {
                 say(botResponse, 'Snap...Something is wrong with isup.me.');
             }
