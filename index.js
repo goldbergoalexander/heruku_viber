@@ -140,6 +140,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 		
 			
 	say(botResponse, 'Ваша погода : ' 
+	
 	    + '\n' + 'коротко'
 		+ '\n'
 		+ ' координати міста: ' + ' ' + ' дов.'+ coord1 + ' ' + ' шир.' + coord2
@@ -149,7 +150,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 		+ ' Температура: ' + ' ' + main1 + '.kel' + ' ' + main2 + '.cel'
 		+ '\n'
 		+ ' Швидкість вітру: ' + ' ' + wind1 + '.m/с' 
-		+ '\n'+ '*'
+		+ '\n'
 
 		 )
   .catch(error => {
