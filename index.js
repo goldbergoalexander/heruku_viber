@@ -39,137 +39,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
     
     say(botResponse, 'Подождите ...дайте мне проверить!');
 	
-	//serch weather 
 	
-	
-	axios({ method: 'get',
-	
-	    headers: {'Content-type': 'application/json; charset=utf8'
-  },
-	//headers: {'Content-Type': 'application/x-www-form-urlencoded' },
-	
-	//api.openweathermap.org/data/2.5/forecast?lat=35&lon=139
-	//url: ('http://api.openweathermap.org/data/2.5/forecast?lat='+latitude+'&lon='+longitude),
-	
-      //url: ('http://api.openweathermap.org/data/2.5/weather?q='+city2+','+country+'&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua'),
-	  url : ('http://api.openweathermap.org/data/2.5/weather?q='+ urlToCheck + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua'),
-	     })
-	.then(result => { 
-		var datas = result['data'];
-		//console.log(stringZ);
-	//console.log(messageZ);
-		//console.log(datas);
-		//var datan = Object.values(datas);
-		var data1 = datas.datas;
-		var ex = datas;
-		var ex1 = datas[Object.values(datas)[0]]; 
-		var ex11 = Object.values(datas)[0]; 
-		var realdata1 = Object.values(ex11);
-		var realdata2 = [];
-		var realdata3 = [];
-		var realdata4 = [];
-		
-		//var myObj = JSON.parse(this.datas);
-        
-		
-	for(i=0;i<datas.length;i++) {
-		
-		var coord = Object.values(datas);
-		var coord1 = coord[i];
-		
-		realdata2.push(coord1);
-		
-	}
-		//var datas1 = JSON.stringify(datas);
-		var datas1 = [];
-		// variables of weather
-		var coord1 = Object.values(datas.coord)[1];   //latitude
-		var coord2 = Object.values(datas.coord)[0];   //longitude
-		var main11 = Object.values(datas.main)[0];
-		var main1 = parseInt(main11);
-		var main0 = main1 - 273.15; //celciy
-		var main2 = parseInt(main0);
-		var weather1  = Object.values(datas.weather)[0]; 
-		var weather2  = Object.values(weather1)[2];
-		var wind1  = Object.values(datas.wind)[0];
-		var icon = Object.values(weather1)[3]; 
-				axios({ method: 'get',
-		    headers: {'Content-type': 'image/png; charset=utf8'
-  },
-			url : ('http://openweathermap.org/img/w/'+icon+'.png'), 
-		})
-  .then(response => {
-	  //var img1 = response.data;
-	  
-	  var icon1 = 'http://openweathermap.org/img/w/'+icon+'.png';
-	  var img = response.data.explanation;
-	  var img2 = response.data.url;
-	  var img1 = response.data;
-	  //console.log(option.location.longitude);
-	  //console.log(option.location.latitude);
-	  //console.log(option.location);
-	  
-    console.log(response.data.url);
-    console.log(response.data.explanation);
-	    console.log(icon1);
- 
-		
-		
-		// use axios to get image ##################
-		
-		//var totalise  = bot.send_photo(message.chat.id, photo=totalicon);
-		//icons 
-		
-		
-		//var weather2  = weather1.main;
-		
-		
-		//variables of weather 
-		
-		console.log(datas);
-		//console.log(weather2);
-		console.log(datas.main.temp);
-		console.log(icon);
-		console.log(city2);
-		//console.log(country);
-		//console.log(img2);
-		var imagez = bot.sendPhoto(message.chat.id, icon1);      
-		//console.log(datas.weather[0].description);
-		//console.log("This is datasss" + ' ' + datasss);
-		//console.log("This is result2" + ' ' +  realdata2);
-		
-			
-	say(botResponse, 'Ваша погода : ' + coord1);
-	/*
-	    + '\n' + 'коротко'
-		+ '\n'
-		+ ' координати міста: ' + ' ' + ' дов.'+ coord1 + ' ' + ' шир.' + coord2
-		+ '\n'
-		+ ' Погодні умови: ' + ' ' + weather2 
-		+ '\n'
-		+ ' Температура: ' + ' ' + main1 + '.kel' + ' ' + main2 + '.cel'
-		+ '\n'
-		+ ' Швидкість вітру: ' + ' ' + wind1 + '.m/с' 
-		+ '\n'
-
-		 )
-  */
-
-	}	
-		)
-	
-		)
-
-	
-	
-	
-	//serch weather
-	
-	
-	
-	
-	
-/*
     var url = urlToCheck.replace(/^http:\/\//, '');
 	
 	    request('http://isup.me/' + url, function(error, requestResponse, body) {
@@ -190,7 +60,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
             }
         }
     })
-	*/	
+	
 }
 
 const logger = createLogger();
