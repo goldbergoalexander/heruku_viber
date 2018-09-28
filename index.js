@@ -33,8 +33,14 @@ function checkUrlAvailability(botResponse, urlToCheck) {
      
 
     if (urlToCheck.toLowerCase() === 'site' || urlToCheck.toLowerCase() === 'сайт' ) {
-        say(botResponse, 'Ок прверим Сайт на еого доступность');
-        return;
+        say(botResponse, 'Ок прверим Сайт на еого доступность').then(()=>{
+			say(botResponse, 'введите название сайта для проверки : ниже');
+			
+			
+			
+			
+		})
+	return;}
     
 
     say(botResponse, 'Подождите ...дайте мне проверить!');
@@ -58,7 +64,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
             }
         }
     })
-	}
+	
 }
 
 const logger = createLogger();
