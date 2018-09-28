@@ -53,14 +53,14 @@ const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
      
 
     if (urlToCheck.toLowerCase() === 'site' || urlToCheck.toLowerCase() === 'сайт' ) {
-        say(botResponse, 'Ок прверим Сайт на его доступность').then(()=>{
-			say(botResponse, 'введите название сайта для проверки : ниже')
+        say(botResponse, 'Ок прверим Сайт на его доступность');
+		say(botResponse, message);
 			
 			
 			
 			
-		})
-	return message;
+		
+	return;
 	
 	
 	}
