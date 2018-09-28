@@ -139,8 +139,8 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 		//console.log("This is result2" + ' ' +  realdata2);
 		
 			
-	say(botResponse, 'Ваша погода : ' 
-	
+	say(botResponse, 'Ваша погода : ' + coord1);
+	/*
 	    + '\n' + 'коротко'
 		+ '\n'
 		+ ' координати міста: ' + ' ' + ' дов.'+ coord1 + ' ' + ' шир.' + coord2
@@ -153,9 +153,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 		+ '\n'
 
 		 )
-  .catch(error => {
-    console.log(error);
-  });
+  */
 
 	}	
 		)
