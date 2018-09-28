@@ -9,6 +9,7 @@ require('dotenv').config();
 const winston = require('winston');
 const toYAML = require('winston-console-formatter');
 const ngrok = require('./get_public_url');
+const KeyboardMessage = require('viber-bot').Message.Keyboard;
 
 var request = require('request');
 
@@ -31,7 +32,7 @@ function say(response, message) {
 
 function checkUrlAvailability(botResponse, urlToCheck) {
 	
-	
+	/*
 	const SAMPLE_KEYBOARD = {
 	"Type": "keyboard",
 	"Revision": 1,
@@ -51,7 +52,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 
 const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
      
-
+*/
     if (urlToCheck === '' ) {
         say(botResponse, 'Ок прверим Сайт на его доступность');
 			return;
