@@ -30,17 +30,40 @@ function say(response, message) {
 }
 
 function checkUrlAvailability(botResponse, urlToCheck) {
+	
+	
+	const SAMPLE_KEYBOARD = {
+	"Type": "keyboard",
+	"Revision": 1,
+	"Buttons": [
+		{
+			"Columns": 3,
+			"Rows": 2,
+			"BgColor": "#e6f5ff",
+			"BgMedia": "http://www.jqueryscript.net/images/Simplest-Responsive-jQuery-Image-Lightbox-Plugin-simple-lightbox.jpg",
+			"BgMediaType": "picture",
+			"BgLoop": true,
+			"ActionType": "reply",
+			"ActionBody": "Yes"
+		}
+	]
+};
+
+const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
      
 
     if (urlToCheck.toLowerCase() === 'site' || urlToCheck.toLowerCase() === 'сайт' ) {
-        say(botResponse, 'Ок прверим Сайт на еого доступность').then(()=>{
-			say(botResponse, 'введите название сайта для проверки : ниже');
+        say(botResponse, 'Ок прверим Сайт на его доступность').then(()=>{
+			say(botResponse, 'введите название сайта для проверки : ниже')
 			
 			
 			
 			
 		})
-	return;}
+	return message;
+	
+	
+	}
     
 
     say(botResponse, 'Подождите ...дайте мне проверить!');
