@@ -30,11 +30,12 @@ function say(response, message) {
 }
 
 function checkUrlAvailability(botResponse, urlToCheck) {
+     
 
-    if (urlToCheck === '') {
-        say(botResponse, 'Я должен проверить');
+    if (urlToCheck.toLowerCase() === 'site' || urlToCheck.toLowerCase() === 'сайт' ) {
+        say(botResponse, 'Ок прверим Сайт на еого доступность');
         return;
-    }
+    
 
     say(botResponse, 'Подождите ...дайте мне проверить!');
 
@@ -57,6 +58,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
             }
         }
     })
+	}
 }
 
 const logger = createLogger();
