@@ -52,10 +52,10 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
      
 
-    if (urlToCheck.toLowerCase() === 'site' || urlToCheck.toLowerCase() === 'сайт' ) {
+    if (urlToCheck === '' ) {
         say(botResponse, 'Ок прверим Сайт на его доступность');
 			return;
-	
+	}
     
 
     say(botResponse, 'Подождите ...дайте мне проверить!');
@@ -79,7 +79,7 @@ const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
             }
         }
     })
-		}
+		
 }
 
 const logger = createLogger();
