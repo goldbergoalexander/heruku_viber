@@ -54,16 +54,8 @@ const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
 
     if (urlToCheck.toLowerCase() === 'site' || urlToCheck.toLowerCase() === 'сайт' ) {
         say(botResponse, 'Ок прверим Сайт на его доступность');
-		say(botResponse, message);
-			
-			
-			
-			
-		
-	return;
+			return;
 	
-	
-	}
     
 
     say(botResponse, 'Подождите ...дайте мне проверить!');
@@ -87,7 +79,7 @@ const message = new KeyboardMessage(SAMPLE_KEYBOARD, [optionalTrackingData]);
             }
         }
     })
-	
+		}
 }
 
 const logger = createLogger();
