@@ -151,7 +151,7 @@ function checkUrlAvailability(botResponse, urlToCheck) {
 		+ ' Швидкість вітру: ' + ' ' + wind1 + '.m/с' 
 		+ '\n'+ '*'
 
-		 })
+		 )
   .catch(error => {
     console.log(error);
   });
