@@ -29,6 +29,86 @@ logger.add(new winston.transports.Console({
 function say(response, message) {
     response.send(new TextMessage(message));
 }
+//add keyboard 
+var keyboard = 
+{
+	"Type": "keyboard",
+	"Buttons": [{
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ASIAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "ASIAN",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>FRENCH</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "French",
+		"BgColor": "#7eceea",
+		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>MEXICAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Mexican",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ITALIAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Italian",
+		"BgColor": "#dd8157",
+		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>INDIE</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Indie",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>MORE</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "More",
+		"BgColor": "#a8aaba",
+		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
+	}]
+}
+
+
+// add keyboard 
+
+
+
+
+
 
 function checkUrlAvailability(botResponse, urlToCheck) {
 	
@@ -98,7 +178,13 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
 
 bot.onTextMessage(/./, (message, response) => {
-    checkUrlAvailability(response, message.text);
+	
+	 request(keyboard, checkUrlAvailability(response, message.text) {
+           
+       });
+	
+	
+    
 });
 
 //if (process.env.NOW_URL || process.env.HEROKU_URL) {
