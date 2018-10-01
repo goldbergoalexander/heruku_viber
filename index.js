@@ -179,9 +179,9 @@ var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
 
 bot.onTextMessage(/./, (message, response) => {
 	
-	 request(keyboard, checkUrlAvailability(response, message.text) {
+	 checkUrlAvailability(keyboard,response, message.text);
            
-       });
+       
 	
 	
     
