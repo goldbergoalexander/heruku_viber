@@ -68,7 +68,7 @@ console.log('This is string : ' + string);
 		//var ex = datas;
 		ex.push(datas);
 		var name = Object.values(response1.userProfile)[1];
-		//console.log('This is profile : ' + Object.values(response1.userProfile[1]));
+		//console.log('This is profile : ' + Object.values(response1.userProfile[1])); 
 		bot.sendMessage(response1.userProfile, new TextMessage('Привіт ' + ' ' +  name 
 		+ '\n' + 'за запитом ' + obj 
         + '\n' + 'Ваші дані :'   
