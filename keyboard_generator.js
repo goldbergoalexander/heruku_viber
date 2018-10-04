@@ -27,6 +27,9 @@ KeyboardGenerator.prototype.elementToKeyboardJSON = function(text, actionBody,
     }];
 }
 
+
+
+
 KeyboardGenerator.prototype.addElement = function(text, actionBody, 
 						   backgroundColor, fontColor, isSilent) {
     let addedElements = this.elementToKeyboardJSON(text, actionBody, 

@@ -1,9 +1,13 @@
 
 'use strict';
+const edrModule = require('./edrsearch.js');
+const weatherkeyboard = require('./weather.js');
 const KeyboardGeneratorModule = require('./keyboard_generator.js');
 const ViberBot = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events;
 const TextMessage = require('viber-bot').Message.Text;
+const ex = edrModule.search();
+//const ex = require('./edrsearch.js');
 require('dotenv').config();
 
 const winston = require('winston');
@@ -30,11 +34,33 @@ function say(response, message) {
     response.send(new TextMessage(message));
 }
 //add keyboard 
+const actionBodyYes = 'Yes';
+const actionBodyNo = 'No';
+const actionBodyweather = 'weather';
+const actionBodybot = 'bot';
+const actionBodyNumber = 'Number';
+const actionBodybase = 'base';
+const actionBodyweatherName = weatherkeyboard.actionBodyweatherName;
+const actionBodyweatherLocation =weatherkeyboard.actionBodyweatherLocation;
+
+
+
+
+function redeemCanDoKeyboard() {
+	let keyboardGenerator1 = new KeyboardGeneratorModule();
+	keyboardGenerator1.addElement('Узнать погоду', actionBodyweather, '#57B8FF');
+	keyboardGenerator1.addElement('Построить бот', actionBodybot, '#DB3069');
+	keyboardGenerator1.addElement('начать поиск в базе', actionBodybase, '#57B8FF');
+	keyboardGenerator1.addElement('узнать номер', actionBodyNumber, '#DB3069');
+	return keyboardGenerator1.build();
+}
+
+
 
 function redeemYesOrNoKeyboard() {
 	let keyboardGenerator = new KeyboardGeneratorModule();
-	keyboardGenerator.addElement('Yes I would',  '#57B8FF');
-	keyboardGenerator.addElement('Not now', '#DB3069');
+	keyboardGenerator.addElement('Yes I would', actionBodyYes, '#57B8FF');
+	keyboardGenerator.addElement('Not now', actionBodyNo, '#DB3069');
 	return keyboardGenerator.build();
 }
 
@@ -42,9 +68,38 @@ function redeemYesOrNoKeyboard() {
 
 // add keyboard 
 function sendQuestion(response) {
-	return response.send(new TextMessage('Would you like to build a bot?',
+	 response.send(new TextMessage('что вы хотите делать ?',
 		redeemYesOrNoKeyboard()));
+		
 }
+
+function sendQuestion1(response) {
+	 response.send(new TextMessage('что вы хотите делать ?',
+		redeemCanDoKeyboard()));
+		
+}
+
+//saerch in base 
+
+function search(response) {
+	response.send(new TextMessage('начнем поиск',
+		redeemCanDoKeyboard()));
+	console.log('this is search : ' + Object.keys(Object.values(response)[1]) + ' ' );
+	/*
+	    if (search === '' ) {
+        say(botResponse, 'Ок прверим Сайт на его доступность');
+			return;
+	}
+	*/
+}
+
+
+
+//saerch in base 
+
+
+
+
 
 
 
@@ -150,21 +205,86 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
     if (!(message instanceof TextMessage)) {
         say(response, `Sorry. I can only understand text messages.`);
     }
+	let messageActionBody = message.text.toUpperCase();
+
+	if (messageActionBody === actionBodyYes.toUpperCase()) {
+		// TODO: Handle yes!
+		response.send(new TextMessage('Ok. lets start to build. How name will be :?'));
+		redeemYesOrNoKeyboard(response);
+	} else if (messageActionBody === actionBodyNo.toUpperCase()) {
+		// TODO: Handle no!
+		response.send(new TextMessage('Lets see what i can do else ;-)'));
+	} 
+	else if (messageActionBody === actionBodyweather.toUpperCase()) {
+		// TODO: Handle no!
+		const weatherModule1 = new weatherkeyboard();
+		response.send(new TextMessage('укажи данные для поиска погоды',weatherModule1));
+		/*
+		function weather(response) {
+    response.send(new TextMessage('укажите как выхотите узнать погоду '), weatherkeyboard);
+}
+		*/
+		
+	}
+	else if (messageActionBody === actionBodybase.toUpperCase()) {
+		// TODO: Handle no!
+		
+		return	search(response);
+	}
+	else if (messageActionBody === actionBodyNumber.toUpperCase()) {
+		// TODO: Handle no!
+		response.send(new TextMessage('укажи данные для поиска номера '));
+	}	
+	
+	else if (messageActionBody === actionBodyweatherName) {
+		// TODO: Handle no!
+		response.send(new TextMessage('укажи имя города гапример Kyiv'));
+	}	
+	else if (messageActionBody === actionBodyweatherLocation) {
+		// TODO: Handle no!
+		response.send(new TextMessage('Нажмите на кнопку поиск по геолокации',geolocationKeyboard));
+	}
+	
+	
+	else {
+		sendQuestion1(response);
+	}
+	
+	
+	
 });
+
+
+
 
 
 var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
 
+function whatyousay(botResponse, urlToCheck) {
+	
+	    if (urlToCheck === '' ) {
+        say(botResponse, 'Вы написали ? ' + '' + urlToCheck );
+			return;
+	}
+}	
+
 bot.onTextMessage(/./, (message, response) => {
 	
-	 //checkUrlAvailability(response, message.text);
-	 
-	 
-	 sendQuestion(response);
-           
-       
-	
-	
+	 	redeemCanDoKeyboard(response);   
+		whatyousay(response);   
+		var obj = Object.values(message)[0];
+		var obj1 = Object.values(response)[0]
+		var response1 = response;
+		
+		console.log('response from bot  : ' + obj);
+		edrModule.search(obj,response1);
+			   
+    
+});
+bot.onTextMessage(/./, (message, response) => {
+	if (obj.indexOf('#')===1)
+	 	say(response, 'Вы написали # ' + '' + obj );
+	   
     
 });
 
