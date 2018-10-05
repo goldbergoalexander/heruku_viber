@@ -228,7 +228,7 @@ bot.onTextMessage(/./, (message, response) => {
 		
 		console.log('response from bot  : ' + obj);
 		say(response, 'Ваш запит обробляється....');
-		function progresspar(){say(response, '==============>');};
+		function progresspar(){say(response, '=============>');};
 		function progresspar1(){say(response, '====================>');};
 		function progresspar2(){say(response, '========================>');};
 		function showkeyboard () {redeemCanDoKeyboard(response); }
