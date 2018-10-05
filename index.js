@@ -7,6 +7,8 @@ const ViberBot = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events;
 const TextMessage = require('viber-bot').Message.Text;
 const ex = edrModule.search();
+var ProgressBar = require('progressbar.js');
+
 //const ex = require('./edrsearch.js');
 require('dotenv').config();
 
@@ -232,13 +234,21 @@ bot.onTextMessage(/./, (message, response) => {
 		function progresspar1(){say(response, '====================>');};
 		function progresspar2(){say(response, '========================>');};
 		function showkeyboard () {redeemCanDoKeyboard(response); }
+		function progressbar () {var bar = new ProgressBar.Line('#container', {easing: 'easeInOut'});
+       bar.animate(1);  // Value from 0.0 to 1.0		
+	   }
 		setTimeout(progresspar,3000);
 		setTimeout(progresspar1,5500);
 		setTimeout(progresspar2,7500);
 		setTimeout(showkeyboard,9500);
 		edrModule.search(obj,response1);
-		
-		
+		bar.animate(1)
+       
+		say(response, 'Ваш запит обробляється....' + bar.animate(1) );
+
+// Assuming we have an empty <div id="container"></div> in
+// HTML
+
 		
 		
     
