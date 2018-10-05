@@ -35,7 +35,7 @@ function say(response, message) {
     response.send(new TextMessage(message));
 }
 
-var ex = [];
+
 function search(obj,response1){
 	
 //var mes =kved.toUpperCase(); 	
@@ -49,7 +49,7 @@ console.log('This is string : ' + string);
 
 	    headers: {'Content-type': 'application/json; charset=utf8'
   },
-	//headers: {'Content-Type': 'application/x-www-form-urlencoded' },
+	
       url: ('http://93.188.161.182:10010/telegramkved/'+ string ),
     })
 
@@ -57,27 +57,17 @@ console.log('This is string : ' + string);
 .then(result => { 
 
 		var datas = result['data'];
-		//var datan = Object.values(datas);
-		//var ex = datas;
-		ex.push(datas);
-		var name = Object.values(response1.userProfile)[1];
-		//console.log('This is profile : ' + Object.values(response1.userProfile[1])); 
 		
-		
-				
-				
-			
-			
-			
-			
+		var ex = datas;
+		//var name = Object.values(response1.userProfile)[1];
 		
 		console.log(datas);
-		setTimeout(bot.sendMessage(response1.userProfile, new TextMessage('Привіт ' + ' ' +  name 
+		bot.sendMessage(response1.userProfile, new TextMessage('Привіт ' 
 		+ '\n' + 'за запитом ' + obj 
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex    
-		)),2000);
-				//return datas;
+		))
+				
 		})
 .catch(error => {
     console.log(error);

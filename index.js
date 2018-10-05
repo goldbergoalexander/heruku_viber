@@ -52,7 +52,7 @@ function redeemCanDoKeyboard() {
 	let keyboardGenerator1 = new KeyboardGeneratorModule();
 	keyboardGenerator1.addElement('Узнать погоду', actionBodyweather, '#57B8FF');
 	keyboardGenerator1.addElement('Построить бот', actionBodybot, '#DB3069');
-	keyboardGenerator1.addElement('начать поиск в базе', actionBodybase, '#57B8FF');
+	keyboardGenerator1.addElement('поиск', actionBodybase, '#57B8FF');
 	keyboardGenerator1.addElement('узнать номер', actionBodyNumber, '#DB3069');
 	return keyboardGenerator1.build();
 }
@@ -69,14 +69,15 @@ function redeemYesOrNoKeyboard() {
 
 
 // add keyboard 
+/*
 function sendQuestion(response) {
 	 response.send(new TextMessage('что вы хотите делать ?',
 		redeemYesOrNoKeyboard()));
 		
 }
-
+*/
 function sendQuestion1(response) {
-	 response.send(new TextMessage('что вы хотите делать ?',
+	 response.send(new TextMessage('Привет Выберите действие ниже',
 		redeemCanDoKeyboard()));
 		
 }
@@ -218,37 +219,30 @@ function whatyousay(botResponse, urlToCheck) {
 	}
 }	
 
+
+
+
+
+
 bot.onTextMessage(/./, (message, response) => {
 	
 	 	
-		whatyousay(response);   
-		var actionBodybase = response;
-		
-		var obj = Object.values(message)[0];
-		var obj1 = Object.values(response)[0]
+		//whatyousay(response);   
+		//redeemYesOrNoKeyboard(response);
+		//var actionBodybase = response;
+		var obj = message.text;
 		var response1 = response;
-		
-		console.log('response from bot  : ' + obj);
-		say(response, 'Ваш запит обробляється....');
-		function progresspar(){say(response, '=============>');};
-		function progresspar1(){say(response, '====================>');};
-		function progresspar2(){say(response, '========================>');};
-		function showkeyboard () {redeemCanDoKeyboard(response); }
-		function progressbar () {var bar = new ProgressBar.Line('#container', {easing: 'easeInOut'});
-       bar.animate(1);  // Value from 0.0 to 1.0		
-	   }
-		setTimeout(progresspar,3000);
-		setTimeout(progresspar1,5500);
-		setTimeout(progresspar2,7500);
-		setTimeout(showkeyboard,9500);
+		console.log('this is message text : ' + message.text);	
+		//console.log('this is response : ' + response);	
+		var name = Object.values(response1.userProfile)[1];
+		say(response, 'Привіт ' + ' ' +  name + ' ' + ' Ваш запит обробляється..... ' );		
+		say(response, 
+		+ '\n' + ' Що може бот  @alldata ' + ' ' 
+		+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
+	    + '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
+		);		
 		edrModule.search(obj,response1);
-		bar.animate(1)
-       
-		say(response, 'Ваш запит обробляється....' + bar.animate(1) );
-
-// Assuming we have an empty <div id="container"></div> in
-// HTML
-
+	
 		
 		
     
@@ -256,9 +250,11 @@ bot.onTextMessage(/./, (message, response) => {
 
 
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
+	
+	
     // This sample bot can answer only text messages, let's make sure the user is aware of that.
     if (!(message instanceof TextMessage)) {
-        say(response, `Sorry. I can only understand text messages.`);
+        say(response, `Извените. ямогу понимать только текстовые сообщения.`);
     }
 	let messageActionBody = message.text.toUpperCase();
 
@@ -281,26 +277,33 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 		*/
 		
 	}
+	
 	else if (messageActionBody === actionBodybase.toUpperCase()) {
-		// TODO: Handle no!
 		
-		//return	search(response);
-		/*
-		var obj = Object.values(message)[0];
-		var obj1 = Object.values(response)[0]
+		var obj = message.text;
 		var response1 = response;
-		console.log(actionBodybase);
-		console.log(response);
-		console.log('response from bot  : ' + obj);
-		edrModule.search(obj,response1);
-		*/
+		console.log('this is message text : ' + message.text);	
+		console.log('this is response : ' + response);	
+		say(response, 'Ваш запит обробляється....');
 		
+		edrModule.search(obj,response1);
 		
 		
 	}
 	else if (messageActionBody === actionBodyNumber.toUpperCase()) {
 		// TODO: Handle no!
-		response.send(new TextMessage('укажи данные для поиска номера '));
+   	say(response, 'введите в поиск номер после #' );
+	   
+    
+		
+		
+    
+
+
+		
+		
+		
+		//response.send(new TextMessage('укажи данные для поиска номера '));
 	}	
 	
 	else if (messageActionBody === actionBodyweatherName) {
@@ -312,11 +315,11 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 		response.send(new TextMessage('Нажмите на кнопку поиск по геолокации',geolocationKeyboard));
 	}
 	
-	
+	/*
 	else {
 		sendQuestion1(response);
 	}
-	
+	*/
 	
 	
 });
