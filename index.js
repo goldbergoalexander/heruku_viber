@@ -39,7 +39,7 @@ const actionBodyNo = 'No';
 const actionBodyweather = 'weather';
 const actionBodybot = 'bot';
 const actionBodyNumber = 'Number';
-const actionBodybase = 'base';
+const actionBodybase = '';
 const actionBodyweatherName = weatherkeyboard.actionBodyweatherName;
 const actionBodyweatherLocation =weatherkeyboard.actionBodyweatherLocation;
 
@@ -200,6 +200,51 @@ bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
 });
 
+
+
+
+
+
+
+var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
+
+function whatyousay(botResponse, urlToCheck) {
+	
+	    if (urlToCheck === '' ) {
+        say(botResponse, 'Вы написали ? ' + '' + urlToCheck );
+			return;
+	}
+}	
+
+bot.onTextMessage(/./, (message, response) => {
+	
+	 	
+		whatyousay(response);   
+		var actionBodybase = response;
+		
+		var obj = Object.values(message)[0];
+		var obj1 = Object.values(response)[0]
+		var response1 = response;
+		
+		console.log('response from bot  : ' + obj);
+		say(response, 'Ваш запит обробляється....');
+		function progresspar(){say(response, '==============>');};
+		function progresspar1(){say(response, '====================>');};
+		function progresspar2(){say(response, '========================>');};
+		function showkeyboard () {redeemCanDoKeyboard(response); }
+		setTimeout(progresspar,3000);
+		setTimeout(progresspar1,5500);
+		setTimeout(progresspar2,7500);
+		setTimeout(showkeyboard,9500);
+		edrModule.search(obj,response1);
+		
+		
+		
+		
+    
+});
+
+
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
     // This sample bot can answer only text messages, let's make sure the user is aware of that.
     if (!(message instanceof TextMessage)) {
@@ -229,7 +274,19 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	else if (messageActionBody === actionBodybase.toUpperCase()) {
 		// TODO: Handle no!
 		
-		return	search(response);
+		//return	search(response);
+		/*
+		var obj = Object.values(message)[0];
+		var obj1 = Object.values(response)[0]
+		var response1 = response;
+		console.log(actionBodybase);
+		console.log(response);
+		console.log('response from bot  : ' + obj);
+		edrModule.search(obj,response1);
+		*/
+		
+		
+		
 	}
 	else if (messageActionBody === actionBodyNumber.toUpperCase()) {
 		// TODO: Handle no!
@@ -253,40 +310,15 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	
 	
 });
-
-
-
-
-
-var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
-
-function whatyousay(botResponse, urlToCheck) {
-	
-	    if (urlToCheck === '' ) {
-        say(botResponse, 'Вы написали ? ' + '' + urlToCheck );
-			return;
-	}
-}	
-
-bot.onTextMessage(/./, (message, response) => {
-	
-	 	redeemCanDoKeyboard(response);   
-		whatyousay(response);   
-		var obj = Object.values(message)[0];
-		var obj1 = Object.values(response)[0]
-		var response1 = response;
-		
-		console.log('response from bot  : ' + obj);
-		edrModule.search(obj,response1);
-			   
-    
-});
 bot.onTextMessage(/./, (message, response) => {
 	if (obj.indexOf('#')===1)
 	 	say(response, 'Вы написали # ' + '' + obj );
 	   
     
 });
+
+bot.onTextMessage(/^hi|hello$/i, (message, response) =>
+    response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am ${bot.name}`)));
 
 //if (process.env.NOW_URL || process.env.HEROKU_URL) {
 	if (process.env.HEROKU_URL) {
