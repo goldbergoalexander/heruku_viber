@@ -269,8 +269,10 @@ var key  = {
 		+ '\n' + ' Що може бот  @alldata ' + ' ' 
 		+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
 	    + '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
-		);		
-		edrModule.search(obj,response1,key);
+		);	
+        SAMPLE_ALT_TEX= "hello";
+		message = RichMediaMessage(rich_media=key, alt_text=SAMPLE_ALT_TEXT);
+		edrModule.search(obj,response1,message);
 	
 		
 		
