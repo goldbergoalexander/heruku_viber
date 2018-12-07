@@ -272,7 +272,7 @@ var key  = {
 		);	
         SAMPLE_ALT_TEX= "hello";
 		message = RichMediaMessage(rich_media=key, alt_text=SAMPLE_ALT_TEXT);
-		edrModule.search(obj,response1,message);
+		edrModule.search(obj,response1,key);
 	
 		
 		
