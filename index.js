@@ -264,7 +264,7 @@ var key  = {
 		console.log('this is message text : ' + message.text);	
 		//console.log('this is response : ' + response);	
 		var name = Object.values(response1.userProfile)[1];
-		say(response, 'Привіт ' + ' ' +  name + ' ' + ' Ваш запит обробляється..... ' );		
+		say(response, 'Привіт ' + ' ' +  name + ' ' + ' Ваш запит обробляється.....-) ' );		
 		say(response, 
 		+ '\n' + ' Що може бот  @alldata ' + ' ' 
 		+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
