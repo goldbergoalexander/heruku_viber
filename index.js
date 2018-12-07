@@ -271,8 +271,8 @@ var key  = {
 	    + '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
 		);	
         SAMPLE_ALT_TEX= "hello";
-		message = RichMediaMessage(rich_media=key, alt_text=SAMPLE_ALT_TEXT);
-		edrModule.search(obj,response1,key);
+		messages = RichMediaMessage(rich_media=key, alt_text=SAMPLE_ALT_TEXT);
+		edrModule.search(obj,response1,messages);
 	
 		
 		
