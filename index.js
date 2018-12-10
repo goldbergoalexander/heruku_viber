@@ -228,7 +228,76 @@ function whatyousay(botResponse, urlToCheck) {
 bot.onTextMessage(/./, (message, response) => {
 	
 //############### keyboard ######################
-
+var keys  = {
+	"Type": "keyboard",
+	"Buttons": [{
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ASIAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "ПОГОДА",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>FRENCH</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "ТРАНСПОРТ",
+		"BgColor": "#7eceea",
+		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>MEXICAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "ВАЛЮТА",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ITALIAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "БЕНІФІЦІАРИ",
+		"BgColor": "#dd8157",
+		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>INDIE</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "ЄДР",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>MORE</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "МЕНЮ",
+		"BgColor": "#a8aaba",
+		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
+	}]
+};		
 //############### keyboard ######################
 	 	
 		//whatyousay(response);   
@@ -239,21 +308,30 @@ bot.onTextMessage(/./, (message, response) => {
 		console.log('this is message text : ' + message.text);	
 		//console.log('this is response : ' + response);	
 		var name = Object.values(response1.userProfile)[1];
+		bot.sendMessage(response1.userProfile,
+        new KeyboardMessage(keys,textos))
+		
+		
+if (obj==="ПОГОДА") {
+	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку погоди Вамнеобхідно обрати опцію.....-) ' );			
+}
+if (obj==="ТРАНСПОРТ") {
+	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку По АВТО Вам необхідно ввести наступну інфо.....-) ' );			
+}
+if (obj==="ЄДР") {
+		say(response, 'Привіт ' + ' ' +  name + ' ' + ' оберіть тип пошуку '  );
+		bot.on('text', (message,response) => {
+	   		var obj1 = message.text;
+		var response1 = response;
+		
 		say(response, 'Привіт ' + ' ' +  name + ' ' + ' Ваш запит обробляється.....-) ' );		
 		say(response, 
 		+ '\n' + ' Що може бот  @alldata ' + ' ' 
 		+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
 	    + '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
 		);	
-        edrModule.search(obj,response1);
-if (obj==="ПОГОДА") {
-	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку погоди Вамнеобхыдно обрати опцію.....-) ' );			
-}
-if (obj==="ТРАНСПОРТ") {
-	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку По АВТО Вам необхідно ввести наступну інфо.....-) ' );			
-}
-if (obj==="ВАЛЮТА") {
-	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для зараз надійде інформація про курс валют....-) ' );			
+        edrModule.search(obj1,response1);
+		})
 }
 		
 		
