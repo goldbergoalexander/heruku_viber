@@ -40,7 +40,77 @@ function say(response, message) {
 function search(obj,response1){
 	
 //var mes =kved.toUpperCase(); 	
-var string  = encodeURI(obj);		
+var string  = encodeURI(obj);
+var keys  = {
+	"Type": "keyboard",
+	"Buttons": [{
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ASIAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "ASIAN",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>FRENCH</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "French",
+		"BgColor": "#7eceea",
+		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>MEXICAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Mexican",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ITALIAN</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Italian",
+		"BgColor": "#dd8157",
+		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>INDIE</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Indie",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>MORE</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "More",
+		"BgColor": "#a8aaba",
+		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
+	}]
+};		
 //console.log('This is response : ' + obj);	
 //console.log('This is mes : ' + mes);
 //console.log('This is string : ' + string);
@@ -58,35 +128,10 @@ var string  = encodeURI(obj);
 .then(result => {
 
 //keyboard 
-var keys  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<font color=\"#494E67\">Smoking</font><br><br>",
-		"TextSize": "medium",
-		"TextHAlign": "center",
-		"TextVAlign": "bottom",
-		"ActionType": "reply",
-		"ActionBody": "Smoking",
-		"BgColor": "#f7bb3f",
-		"Image": "https: //s12.postimg.org/ti4alty19/smoke.png"
-	}, {
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<font color=\"#494E67\">Non Smoking</font><br><br>",
-		"TextSize": "medium",
-		"TextHAlign": "center",
-		"TextVAlign": "bottom",
-		"ActionType": "reply",
-		"ActionBody": "Non smoking",
-		"BgColor": "# f6f7f9",
-		"Image": "https: //s14.postimg.org/us7t38az5/Nonsmoke.png"
-	}]
-}
+
 var textos = "hello";
 //var messageso = new KeyboardMessage(keys, textos);
-var messageso = new KeyboardMessage(textos, keys)
+var messageso = KeyboardMessage(keys,textos);
 //keyboard 	
 
 
@@ -103,7 +148,7 @@ var messageso = new KeyboardMessage(textos, keys)
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         ),
-		messageso,
+		messageso
 		
 		)
 				
