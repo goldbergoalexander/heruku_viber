@@ -85,7 +85,7 @@ var keys  = {
 	}]
 }
 var textos = "hello";
-//const messageso = new KeyboardMessage(keys, textos);
+var messageso = new KeyboardMessage(keys, textos);
 //keyboard 	
 
 
@@ -102,7 +102,7 @@ var textos = "hello";
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         ),
-		new KeyboardMessage(keys, 'hello')
+		messageso
 		
 		)
 				
