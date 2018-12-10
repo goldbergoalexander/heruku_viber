@@ -131,7 +131,7 @@ var keys  = {
 
 var textos = "hello";
 //var messageso = new KeyboardMessage(keys, textos);
-var messageso = KeyboardMessage(keys,textos);
+//var messageso = new KeyboardMessage(keys,textos);
 //keyboard 	
 
 
@@ -142,15 +142,13 @@ var messageso = KeyboardMessage(keys,textos);
 		
 		console.log("this i user profile : " + response1.userProfile);
 		
-			bot.sendMessage(response1.userProfile, 
+			bot.sendMessage(response1.userProfile,
+        new KeyboardMessage(keys,textos),
 		new TextMessage('Привіт ' 
 		+ '\n' + 'за запитом ' + obj 
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
-        ),
-		messageso
-		
-		)
+        ))
 				
 		})
 .catch(error => {
