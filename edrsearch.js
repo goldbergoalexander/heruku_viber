@@ -84,7 +84,7 @@ const key  = {
 	}]
 };
 var text = "hello";
-const message = new KeyboardMessage(key, text);
+const messageso = new KeyboardMessage(key, text);
 //keyboard 	
 
 
@@ -100,8 +100,7 @@ const message = new KeyboardMessage(key, text);
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         + '\n' + key 
-		),
-		new KeyboardMessage(key, text);)
+		),messageso)
 				
 		})
 .catch(error => {
