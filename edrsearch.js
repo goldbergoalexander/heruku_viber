@@ -97,9 +97,9 @@ const messageso = new KeyboardMessage(key, textos);
 		
 			bot.sendMessage(response1.userProfile, 
 		new TextMessage('Привіт ' 
-		//+ '\n' + 'за запитом ' + obj 
-        //+ '\n' + 'Ваші дані :'   
-		//+ '\n' + ex 
+		+ '\n' + 'за запитом ' + obj 
+        + '\n' + 'Ваші дані :'   
+		+ '\n' + ex 
         ),
 		KeyboardMessage(keys,textos)
 		
