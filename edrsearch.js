@@ -83,8 +83,8 @@ const key  = {
 		"Image": "https: //s14.postimg.org/us7t38az5/Nonsmoke.png"
 	}]
 };
-var text = "hello";
-const messageso = new KeyboardMessage(key, text);
+var textos = "hello";
+const messageso = new KeyboardMessage(key, textos);
 //keyboard 	
 
 
@@ -95,11 +95,15 @@ const messageso = new KeyboardMessage(key, text);
 		
 		console.log(datas);
 		
-			bot.sendMessage(response1.userProfile, new TextMessage('Привіт ' 
-		//+ '\n' + 'за запитом ' + obj 
-        //+ '\n' + 'Ваші дані :'   
-		//+ '\n' + ex 
-        ),messageso)
+			bot.sendMessage(response1.userProfile, 
+		new TextMessage('Привіт ' 
+		+ '\n' + 'за запитом ' + obj 
+        + '\n' + 'Ваші дані :'   
+		+ '\n' + ex 
+        ),
+		new KeyboardMessage(key, textos)
+		
+		)
 				
 		})
 .catch(error => {
