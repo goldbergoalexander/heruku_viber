@@ -86,7 +86,7 @@ var keys  = {
 }
 var textos = "hello";
 //var messageso = new KeyboardMessage(keys, textos);
-var messageso = KeyboardMessage(tracking_data=textos, keyboard=keys)
+var messageso = new KeyboardMessage(textos, keys)
 //keyboard 	
 
 
