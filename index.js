@@ -312,8 +312,8 @@ var keys  = {
 		var name = Object.values(response1.userProfile)[1];
 		//bot.sendMessage(response1.userProfile, new KeyboardMessage(keys));
 		bot.sendMessage(response1.userProfile, 
-		new TextMessage('Привіт обери пункт який Вам необхідний ') +
-		new KeyboardMessage(keys));
+		new TextMessage('Привіт обери пункт який Вам необхідний '),
+		KeyboardMessage(keys));
 		
 		
 	
