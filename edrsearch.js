@@ -102,7 +102,7 @@ var textos = "hello";
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         ),
-		new KeyboardMessage(keys, textos),
+		new KeyboardMessage(keys),
 		
 		)
 				
