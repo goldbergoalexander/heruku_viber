@@ -82,7 +82,7 @@ const keys  = {
 		"BgColor": "# f6f7f9",
 		"Image": "https: //s14.postimg.org/us7t38az5/Nonsmoke.png"
 	}]
-};
+}
 var textos = "hello";
 const messageso = new KeyboardMessage(key, textos);
 //keyboard 	
@@ -101,7 +101,7 @@ const messageso = new KeyboardMessage(key, textos);
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         ),
-		KeyboardMessage(keys,textos)
+		keys
 		
 		)
 				
