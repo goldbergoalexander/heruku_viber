@@ -83,8 +83,10 @@ const key  = {
 		"Image": "https: //s14.postimg.org/us7t38az5/Nonsmoke.png"
 	}]
 };
-
+var text = "hello";
+const message = new KeyboardMessage(key, text);
 //keyboard 	
+
 
 		var datas = result['data'];
 		
@@ -98,7 +100,8 @@ const key  = {
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         + '\n' + key 
-		))
+		),
+		new KeyboardMessage(key, text);)
 				
 		})
 .catch(error => {
