@@ -57,7 +57,7 @@ var string  = encodeURI(obj);
 .then(result => {
 
 //keyboard 
-const key  = {
+const keys  = {
 	"Type": "keyboard",
 	"Buttons": [{
 		"Columns": 3,
@@ -97,11 +97,11 @@ const messageso = new KeyboardMessage(key, textos);
 		
 			bot.sendMessage(response1.userProfile, 
 		new TextMessage('Привіт ' 
-		+ '\n' + 'за запитом ' + obj 
-        + '\n' + 'Ваші дані :'   
-		+ '\n' + ex 
+		//+ '\n' + 'за запитом ' + obj 
+        //+ '\n' + 'Ваші дані :'   
+		//+ '\n' + ex 
         ),
-		new KeyboardMessage(key)
+		KeyboardMessage(keys,textos)
 		
 		)
 				
