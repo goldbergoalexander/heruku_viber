@@ -309,8 +309,8 @@ var keys  = {
 		console.log('this is message text : ' + message.text);	
 		//console.log('this is response : ' + response);	
 		var name = Object.values(response1.userProfile)[1];
-		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
-		bot.sendMessage(response1.userProfile, new TextMessage('Привіт обери пункт який Ва необхідний '));
+		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos),
+		new TextMessage('Привіт обери пункт який Вам необхідний '));
 		
 		bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	
