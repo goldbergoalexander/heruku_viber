@@ -305,13 +305,34 @@ var keys  = {
 		//var actionBodybase = response;
 		var obj = message.text;
 		var response1 = response;
+		var textos = "hello";
 		console.log('this is message text : ' + message.text);	
 		//console.log('this is response : ' + response);	
 		var name = Object.values(response1.userProfile)[1];
 		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
 		bot.sendMessage(response1.userProfile, new TextMessage('Привіт '));
 		
-		
+		bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
+	
+	
+    // This sample bot can answer only text messages, let's make sure the user is aware of that.
+    if (!(message instanceof TextMessage)) {
+        say(response, `Извените. ямогу понимать только текстовые сообщения.`);
+    }
+	let messageActionBody = message.text.toUpperCase();
+
+	if (messageActionBody === 'ПОГОДА') {
+		// TODO: Handle yes!
+		response.send(new TextMessage('Ok. lets start to build. How name will be :?'));
+		redeemYesOrNoKeyboard(response);
+	} 
+	
+	
+	
+	
+	
+});
+/*
 if (obj==="ПОГОДА") {
 	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку погоди Вамнеобхідно обрати опцію.....-) ' );			
 }
@@ -333,7 +354,7 @@ if (ActionBody==="EDR") {
         edrModule.search(obj1,response1);
 		})
 }
-		
+	*/	
 		
 		
 		
