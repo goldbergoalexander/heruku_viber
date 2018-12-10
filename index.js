@@ -233,67 +233,67 @@ var keys  = {
 	"Buttons": [{
 		"Columns": 2,
 		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ASIAN</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "ПОГОДА",
+		"ActionBody": "Wheather",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	}, {
 		"Columns": 2,
 		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>FRENCH</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "ТРАНСПОРТ",
+		"ActionBody": "Transport",
 		"BgColor": "#7eceea",
 		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
 	}, {
 		"Columns": 2,
 		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>MEXICAN</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "ВАЛЮТА",
+		"ActionBody": "Cash",
 		"BgColor": "#f6f7f9",
 		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
 	}, {
 		"Columns": 2,
 		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ITALIAN</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "БЕНІФІЦІАРИ",
+		"ActionBody": "Benific",
 		"BgColor": "#dd8157",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}, {
 		"Columns": 2,
 		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>INDIE</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "ЄДР",
+		"ActionBody": "EDR",
 		"BgColor": "#f6f7f9",
 		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
 	}, {
 		"Columns": 2,
 		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>MORE</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>МЕНЮ</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "МЕНЮ",
+		"ActionBody": "mainmenu",
 		"BgColor": "#a8aaba",
 		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
 	}]
@@ -315,10 +315,10 @@ var keys  = {
 if (obj==="ПОГОДА") {
 	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку погоди Вамнеобхідно обрати опцію.....-) ' );			
 }
-if (obj==="ТРАНСПОРТ") {
+if (obj==="Transport") {
 	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку По АВТО Вам необхідно ввести наступну інфо.....-) ' );			
 }
-if (obj==="ЄДР") {
+if (ActionBody==="EDR") {
 		say(response, 'Привіт ' + ' ' +  name + ' ' + ' оберіть тип пошуку '  );
 		bot.on('text', (message,response) => {
 	   		var obj1 = message.text;
