@@ -101,7 +101,7 @@ const messageso = new KeyboardMessage(key, textos);
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         ),
-		new KeyboardMessage(key, textos)
+		new KeyboardMessage(key)
 		
 		)
 				
