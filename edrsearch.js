@@ -96,11 +96,10 @@ const messageso = new KeyboardMessage(key, text);
 		console.log(datas);
 		
 			bot.sendMessage(response1.userProfile, new TextMessage('Привіт ' 
-		+ '\n' + 'за запитом ' + obj 
-        + '\n' + 'Ваші дані :'   
-		+ '\n' + ex 
-        + '\n' + key 
-		),messageso)
+		//+ '\n' + 'за запитом ' + obj 
+        //+ '\n' + 'Ваші дані :'   
+		//+ '\n' + ex 
+        ),messageso)
 				
 		})
 .catch(error => {
