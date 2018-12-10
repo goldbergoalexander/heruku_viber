@@ -9,6 +9,7 @@ obj = require('./index.js');
 const ViberBot = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events;
 const TextMessage = require('viber-bot').Message.Text;
+const KeyboardMessage = require('viber-bot').Message.Keyboard;
 const winston = require('winston');
 const toYAML = require('winston-console-formatter');
 
@@ -101,7 +102,7 @@ const messageso = new KeyboardMessage(key, textos);
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         ),
-		keys
+		new KeyboardMessage(keys, textos)
 		
 		)
 				
