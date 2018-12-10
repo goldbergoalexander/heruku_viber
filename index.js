@@ -8,6 +8,7 @@ const BotEvents = require('viber-bot').Events;
 const TextMessage = require('viber-bot').Message.Text;
 const ex = edrModule.search();
 var ProgressBar = require('progressbar.js');
+const KeyboardMessage = require('viber-bot').Message.Keyboard;
 
 //const ex = require('./edrsearch.js');
 require('dotenv').config();
