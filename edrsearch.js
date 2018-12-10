@@ -58,7 +58,7 @@ var string  = encodeURI(obj);
 .then(result => {
 
 //keyboard 
-const keys  = {
+var keys  = {
 	"Type": "keyboard",
 	"Buttons": [{
 		"Columns": 3,
@@ -85,7 +85,7 @@ const keys  = {
 	}]
 }
 var textos = "hello";
-const messageso = new KeyboardMessage(key, textos);
+//const messageso = new KeyboardMessage(keys, textos);
 //keyboard 	
 
 
@@ -102,7 +102,7 @@ const messageso = new KeyboardMessage(key, textos);
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         ),
-		new KeyboardMessage(keys, textos)
+		new KeyboardMessage(keys, 'hello')
 		
 		)
 				
