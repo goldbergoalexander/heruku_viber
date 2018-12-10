@@ -312,7 +312,7 @@ var keys  = {
 		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos),
 		new TextMessage('Привіт обери пункт який Вам необхідний '));
 		
-		bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
+		
 	
 	
     // This sample bot can answer only text messages, let's make sure the user is aware of that.
@@ -331,7 +331,7 @@ var keys  = {
 	
 	
 	
-});
+
 /*
 if (obj==="ПОГОДА") {
 	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку погоди Вамнеобхідно обрати опцію.....-) ' );			
