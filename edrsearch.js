@@ -85,7 +85,7 @@ var keys  = {
 	}]
 }
 var textos = "hello";
-var messageso = new KeyboardMessage(keys, textos);
+//var messageso = new KeyboardMessage(keys, textos);
 //keyboard 	
 
 
@@ -94,7 +94,7 @@ var messageso = new KeyboardMessage(keys, textos);
 		var ex = datas;
 		//var name = Object.values(response1.userProfile)[1];
 		
-		console.log(datas);
+		//console.log(datas);
 		
 			bot.sendMessage(response1.userProfile, 
 		new TextMessage('Привіт ' 
@@ -102,7 +102,7 @@ var messageso = new KeyboardMessage(keys, textos);
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
         ),
-		messageso
+		new KeyboardMessage(keys, textos),
 		
 		)
 				
