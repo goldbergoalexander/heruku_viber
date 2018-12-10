@@ -310,12 +310,12 @@ var keys  = {
 		console.log('this is message text : ' + message.text);	
 		//console.log('this is response : ' + response);	
 		var name = Object.values(response1.userProfile)[1];
-		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos),
-		new TextMessage('Привіт обери пункт який Вам необхідний '));
+		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
+		bot.sendMessage(response1.userProfile, new TextMessage('Привіт обери пункт який Вам необхідний '));
 		
 		
 	
-	
+	/*
     // This sample bot can answer only text messages, let's make sure the user is aware of that.
     if (!(message instanceof TextMessage)) {
         say(response, `Извените. ямогу понимать только текстовые сообщения.`);
@@ -328,7 +328,7 @@ var keys  = {
 		redeemYesOrNoKeyboard(response);
 	} 
 	
-	
+	*/
 	
 	
 	
