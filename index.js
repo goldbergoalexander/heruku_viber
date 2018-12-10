@@ -245,12 +245,24 @@ bot.onTextMessage(/./, (message, response) => {
 		+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
 	    + '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
 		);	
-        				edrModule.search(obj,response1);
-	
+        edrModule.search(obj,response1);
+if (obj==="ПОГОДА") {
+	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку погоди Вамнеобхыдно обрати опцію.....-) ' );			
+}
+if (obj==="ТРАНСПОРТ") {
+	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку По АВТО Вам необхідно ввести наступну інфо.....-) ' );			
+}
+if (obj==="ВАЛЮТА") {
+	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для зараз надійде інформація про курс валют....-) ' );			
+}
 		
 		
-    
-});
+		
+		
+		
+		
+		
+	});
 
 
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {

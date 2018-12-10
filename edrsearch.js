@@ -51,7 +51,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "ASIAN",
+		"ActionBody": "ПОГОДА",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	}, {
@@ -62,7 +62,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "French",
+		"ActionBody": "ТРАНСПОРТ",
 		"BgColor": "#7eceea",
 		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
 	}, {
@@ -73,7 +73,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "Mexican",
+		"ActionBody": "ВАЛЮТА",
 		"BgColor": "#f6f7f9",
 		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
 	}, {
@@ -84,7 +84,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "Italian",
+		"ActionBody": "БЕНІФІЦІАРИ",
 		"BgColor": "#dd8157",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}, {
@@ -95,7 +95,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "Indie",
+		"ActionBody": "ЄДР",
 		"BgColor": "#f6f7f9",
 		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
 	}, {
@@ -106,7 +106,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "More",
+		"ActionBody": "МЕНЮ",
 		"BgColor": "#a8aaba",
 		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
 	}]
