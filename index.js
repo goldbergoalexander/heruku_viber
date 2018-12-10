@@ -309,7 +309,8 @@ var keys  = {
 		//console.log('this is response : ' + response);	
 		var name = Object.values(response1.userProfile)[1];
 		bot.sendMessage(response1.userProfile,
-        new KeyboardMessage(keys,textos))
+        new KeyboardMessage(keys,textos),
+		new TextMessage('Привіт '));
 		
 		
 if (obj==="ПОГОДА") {
