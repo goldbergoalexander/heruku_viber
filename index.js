@@ -367,7 +367,7 @@ if (ActionBody==="EDR") {
 
 bot.onTextMessage(/Wheather/, (message, response) => {
 	
-	say('hey you call weather?');
+	say(response, 'hey you call weather?');
 })
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	
