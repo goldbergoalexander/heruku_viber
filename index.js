@@ -370,17 +370,17 @@ bot.onTextMessage(/ПОГОДА|Wheather/, (message, response) => {
 	
 	say(response, 'hey you call weather?');
 })
-bot.onTextMessage(/Валюта|Cash/, (message, response) => {
+bot.onTextMessage(/Валюта|Cash/, (response) => {
 	
 		var response1 = response;
 	
-	say(response, 'Привіт згідно запиту курс валют : ?');
+	say(response, 'Привіт згідно запиту курс валют : ');
 	
-	say(response, 
-		+ '\n' + ' Що може бот  @alldata ' + ' ' 
-		+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
-	    + '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
-		);	
+	//say(response, 
+		//+ '\n' + ' Що може бот  @alldata ' + ' ' 
+		//+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
+	    //+ '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
+		//);	
         curensy_search.curensy(response1);
 	
 	
