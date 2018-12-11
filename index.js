@@ -225,7 +225,7 @@ function whatyousay(botResponse, urlToCheck) {
 
 
 
-bot.onTextMessage(/./, (message, response) => {
+bot.onceTextMessage(/./, (message, response) => {
 	//bot.on(BotEvents.MESSAGE_RECEIVED,(message, response) => {
 	
 //############### keyboard ######################
