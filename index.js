@@ -381,6 +381,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 	//say(response, 'Привіт ви обрали пошук авто для пошуку ввдіть номер автомобіля нижче  : ');
 	var response1 = response;
 	//
+	/*
 	bot.sendMessage(response.user, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(() => {
 				
 				 bot.onTextMessage("text",(mess)=>{
@@ -392,6 +393,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 	
          })		
 	})
+	*/
 })	
 	
 	
