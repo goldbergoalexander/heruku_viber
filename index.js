@@ -225,7 +225,7 @@ function whatyousay(botResponse, urlToCheck) {
 
 
 
-bot.onceTextMessage(/./, (message, response) => {
+bot.onTextMessage(/./, (message, response) => {
 	//bot.on(BotEvents.MESSAGE_RECEIVED,(message, response) => {
 	
 //############### keyboard ######################
@@ -365,7 +365,10 @@ if (ActionBody==="EDR") {
 		
 	});
 
-
+bot.onTextMessage(/ПОГОДА/, (message, response) => {
+	
+	say('hey you call weather?');
+})
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	
 	
