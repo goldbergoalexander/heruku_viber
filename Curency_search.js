@@ -107,8 +107,8 @@ curen.push(curency);
 
 		
 			bot.sendMessage(response1.userProfile, 
-		new TextMessage('Привіт ' 
-		+ '\n' + 'актуальний курс Валют :'   
+		new TextMessage(
+		'\n' + 'актуальний курс Валют :'   
 		+ '\n' + ex 
         ))
 				

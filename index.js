@@ -370,22 +370,29 @@ bot.onTextMessage(/ПОГОДА|Wheather/, (message, response) => {
 	
 	say(response, 'hey you call weather?');
 })
+//#######################################    Curency   ####################################################
 bot.onTextMessage(/Валюта|Cash/, (message,response) => {
+	var response1 = response;
+	say(response, 'Привіт ви обрали курс валют : ');
+	curensy_search.curensy(response1);
+	})
+//#######################################    carsearch   ####################################################
+bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
+	var response1 = response;
+	say(response, 'Привіт ви обрали пошук авто для пошуку ввдіть номер автомобіля нижче  : ');
+    bot.onTextMessage((message,response) => {
+	say(response, 'Привіт ви  ввели ' + message.text);
 	
-		var response1 = response;
-	
-	say(response, 'Привіт згідно запиту курс валют : ');
-	
-	//say(response, 
-		//+ '\n' + ' Що може бот  @alldata ' + ' ' 
-		//+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
-	    //+ '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
-		//);	
-        curensy_search.curensy(response1);
+})	
 	
 	
+	//curensy_search.curensy(response1);
+	})
+	//#######################################    Curency   ####################################################
 	
-})
+
+
+
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	
 	
