@@ -8,6 +8,7 @@ const ViberBot = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events;
 const TextMessage = require('viber-bot').Message.Text;
 const ex = edrModule.search();
+const BotEvents = require('viber-bot').Events;
 var ProgressBar = require('progressbar.js');
 
 
@@ -382,7 +383,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 		//
 	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(() => {
 				
-				 bot.on(BotEvents.MESSAGE_RECEIVED,(mess,response)=>{
+				 bot.on(BotEvents.MESSAGE_SENT,(mess,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
                     say(response, " інформація за Вашим номером авто = > " + mess.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ");
