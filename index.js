@@ -306,14 +306,13 @@ var keys  = {
 		//var actionBodybase = response;
 		var obj = message.text;
 		var response1 = response;
-		//var textos = "hello";
+		var textos = "hello";
 		console.log('this is message text : ' + message.text);	
 		//console.log('this is response : ' + response);	
 		var name = Object.values(response1.userProfile)[1];
 		//bot.sendMessage(response1.userProfile, new KeyboardMessage(keys));
-		bot.sendMessage(response1.userProfile, 
-		new TextMessage('Привіт обери пункт який Вам необхідний '),
-		KeyboardMessage(keys));
+		bot.sendMessage(response1.userProfile, new TextMessage('Привіт обери пункт який Вам необхідний '));
+		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));));
 		
 		
 	
