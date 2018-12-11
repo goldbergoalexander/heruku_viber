@@ -1,6 +1,7 @@
 
 'use strict';
 const edrModule = require('./edrsearch.js');
+const curensy_search = require('./Curensy_search.js');
 const weatherkeyboard = require('./weather.js');
 const KeyboardGeneratorModule = require('./keyboard_generator.js');
 const ViberBot = require('viber-bot').Bot;
@@ -368,6 +369,22 @@ if (ActionBody==="EDR") {
 bot.onTextMessage(/ПОГОДА|Wheather/, (message, response) => {
 	
 	say(response, 'hey you call weather?');
+})
+bot.onTextMessage(/Валюта|Cash/, (message, response) => {
+	
+		var response1 = response;
+	
+	say(response, 'Привіт згідно запиту курс валют : ?');
+	
+	say(response, 
+		+ '\n' + ' Що може бот  @alldata ' + ' ' 
+		+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
+	    + '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
+		);	
+        curensy_search.curensy(response1);
+	
+	
+	
 })
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	
