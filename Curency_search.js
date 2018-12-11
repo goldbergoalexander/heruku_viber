@@ -39,7 +39,7 @@ function curensy(response1){
 //hello
 	
 //var mes =kved.toUpperCase(); 	
-var string  = encodeURI(obj1);
+//var string  = encodeURI(obj1);
 	
 var date = new Date(),
   n = date.getMonth()+1,
@@ -68,15 +68,15 @@ var date = new Date(),
 
 var datas = result;
 		var datas1 = [];
-		for (var a = 17;a<=22; a++) {
-		console.log(datas.data.exchangeRate[a]);
+		//for (var a = 17;a<=22; a++) {
+		//console.log(datas.data.exchangeRate[a]);
 		
-		}
+		//}
 		
 		
 		var curen = [];
 		
-		console.log(datas.data.exchangeRate.length);
+		//console.log(datas.data.exchangeRate.length);
 		
 		
 		
