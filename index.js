@@ -370,7 +370,7 @@ bot.onTextMessage(/ПОГОДА|Wheather/, (message, response) => {
 	
 	say(response, 'hey you call weather?');
 })
-bot.onTextMessage(/Валюта|Cash/, (response) => {
+bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 	
 		var response1 = response;
 	

@@ -120,4 +120,4 @@ curen.push(curency);
 	//}
 }
 
-module.exports = {curensy:curensy,};
+module.exports = {curensy:curensy};
