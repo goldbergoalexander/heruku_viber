@@ -1,7 +1,7 @@
 
 'use strict';
 const edrModule = require('./edrsearch.js');
-const curensy_search = require('./Curensy_search.js');
+const curensy_search = require('./Curency_search.js');
 const weatherkeyboard = require('./weather.js');
 const KeyboardGeneratorModule = require('./keyboard_generator.js');
 const ViberBot = require('viber-bot').Bot;
