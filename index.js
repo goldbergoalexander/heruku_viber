@@ -365,7 +365,7 @@ if (ActionBody==="EDR") {
 		
 	});
 
-bot.onTextMessage(/^ПОГОДА|Wheather$/i, (message, response) => {
+bot.onTextMessage(/Wheather/, (message, response) => {
 	
 	say('hey you call weather?');
 })
