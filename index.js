@@ -378,15 +378,15 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 	})
 //#######################################    carsearch   ####################################################
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
-	say(response, 'Привіт ви обрали пошук авто для пошуку ввдіть номер автомобіля нижче  : ');
+	//say(response, 'Привіт ви обрали пошук авто для пошуку ввдіть номер автомобіля нижче  : ');
 	var response1 = response;
 	//
-	bot.sendMessage(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(() => {
+	bot.sendMessage(response.user, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(() => {
 				
-				 bot.once("text",(mess)=>{
+				 bot.on("text",(mess)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
-                    bot.sendMessage(response, " інформація за Вашим номером авто = > " + mess.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ")
+                    bot.sendMessage(response, " інформація за Вашим номером авто = > " + mess.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ");
 	//
 	
 	
