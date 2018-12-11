@@ -383,7 +383,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 	//
 	bot.sendMessage(response.user, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(() => {
 				
-				 bot.on("text",(mess)=>{
+				 bot.onTextMessage("text",(mess)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
                     bot.sendMessage(response, " інформація за Вашим номером авто = > " + mess.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ");
