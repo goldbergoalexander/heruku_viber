@@ -383,14 +383,14 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
 	//.then(() => {
 				
-				bot.on(BotEvents.CONVERSATION_STARTED,(message,response)=>{
+				//bot.on(BotEvents.CONVERSATION_STARTED,(message,response)=>{
 				// bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
-                    say(response, " інформація за Вашим номером авто = > " + message.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ");
+                    say(response, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
 				 
 				  //   })
-				 })
+				 //})
 				 			 
 	//
 	//curensy_search.curensy(response1);
