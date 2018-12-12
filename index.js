@@ -383,11 +383,11 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
 	//.then(() => {
 				
-				bot.onTextMessage(/./,(message,response)=>{
+				bot.onTextMessage(/./,(messages,responsed)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
-                    say(response, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
+                    say(responsed, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
 				 
 				     })
 				 //})
