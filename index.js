@@ -386,7 +386,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 		//
 	bot.sendMessage(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
 	//.then(()=>{
-				
+				/*
 				bot.on(TextMessage,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
@@ -400,8 +400,9 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
     // Echo's back the message to the client. Your bot logic should sit here.
     response.send(new TextMessage('hohoho'));
 });
-				 */
+				 
 				   })
+				   */
 		//		 })
 				 			 
 	//
