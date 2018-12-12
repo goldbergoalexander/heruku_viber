@@ -387,7 +387,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 		//bot.sendMessage(response1.userProfile, new TextMessage('Привіт обери пункт який Вам необхідний '));
 	bot.sendMessage(response.userProfile, new TextMessage("для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 "))
 	.then(()=>{
-		bot.onTextMessage(/ВХ/, (messages, responsed) => {
+		bot.onTextMessage(/./, (messages, responsed) => {
 		//bot.onTextMessage(/./,(messages,response)=>{
 		bot.sendMessage(responsed.userProfile, new TextMessage(messages));
 				/*
