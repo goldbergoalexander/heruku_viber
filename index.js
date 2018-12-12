@@ -399,7 +399,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 	
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
     // Echo's back the message to the client. Your bot logic should sit here.
-    response.send(new TextMessage(message));
+    response.send(new TextMessage('hohoho'));
 });
 
 
