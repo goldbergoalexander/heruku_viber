@@ -365,6 +365,10 @@ if (ActionBody==="EDR") {
 		
 		
 	});
+	
+function hear(response, messages) {
+    response.send(new TextMessage(messages));
+}
 
 bot.onTextMessage(/ПОГОДА|Wheather/, (message, response) => {
 	
@@ -380,14 +384,14 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sdsd
 	//var response1 = response;
 		//
-	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
+	hear(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
 	//.then(()=>{
 				
 				//bot.onTextMessage(/./,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					//bot.onTextMessage(/./,(message,response)=>{ 
-                    say(response, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
+                    say(response, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
 					
 					function answear (){
 						bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   
