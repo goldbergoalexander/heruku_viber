@@ -386,10 +386,10 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 				//bot.onTextMessage(/./,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
-					 
-                    say(response, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ")
+					bot.onTextMessage(/./,(messages,response)=>{ 
+                    say(response, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ")
 				 
-				  // })
+				   })
 		//		 })
 				 			 
 	//
