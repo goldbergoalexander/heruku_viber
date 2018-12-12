@@ -380,8 +380,7 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 	var response1 = response;
 		//
-	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ")
-	.then(() => {
+	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(()=>{
 				
 				//bot.onTextMessage(/./,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
