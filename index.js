@@ -384,7 +384,7 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sdsd
 	//var response1 = response;
 		//
-	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
+	bot.sendMessage(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
 	//.then(()=>{
 				
 				bot.on(TextMessage,(message,response)=>{
@@ -392,7 +392,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					//bot.onTextMessage(/./,(message,response)=>{ 
                     //say(response, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
-					bot.sendMessage(response," інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
+					bot.sendMessage(response," інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ")
 					
 					
 					/*
