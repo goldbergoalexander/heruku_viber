@@ -380,7 +380,8 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 	var response1 = response;
 		//
-	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(() => {
+	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
+	//.then(() => {
 				
 				//bot.onTextMessage(/./,(messag,respons)=>{
 				// bot.on(TextMessage,(messages,response)=>{
@@ -389,7 +390,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
                     say(respons, " інформація за Вашим номером авто = > " + message.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ");
 				 
 				  //   })
-				 })
+		//		 })
 				 			 
 	//
 	//curensy_search.curensy(response1);
