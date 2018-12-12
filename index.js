@@ -388,11 +388,20 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					//bot.onTextMessage(/./,(message,response)=>{ 
                     say(response, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
+					
+					function answear (){
+						bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   
+						response.send(new TextMessage('hohoho'));
+						})
+						
+					}
+					
+					/*
 					bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
     // Echo's back the message to the client. Your bot logic should sit here.
     response.send(new TextMessage('hohoho'));
 });
-				 
+				 */
 				   //})
 		//		 })
 				 			 
