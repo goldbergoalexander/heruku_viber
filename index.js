@@ -397,7 +397,10 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 	})
 	//#######################################    Curency   ####################################################
 	
-
+bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
+    // Echo's back the message to the client. Your bot logic should sit here.
+    response.send(new TextMessage('hello'));
+});
 
 
 bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
