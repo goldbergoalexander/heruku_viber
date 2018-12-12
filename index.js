@@ -381,16 +381,16 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 	var response1 = response;
 		//
 	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
-	//.then(() => {
+	.then(() => {
 				
-				bot.onTextMessage(/./,(messages,responsed)=>{
+				//bot.onTextMessage(/./,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
-                    say(responsed, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
+                    say(responsed, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
 				 
-				     })
-				 //})
+				  // })
+				 })
 				 			 
 	//
 	//curensy_search.curensy(response1);
