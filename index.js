@@ -387,7 +387,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
-                    say(responsed, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
+                    say(response, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ")
 				 
 				  // })
 				 })
