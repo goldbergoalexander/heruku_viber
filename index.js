@@ -387,12 +387,12 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
 	//.then(()=>{
 				
-				bot.once(TextMessage,(messages,response)=>{
+				bot.on(TextMessage,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					//bot.onTextMessage(/./,(message,response)=>{ 
                     //say(response, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
-					bot.sendMessage(response," інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
+					bot.sendMessage(response," інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
 					
 					
 					/*
