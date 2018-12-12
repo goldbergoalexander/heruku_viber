@@ -382,11 +382,11 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 		//
 	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(() => {
 				
-				bot.onTextMessage(/./,(messages,responsed)=>{
+				bot.onTextMessage(/./,(messag,respons)=>{
 				// bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
-                    say(response1, " інформація за Вашим номером авто = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ");
+                    say(respons, " інформація за Вашим номером авто = > " + messag.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ");
 				 
 				     })
 				 })
