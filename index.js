@@ -386,14 +386,14 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 				//bot.onTextMessage(/./,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
-					bot.onTextMessage(/./,(message,response)=>{ 
+					//bot.onTextMessage(/./,(message,response)=>{ 
                     say(response, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ");
 					bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
     // Echo's back the message to the client. Your bot logic should sit here.
     response.send(new TextMessage('hohoho'));
 });
 				 
-				   })
+				   //})
 		//		 })
 				 			 
 	//
