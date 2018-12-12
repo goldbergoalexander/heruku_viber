@@ -388,7 +388,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 	bot.sendMessage(response.userProfile, new TextMessage("для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 "))
 	.then(()=>{
 		
-		bot.onTextMessage(/./,(message,response.userProfile)=>{
+		bot.onTextMessage(/./,(message,response)=>{
 		bot.sendMessage(response.userProfile, new TextMessage(message));
 				/*
 				bot.on(TextMessage,(message,response)=>{
