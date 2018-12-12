@@ -383,9 +383,10 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 //#######################################    carsearch   ####################################################
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sdsd
 	//var response1 = response;
-		//
-	bot.sendMessage(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
-	//.then(()=>{
+		//bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
+	bot.sendMessage(response, new TextMessage("для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 "))
+	.then(()=>{
+		say(response, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
 				/*
 				bot.on(TextMessage,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
@@ -403,7 +404,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 				 
 				   })
 				   */
-		//		 })
+				 })
 				 			 
 	//
 	//curensy_search.curensy(response1);
