@@ -397,7 +397,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 	})
 	//#######################################    Curency   ####################################################
 	
-bot.on(BotEvents.SUBSCRIBED, (message, response) => {
+bot.on(BotEvents.CONVERSATION_STARTED, (message, response) => {
     // Echo's back the message to the client. Your bot logic should sit here.
     response.send(new TextMessage('hello'));
 });
