@@ -377,16 +377,16 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 	curensy_search.curensy(response1);
 	})
 //#######################################    carsearch   ####################################################
-bot.onTextMessage(/Transport|Транспорт/, (message,responsed) => {   //sdsd
-	var response1 = response;
+bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sdsd
+	//var response1 = response;
 		//
-	say(responsed, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(()=>{
+	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(()=>{
 				
 				//bot.onTextMessage(/./,(message,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
-                    say(responsed, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ")
+                    say(response, " інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ")
 				 
 				  // })
 				 })
