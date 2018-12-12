@@ -384,21 +384,16 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sdsd
 	//var response1 = response;
 		//
-	hear(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
+	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ");
 	//.then(()=>{
 				
-				//bot.onTextMessage(/./,(message,response)=>{
+				bot.onceTextMessage(/./,(messages,response)=>{
 				 //bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					//bot.onTextMessage(/./,(message,response)=>{ 
-                    say(response, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
+                    //say(response, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
+					bot.sendMessage(response," інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
 					
-					function answear (){
-						bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   
-						response.send(new TextMessage('hohoho'));
-						})
-						
-					}
 					
 					/*
 					bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
@@ -406,7 +401,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
     response.send(new TextMessage('hohoho'));
 });
 				 */
-				   //})
+				   })
 		//		 })
 				 			 
 	//
