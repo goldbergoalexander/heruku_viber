@@ -1,7 +1,8 @@
 
 'use strict';
-const edrModule = require('./edrsearch.js');
-const curensy_search = require('./Curency_search.js');
+const edrModule = require('./routes/edrsearch.js');
+const curensy_search = require('./routes/Curency_search.js');
+const car_search = require('./routes/Car_search.js');
 const weatherkeyboard = require('./weather.js');
 const KeyboardGeneratorModule = require('./keyboard_generator.js');
 const ViberBot = require('viber-bot').Bot;
@@ -21,6 +22,142 @@ const KeyboardMessage = require('viber-bot').Message.Keyboard;
 
 var request = require('request');
 
+//############### keyboard ######################
+var keys  = {
+	"Type": "keyboard",
+	"Buttons": [{
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Wheather",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Transport",
+		"BgColor": "#7eceea",
+		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Cash",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Benific",
+		"BgColor": "#dd8157",
+		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "EDR",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>МЕНЮ</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "mainmenu",
+		"BgColor": "#a8aaba",
+		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
+	}]
+};		
+//###############################################keyboard for EDR ####################################################
+var keys_edr  = {
+	"Type": "keyboard",
+	"Buttons": [{
+		"Columns": 3,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>Звичайний</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Simple",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
+	}, {
+		"Columns": 3,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>2 параметри</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "two_parameters",
+		"BgColor": "#7eceea",
+		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
+	}, {
+		"Columns": 3,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>3 параметри</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "3_parameters",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
+	}, {
+		"Columns": 3,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>кведи</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "kved",
+		"BgColor": "#dd8157",
+		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
+	}, {
+		"Columns": 6,
+		"Rows":2,
+		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "main_menu",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
+	} ]
+};	
+
+//###############################################keyboard for EDR ####################################################
+
+
+
 function createLogger() {
     const logger = winston.createLogger({
         level: "debug" // We recommend using the debug level for development
@@ -37,6 +174,14 @@ logger.add(new winston.transports.Console({
 function say(response, message) {
     response.send(new TextMessage(message));
 }
+//##################### fuction keyboard ######################
+function main_keyboard(response){
+	
+	response.send(new KeyboardMessage(keys));
+}
+//##################### fuction keyboard ######################
+module.exports = {main_keyboard:main_keyboard};
+
 //add keyboard 
 const actionBodyYes = 'Yes';
 const actionBodyNo = 'No';
@@ -227,143 +372,14 @@ function whatyousay(botResponse, urlToCheck) {
 
 
 bot.onTextMessage(/hey/, (message, response) => {
-	//bot.on(BotEvents.MESSAGE_RECEIVED,(message, response) => {
-	
-//############### keyboard ######################
-var keys  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Wheather",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Transport",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Cash",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Benific",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "EDR",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>МЕНЮ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "mainmenu",
-		"BgColor": "#a8aaba",
-		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	}]
-};		
-//############### keyboard ######################
-	 	
-		//whatyousay(response);   
-		//redeemYesOrNoKeyboard(response);
-		//var actionBodybase = response;
 		var obj = message.text;
 		var response1 = response;
 		var textos = "hello";
 		console.log('this is message text : ' + message.text);	
-		//console.log('this is response : ' + response);	
 		var name = Object.values(response1.userProfile)[1];
-		//bot.sendMessage(response1.userProfile, new KeyboardMessage(keys));
 		bot.sendMessage(response1.userProfile, new TextMessage('Привіт обери пункт який Вам необхідний '));
 		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
-		
-		
-	
-	/*
-    // This sample bot can answer only text messages, let's make sure the user is aware of that.
-    if (!(message instanceof TextMessage)) {
-        say(response, `Извените. ямогу понимать только текстовые сообщения.`);
-    }
-	let messageActionBody = message.text.toUpperCase();
-
-	if (messageActionBody === 'ПОГОДА') {
-		// TODO: Handle yes!
-		response.send(new TextMessage('Ok. lets start to build. How name will be :?'));
-		redeemYesOrNoKeyboard(response);
-	} 
-	
-	*/
-	
-	
-	
-
-/*
-if (obj==="ПОГОДА") {
-	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку погоди Вамнеобхідно обрати опцію.....-) ' );			
-}
-if (obj==="Transport") {
-	say(response, 'Привіт ' + ' ' +  name + ' ' + ' Для пошуку По АВТО Вам необхідно ввести наступну інфо.....-) ' );			
-}
-if (ActionBody==="EDR") {
-		say(response, 'Привіт ' + ' ' +  name + ' ' + ' оберіть тип пошуку '  );
-		bot.on('text', (message,response) => {
-	   		var obj1 = message.text;
-		var response1 = response;
-		
-		say(response, 'Привіт ' + ' ' +  name + ' ' + ' Ваш запит обробляється.....-) ' );		
-		say(response, 
-		+ '\n' + ' Що може бот  @alldata ' + ' ' 
-		+ '\n' + '1. Звичайний запит в ЄДР по Юридичній особі:'  
-	    + '\n' + '- по Назві, ЄДРПОУ, Кведу, Адресі :' + '\n' 
-		);	
-        edrModule.search(obj1,response1);
-		})
-}
-	*/	
-		
-		
-		
-		
-		
-		
+			
 	});
 	
 function hear(response, messages) {
@@ -382,37 +398,43 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 	})
 //#######################################    carsearch   ####################################################
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sdsd
-	//var response1 = response;
-		//bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
-		//bot.sendMessage(response1.userProfile, new TextMessage('Привіт обери пункт який Вам необхідний '));
 	bot.sendMessage(response.userProfile, new TextMessage("для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 "))
 	.then(()=>{
-		bot.once("text",(mess)=>{ 
-		//bot.onTextMessage(/./,(messages,response)=>{
-		bot.sendMessage(response.userProfile, new TextMessage(mess));
-				/*
-				bot.on(TextMessage,(message,response)=>{
-				 //bot.on(TextMessage,(messages,response)=>{
-					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
-					//bot.onTextMessage(/./,(message,response)=>{ 
-                    //say(response, " інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ");
-					bot.sendMessage(response," інформація за Вашим номером авто = > " + message.text + " надійде якнайшвидше \ud83d\udd50  ")
-					
-					
-					/*
-					bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
-    // Echo's back the message to the client. Your bot logic should sit here.
-    response.send(new TextMessage('hohoho'));
-});
-				 */
+			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            car_search.carsearch(obj,response1);
+		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
 				   })
-				   
-				 })
-				 			 
-	//
-	//curensy_search.curensy(response1);
+			 })
+		})
+//#######################################   edr_search  ####################################################
+bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
+		bot.sendMessage(response.userProfile, [new TextMessage("для отримання данних оберіть тип пошуку з меню  \ud83d\udc47 "), new KeyboardMessage(keys_edr)])
+	.then(()=>{
+		//####################### take simple search ##############################
+		bot.onTextMessage(/Simple|звичайний/, (message,response) => { 
+		say(response,'Для простого пошкук введіть назву компанії, код едрпоу, фіо керівника .... \ud83d\udc47 ');
+			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            edrModule.search(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+				   })
+				})
+		//############################ take search 2 parameters #############################################
+         bot.onTextMessage(/two_parameters|2 параметри/, (message,response) => {  
+		  say(response,'для отримання данних введіть Запит за 2 параметрами наприклад : "Комунальне Київ" або "Фермерське Київська" .... \ud83d\udc47 ');
+		  bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            edrModule.search_two(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+		       })
+			})
+		 })
 	})
-	//#######################################    Curency   ####################################################
+//#######################################   edrsearch  ####################################################
 	
 
 
@@ -491,12 +513,13 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	
 	
 });
-bot.onTextMessage(/./, (message, response) => {
+/*bot.onTextMessage(/./, (message, response) => {
 	if (obj.indexOf('#')===1)
 	 	say(response, 'Вы написали # ' + '' + obj );
 	   
     
 });
+*/
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>
     response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am ${bot.name}`)));
@@ -521,6 +544,4 @@ bot.onTextMessage(/^hi|hello$/i, (message, response) =>
         process.exit(1);
     });
 }
-
-
 
