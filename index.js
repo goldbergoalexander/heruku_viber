@@ -382,7 +382,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {
 		//
 	say(response, "для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 ").then(() => {
 				
-				bot.on(BotEvents.MESSAGE_RECEIVED,(messages,responsed)=>{
+				bot.onTextMessage(/./,(messages,responsed)=>{
 				// bot.on(TextMessage,(messages,response)=>{
 					 //console.log("this is mess.text " + " " + mess.text + ' '  +  mess.text.length);
 					 
