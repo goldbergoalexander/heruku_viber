@@ -2,12 +2,14 @@
 'use strict';
 const edrModule = require('./routes/edrsearch.js');
 const curensy_search = require('./routes/Curency_search.js');
+const news_search = require('./routes/news_search.js');
 const car_search = require('./routes/Car_search.js');
 const weatherkeyboard = require('./weather.js');
 const KeyboardGeneratorModule = require('./keyboard_generator.js');
 const ViberBot = require('viber-bot').Bot;
 const BotEvents = require('viber-bot').Events;
 const TextMessage = require('viber-bot').Message.Text;
+const RichMediaMessage = require('viber-bot').Message.RichMedia;
 const ex = edrModule.search();
 var ProgressBar = require('progressbar.js');
 
@@ -83,12 +85,12 @@ var keys  = {
 	}, {
 		"Columns": 2,
 		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>МЕНЮ</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "mainmenu",
+		"ActionBody": "news",
 		"BgColor": "#a8aaba",
 		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
 	}]
@@ -390,6 +392,12 @@ bot.onTextMessage(/ПОГОДА|Wheather/, (message, response) => {
 	
 	say(response, 'hey you call weather?');
 })
+//#######################################    News   ####################################################
+bot.onTextMessage(/news|новини/, (message,response) => {
+	var response1 = response.userProfile;
+	say(response, 'Привіт ви обрали новини : ');
+	news_search.news(response1);
+	})
 //#######################################    Curency   ####################################################
 bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 	var response1 = response.userProfile;
