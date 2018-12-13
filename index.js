@@ -68,7 +68,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "benific",
+		"ActionBody": "benefic",
 		"BgColor": "#dd8157",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}, {
@@ -388,14 +388,14 @@ function hear(response, messages) {
     response.send(new TextMessage(messages));
 }
 //#####################################    Weather #####################################################
-bot.onTextMessage(/weather|ПОГОДА|/, (message, response) => {
+bot.onTextMessage(/weather/, (message, response) => {
 	
-	bot.sendMessage(response,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
+	bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
 })
 //#######################################    Benefic ###################################################
-bot.onTextMessage(/benefic|бенефіціари/, (message, response) => {
+bot.onTextMessage(/benefic/, (message, response) => {
 	
-	bot.sendMessage(response,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
+	bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
 })
 //#######################################    News   ####################################################
 bot.onTextMessage(/news|новини/, (message,response) => {
