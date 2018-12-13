@@ -174,7 +174,7 @@ console.log(datas);
 console.log(datas.length);
 if (datas.length > 0) {
 	
-		bot.sendMessage(response1,new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '*' + '\n' +  "інформацІя згідно Вашого Запиту до боту @alldata : " + ' ' +  
+		bot.sendMessage(response1,[new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '*' + '\n' +  "інформацІя згідно Вашого Запиту до боту @alldata : " + ' ' +  
         'Реєстраційни номер : ' +  datas[0] + 
 		'Марка : '  + datas[1] + 
 		'Модель : ' + datas[2]  + 
@@ -185,46 +185,33 @@ if (datas.length > 0) {
 		'Тип реєстрації : ' + datas[7] + 
 		'Код Коатуу : '  + datas[8] + 
 		'Де зареєстровано : '  + datas[9] + 
-		'\n' + ' \n'));
-		bot.sendMessage(response1, new KeyboardMessage(keys));
+		'\n' + ' \n'),new KeyboardMessage(keys)]);
+		
 	
 	
 		
 	}
 	else {
-		bot.sendMessage(response1, new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '\n' +  " Нажаль за Вашим запитом" + ' ' + text1 + " " +  "нічого не знайдено " + ' ' +  
-        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  ' ));
-		var response = response1;
-		bot.sendMessage(response1, new KeyboardMessage(keys));
-		
-	
-		
-		
-	}
-	
-					
-		
-
-			
-	//}
-})
+		bot.sendMessage(response1, [new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '\n' +  " Нажаль за Вашим запитом" + ' ' + text1 + " " +  "нічого не знайдено " + ' ' +  
+        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  ' ),new KeyboardMessage(keys)]);
+		}
+	})
 .catch(error => {
     console.log(error);
   });
-
 }
 //############################# if user enter not 8 chars ##############################
 else if (text.length > 8) { 
 	
-	bot.sendMessage(response1, new TextMessage( 'Привіт' + ' ' + ' Ви обрали розділ авто :' + '\n' +  " ви не вказали невірну кількість знаків. У Вашому випадку :" + resultstring.length +   " Знаків. Повторіть спробу, або звернітся до розділу /help" + ' ' +  
-        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  '));
-		bot.sendMessage(response1, new KeyboardMessage(keys));
+	bot.sendMessage(response1, [new TextMessage( 'Привіт' + ' ' + ' Ви обрали розділ авто :' + '\n' +  " ви не вказали невірну кількість знаків. У Вашому випадку :" + resultstring.length +   " Знаків. Повторіть спробу, або звернітся до розділу /help" + ' ' +  
+        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  '), new KeyboardMessage(keys)]);
+		
 
 	}
 	else { 
-		bot.sendMessage(response1, new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' +  '\n' +  " ви не вказали невірну кількість знаків. У Вашому випадку :" + resultstring.length  +   " Знаків Повторіть спробу, або звернітся до розділу /help" + ' ' +  
-        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року '));
-		bot.sendMessage(response1, new KeyboardMessage(keys));
+		bot.sendMessage(response1, [new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' +  '\n' +  " ви не вказали невірну кількість знаків. У Вашому випадку :" + resultstring.length  +   " Знаків Повторіть спробу, або звернітся до розділу /help" + ' ' +  
+        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року '),new KeyboardMessage(keys)]);
+		
 		
 	}
 //############################# if user enter not 8 chars ##############################

@@ -392,7 +392,7 @@ bot.onTextMessage(/ПОГОДА|Wheather/, (message, response) => {
 })
 //#######################################    Curency   ####################################################
 bot.onTextMessage(/Валюта|Cash/, (message,response) => {
-	var response1 = response;
+	var response1 = response.userProfile;
 	say(response, 'Привіт ви обрали курс валют : ');
 	curensy_search.curensy(response1);
 	})
@@ -422,7 +422,8 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
 				   })
 				})
-		//############################ take search 2 parameters #############################################
+	         
+//############################ take search 2 parameters #############################################
          bot.onTextMessage(/two_parameters|2 параметри/, (message,response) => {  
 		  say(response,'для отримання данних введіть Запит за 2 параметрами наприклад : "Комунальне Київ" або "Фермерське Київська" .... \ud83d\udc47 ');
 		  bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
@@ -432,8 +433,34 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
 		       })
 			})
-		 })
-	})
+		 
+	//############################ take search 3 parameters #############################################
+     bot.onTextMessage(/3_parameters|3 параметри/, (message,response) => {  
+		  say(response,'для отримання данних введіть Запит за 3 параметрами наприклад : "81.10 Київська зареєстровано" або "Комунальне Київ зареєстровано" \ud83d\udc47 .... ');
+		  bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            edrModule.search_three(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+		       })
+			})
+		 //############################ take search kved ###########################################################
+     bot.onTextMessage(/kved|кведи/, (message,response) => {  
+		  say(response,'для отримання данних введіть Запит за 3 параметрами наприклад : Номер або назву кведу : "81.10", або "Діяльність посередників у торгівлі товарами широкого асортименту" \ud83d\udc47 .... ');
+		  bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            edrModule.search_kved(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+		       })
+			})
+		 //############################ switch to main menu  ###########################################################
+bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
+	bot.sendMessage(response.userProfile,new KeyboardMessage(keys));
+	
+             })
+          })
+       })
 //#######################################   edrsearch  ####################################################
 	
 

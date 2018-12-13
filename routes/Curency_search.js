@@ -10,7 +10,77 @@ const TextMessage = require('viber-bot').Message.Text;
 const KeyboardMessage = require('viber-bot').Message.Keyboard;
 const winston = require('winston');
 const toYAML = require('winston-console-formatter');
-
+//############### keyboard ######################
+var keys  = {
+	"Type": "keyboard",
+	"Buttons": [{
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Wheather",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Transport",
+		"BgColor": "#7eceea",
+		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Cash",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Benific",
+		"BgColor": "#dd8157",
+		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "EDR",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>МЕНЮ</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "mainmenu",
+		"BgColor": "#a8aaba",
+		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
+	}]
+};
 
 function createLogger() {
     const logger = winston.createLogger({
@@ -36,88 +106,41 @@ function say(response, message) {
 
 
 function curensy(response1){ 
-//hello
-	
-//var mes =kved.toUpperCase(); 	
-//var string  = encodeURI(obj1);
-	
 var date = new Date(),
   n = date.getMonth()+1,
   n1 = date.getDate(),
   n2 = date.getFullYear(),
   newday = n1+'.'+n+'.'+n2;
   console.log(newday);
-
-						
-						
-						
-						
-						
-						
-	axios({ method: 'get',
-	
+   axios({ method: 'get',
 	    headers: {'Content-type': 'application/json; charset=utf8'
   },
-	//headers: {'Content-Type': 'application/x-www-form-urlencoded' },
-	
-		
       url: ('https://api.privatbank.ua/p24api/exchange_rates?json&date='+newday ),
     })
-	
 .then(result => {
-
 var datas = result;
 		var datas1 = [];
-		//for (var a = 17;a<=22; a++) {
-		//console.log(datas.data.exchangeRate[a]);
-		
-		//}
-		
-		
 		var curen = [];
-		
-		//console.log(datas.data.exchangeRate.length);
-		
-		
-		
 		for (var i = 14; i<=25; i++){
-			
-			
 			if (!datas.data.exchangeRate[i].saleRate) {
-				
-				var curency  = '\n' + datas.data.exchangeRate[i].baseCurrency + ' -> ' +  datas.data.exchangeRate[i].currency + ' ' + "купівля : " + datas.data.exchangeRate[i].purchaseRateNB + ' ' + ' продаж : ' + datas.data.exchangeRate[i].saleRateNB ;
+var curency  = '\n' + datas.data.exchangeRate[i].baseCurrency + ' -> ' +  datas.data.exchangeRate[i].currency + ' ' + "купівля : " + datas.data.exchangeRate[i].purchaseRateNB + ' ' + ' продаж : ' + datas.data.exchangeRate[i].saleRateNB ;
 				curen.push(curency);
 			} 
-			else{
-		var curency  = '\n' + datas.data.exchangeRate[i].baseCurrency + ' -> ' +  datas.data.exchangeRate[i].currency + ' ' + "купівля : " + datas.data.exchangeRate[i].purchaseRateNB + ' ' + ' продаж : ' + datas.data.exchangeRate[i].saleRate ;		
+		else{
+var curency  = '\n' + datas.data.exchangeRate[i].baseCurrency + ' -> ' +  datas.data.exchangeRate[i].currency + ' ' + "купівля : " + datas.data.exchangeRate[i].purchaseRateNB + ' ' + ' продаж : ' + datas.data.exchangeRate[i].saleRate ;		
 		
 curen.push(curency);		
 			}
-		
-		
-		
-		
-		
-		}
-			
-
-		var ex = curen;
-
-
-
-		
-			bot.sendMessage(response1.userProfile, 
-		new TextMessage(
+				}
+var ex = curen;
+bot.sendMessage(response1,[new TextMessage(
 		'\n' + 'актуальний курс Валют :'   
 		+ '\n' + ex 
-        ))
-				
-		})
+        ),new KeyboardMessage(keys)])
+	})
 .catch(error => {
     console.log(error);
   });
-			
-	//}
 }
 
 module.exports = {curensy:curensy};
