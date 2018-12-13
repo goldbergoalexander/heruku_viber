@@ -68,7 +68,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "Benific",
+		"ActionBody": "benific",
 		"BgColor": "#dd8157",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}, {
@@ -388,7 +388,7 @@ function hear(response, messages) {
     response.send(new TextMessage(messages));
 }
 //#####################################    Weather #####################################################
-bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
+bot.onTextMessage(/weather|ПОГОДА|/, (message, response) => {
 	
 	bot.sendMessage(response,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
 })
