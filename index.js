@@ -35,7 +35,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "Wheather",
+		"ActionBody": "weather",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	}, {
@@ -387,10 +387,15 @@ bot.onTextMessage(/hey/, (message, response) => {
 function hear(response, messages) {
     response.send(new TextMessage(messages));
 }
-
-bot.onTextMessage(/ПОГОДА|Wheather/, (message, response) => {
+//#####################################    Weather #####################################################
+bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 	
-	say(response, 'hey you call weather?');
+	bot.sendMessage(response,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
+})
+//#######################################    Benefic ###################################################
+bot.onTextMessage(/benefic|бенефіціари/, (message, response) => {
+	
+	bot.sendMessage(response,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
 })
 //#######################################    News   ####################################################
 bot.onTextMessage(/news|новини/, (message,response) => {
