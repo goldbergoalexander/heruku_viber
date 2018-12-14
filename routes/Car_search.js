@@ -24,7 +24,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "Wheather",
+		"ActionBody": "weather",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	}, {
@@ -57,7 +57,7 @@ var keys  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "Benific",
+		"ActionBody": "benefic",
 		"BgColor": "#dd8157",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}, {
@@ -74,16 +74,16 @@ var keys  = {
 	}, {
 		"Columns": 2,
 		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>МЕНЮ</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "mainmenu",
+		"ActionBody": "news",
 		"BgColor": "#a8aaba",
 		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
 	}]
-};	
+};
 //################################## keys ###############################
 
 function createLogger() {

@@ -12,76 +12,6 @@ const KeyboardMessage = require('viber-bot').Message.Keyboard;
 const winston = require('winston');
 const toYAML = require('winston-console-formatter');
 //############### keyboard ######################
-var keys  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Wheather",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Transport",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Cash",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Benific",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "EDR",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>МЕНЮ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "mainmenu",
-		"BgColor": "#a8aaba",
-		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	}]
-};
 
 function createLogger() {
     const logger = winston.createLogger({
@@ -121,7 +51,76 @@ var datas1 = [];
 				 var URL = datas[a].url,
 	                 IMAGE = datas[a].urlToImage;
 //################################################## rich media ###################
-
+var keys  = {
+	"Type": "keyboard",
+	"Buttons": [{
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "weather",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Transport",
+		"BgColor": "#7eceea",
+		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "Cash",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "benefic",
+		"BgColor": "#dd8157",
+		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "EDR",
+		"BgColor": "#f6f7f9",
+		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
+	}, {
+		"Columns": 2,
+		"Rows": 2,
+		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "news",
+		"BgColor": "#a8aaba",
+		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
+	}]
+};
 
 
 
@@ -318,8 +317,10 @@ var SAMPLE_RICH_MEDIA = {
 //var fname = messages.chat.first_name.toUpperCase();
 
 var ex = datas1;
-		console.log(datas1);
-		bot.sendMessage(response1,[new TextMessage('Останні новини \ud83d\udc47'),new RichMedia(SAMPLE_RICH_MEDIA),new KeyboardMessage(keys)]);
+var response = response1;
+		//console.log(datas1);
+		bot.sendMessage(response.userProfile,[new TextMessage('Останні новини \ud83d\udc47'),new RichMedia(SAMPLE_RICH_MEDIA),new KeyboardMessage(keys)]);
+		//set.Tkeyboard.get_keyboard(response.userProfile);
 		
 })
 .catch(error => {
@@ -327,4 +328,5 @@ var ex = datas1;
   });
 }
 
-module.exports = {news:news};
+
+module.exports = {news:news };

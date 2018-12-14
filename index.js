@@ -1,5 +1,6 @@
 
 'use strict';
+const keyboard = require('./routes/keyboards.js');
 const edrModule = require('./routes/edrsearch.js');
 const curensy_search = require('./routes/Curency_search.js');
 const news_search = require('./routes/news_search.js');
@@ -95,6 +96,9 @@ var keys  = {
 		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
 	}]
 };		
+function get_keyboard(response) {
+	bot.sendMessage(response.userProfile,new KeyboardMessage(keys))
+}
 //###############################################keyboard for EDR ####################################################
 var keys_edr  = {
 	"Type": "keyboard",
@@ -155,6 +159,8 @@ var keys_edr  = {
 		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
 	} ]
 };	
+
+
 
 //###############################################keyboard for EDR ####################################################
 
@@ -380,7 +386,8 @@ bot.onTextMessage(/hey/, (message, response) => {
 		console.log('this is message text : ' + message.text);	
 		var name = Object.values(response1.userProfile)[1];
 		bot.sendMessage(response1.userProfile, new TextMessage('Привіт обери пункт який Вам необхідний '));
-		bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
+		//bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
+		keyboard.get_keyboard(response.userProfile);
 			
 	});
 	
@@ -399,7 +406,7 @@ bot.onTextMessage(/benefic/, (message, response) => {
 })
 //#######################################    News   ####################################################
 bot.onTextMessage(/news|новини/, (message,response) => {
-	var response1 = response.userProfile;
+	var response1 = response;//.userProfile;
 	say(response, 'Привіт ви обрали новини : ');
 	news_search.news(response1);
 	})
@@ -585,3 +592,4 @@ bot.onTextMessage(/^hi|hello$/i, (message, response) =>
     });
 }
 
+module.exports={get_keyboard:get_keyboard};
