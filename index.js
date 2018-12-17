@@ -31,7 +31,7 @@ function createLogger() {
     });
 
 //logger.add(winston.transports.Console, toYAML.config());
-
+ //###
 logger.add(new winston.transports.Console({
     format: winston.format.simple()
   }));
