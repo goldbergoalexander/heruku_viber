@@ -172,14 +172,14 @@ var keys_edr  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": 'reply',
-		'Map.Latitude': 'latitude',
-		'Map.Longitude':'Longitude',
+		//'Map.Latitude': 'latitude',
+		//'Map.Longitude':'Longitude',
 		
 		"ActionBody": "oneday",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	} 
-	/*{
+	},
+	{
 		"Columns": 3,
 		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>за 5 днів</b></font>",
@@ -213,7 +213,7 @@ var keys_edr  = {
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
-	*/]
+	]
 };
 var keys_weather_oneday = {
 	"Type": "keyboard",
