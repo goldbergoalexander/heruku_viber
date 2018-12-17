@@ -214,7 +214,7 @@ var keys_edr  = {
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
 	]
-};
+};//######
 var keys_weather_oneday = {
 	"Type": "keyboard",
 	"Buttons": [{
