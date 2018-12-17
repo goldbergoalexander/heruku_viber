@@ -532,4 +532,4 @@ bot.onTextMessage(/^hi|hello$/i, (message, response) =>
     });
 }
 
-module.exports={get_keyboard:get_keyboard};
+//module.exports={get_keyboard:get_keyboard};
