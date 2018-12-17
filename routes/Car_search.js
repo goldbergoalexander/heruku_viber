@@ -1,90 +1,15 @@
 'use strict';
-var util = require('util');
-const axios = require('axios');
-//const iconv = require('iconv');
-//const utf8 = require('utf8');	
-const response1 = require('../index.js'),
+const util = require('util'),
+axios = require('axios'),
+keyboard = require('./keyboards.js'),
+response1 = require('../index.js'),
 obj = require('../index.js'),
-keyboard = require('../index.js');
-const ViberBot = require('viber-bot').Bot;
-const BotEvents = require('viber-bot').Events;
-const TextMessage = require('viber-bot').Message.Text;
-const KeyboardMessage = require('viber-bot').Message.Keyboard;
-const winston = require('winston');
-const toYAML = require('winston-console-formatter');
-
-//################################## keys ###############################
-var keys  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "weather",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Transport",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Cash",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "benefic",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "EDR",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "news",
-		"BgColor": "#a8aaba",
-		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	}]
-};
-//################################## keys ###############################
+ViberBot = require('viber-bot').Bot,
+BotEvents = require('viber-bot').Events,
+TextMessage = require('viber-bot').Message.Text,
+KeyboardMessage = require('viber-bot').Message.Keyboard,
+winston = require('winston'),
+toYAML = require('winston-console-formatter');
 
 function createLogger() {
     const logger = winston.createLogger({
@@ -185,7 +110,8 @@ if (datas.length > 0) {
 		'Тип реєстрації : ' + datas[7] + 
 		'Код Коатуу : '  + datas[8] + 
 		'Де зареєстровано : '  + datas[9] + 
-		'\n' + ' \n'),new KeyboardMessage(keys)]);
+		'\n' + ' \n')/*,new KeyboardMessage(keys)*/]);
+		keyboard.get_keyboard(response1);
 		
 	
 	
@@ -193,7 +119,8 @@ if (datas.length > 0) {
 	}
 	else {
 		bot.sendMessage(response1, [new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '\n' +  " Нажаль за Вашим запитом" + ' ' + text1 + " " +  "нічого не знайдено " + ' ' +  
-        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  ' ),new KeyboardMessage(keys)]);
+        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  ' )/*,new KeyboardMessage(keys)*/]);
+		keyboard.get_keyboard(response1);
 		}
 	})
 .catch(error => {
@@ -204,14 +131,14 @@ if (datas.length > 0) {
 else if (text.length > 8) { 
 	
 	bot.sendMessage(response1, [new TextMessage( 'Привіт' + ' ' + ' Ви обрали розділ авто :' + '\n' +  " ви не вказали невірну кількість знаків. У Вашому випадку :" + resultstring.length +   " Знаків. Повторіть спробу, або звернітся до розділу /help" + ' ' +  
-        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  '), new KeyboardMessage(keys)]);
-		
+        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  ')/*, new KeyboardMessage(keys)*/]);
+		keyboard.get_keyboard(response1);	
 
 	}
 	else { 
 		bot.sendMessage(response1, [new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' +  '\n' +  " ви не вказали невірну кількість знаків. У Вашому випадку :" + resultstring.length  +   " Знаків Повторіть спробу, або звернітся до розділу /help" + ' ' +  
-        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року '),new KeyboardMessage(keys)]);
-		
+        'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року ')/*,new KeyboardMessage(keys)*/]);
+		keyboard.get_keyboard(response1);	
 		
 	}
 //############################# if user enter not 8 chars ##############################

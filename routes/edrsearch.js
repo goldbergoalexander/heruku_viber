@@ -1,150 +1,15 @@
 'use strict';
-var util = require('util');
-const axios = require('axios');
-//const iconv = require('iconv');
-//const utf8 = require('utf8');	
-const 
+const util = require('util'),
+keyboard = require('./keyboards.js'),
+axios = require('axios'),
 response1 = require('../index.js'),
-obj = require('../index.js');
-const ViberBot = require('viber-bot').Bot;
-const BotEvents = require('viber-bot').Events;
-const TextMessage = require('viber-bot').Message.Text;
-const KeyboardMessage = require('viber-bot').Message.Keyboard;
-const winston = require('winston');
-const toYAML = require('winston-console-formatter');
-//############### keyboard ######################
-var keys  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "weather",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Transport",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Cash",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "benefic",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "EDR",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "news",
-		"BgColor": "#a8aaba",
-		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	}]
-};		
-//###############################################keyboard for EDR ####################################################
-var keys_edr  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Звичайний</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Simple",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>2 параметри</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "two_parameters",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>3 параметри</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "3_parameters",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>кведи</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "kved",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 6,
-		"Rows":2,
-		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "main_menu",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	} ]
-};	
-
-//###############################################keyboard for EDR ####################################################
+obj = require('../index.js'),
+ViberBot = require('viber-bot').Bot,
+BotEvents = require('viber-bot').Events,
+TextMessage = require('viber-bot').Message.Text,
+KeyboardMessage = require('viber-bot').Message.Keyboard,
+winston = require('winston'),
+toYAML = require('winston-console-formatter');
 
 function createLogger() {
     const logger = winston.createLogger({
@@ -184,7 +49,11 @@ var ex = datas;
 		+ '\n' + 'за запитом ' + obj1 
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
-        ),new KeyboardMessage(keys_edr)])
+        )/*,new KeyboardMessage(keys_edr)*/]).then(()=>{
+			keyboard.get_keyboard_edr(response1);
+			
+		})
+		
 				
 		})
 .catch(error => {
@@ -207,7 +76,10 @@ var ex = datas;
 		+ '\n' + 'за запитом ' + obj1 
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
-        ),new KeyboardMessage(keys_edr)])
+        )/*,new KeyboardMessage(keys_edr)*/]).then(()=>{
+		keyboard.get_keyboard_edr(response1);	
+		})
+		
 		})
 .catch(error => {
     console.log(error);
@@ -229,7 +101,10 @@ bot.sendMessage(response1,[new TextMessage('Привіт '
 		+ '\n' + 'за запитом ' + obj1 
         + '\n' + 'Ваші дані :'   
 		+ '\n' + ex 
-        ),new KeyboardMessage(keys_edr)])
+        )/*,new KeyboardMessage(keys_edr)*/]).then(()=>{
+			keyboard.get_keyboard_edr(response1);	
+		})
+		
 		})
 .catch(error => {
     console.log(error);
@@ -257,7 +132,10 @@ var invletters = /^[a-zA-Z]+$/;
 	console.log('This is res0 ' + result[0].KVED);
 	var datas1 = result[0].KVED;
 	var ex = datas1;
-	bot.sendMessage(response1, [new TextMessage('Привіт' + ' ' + 'За запитом :' + ' ' + '_'+ '{'+ kved.toUpperCase() +'}'+ '_'+ ' '+ '\n'+ ex ),new KeyboardMessage(keys)]);
+	bot.sendMessage(response1, [new TextMessage('Привіт' + ' ' + 'За запитом :' + ' ' + '_'+ '{'+ kved.toUpperCase() +'}'+ '_'+ ' '+ '\n'+ ex )/*,new KeyboardMessage(keys)*/]).then(()=>{
+	keyboard.get_keyboard_edr(response1);	
+	})
+	
 	   })
 	.catch(error => {
     console.log(error);

@@ -1,86 +1,14 @@
 'use strict';
-var util = require('util');
-const axios = require('axios');
-//const iconv = require('iconv');
-//const utf8 = require('utf8');	
-const response1 = require('../index.js');
-const ViberBot = require('viber-bot').Bot;
-const BotEvents = require('viber-bot').Events;
-const TextMessage = require('viber-bot').Message.Text;
-const KeyboardMessage = require('viber-bot').Message.Keyboard;
-const winston = require('winston');
-const toYAML = require('winston-console-formatter');
-//############### keyboard ######################
-var keys  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "weather",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Transport",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Cash",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "benefic",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "EDR",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "news",
-		"BgColor": "#a8aaba",
-		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	}]
-};
+const util = require('util'),
+axios = require('axios'),
+keyboard = require('./keyboards.js'),
+response1 = require('../index.js'),
+ViberBot = require('viber-bot').Bot,
+BotEvents = require('viber-bot').Events,
+TextMessage = require('viber-bot').Message.Text,
+KeyboardMessage = require('viber-bot').Message.Keyboard,
+winston = require('winston'),
+toYAML = require('winston-console-formatter');
 
 function createLogger() {
     const logger = winston.createLogger({
@@ -121,6 +49,15 @@ var date = new Date(),
 var datas = result;
 		var datas1 = [];
 		var curen = [];
+		if(datas.data.exchangeRate.length<=0){bot.sendMessage(response1,[new TextMessage('\n' + 'Вибачте сервіс тимчасово недоступний :-( :')/*,new KeyboardMessage(keys)*/])
+		keyboard.get_keyboard(response1);	
+		
+		
+		
+		}
+		else{
+		
+		
 		for (var i = 14; i<=25; i++){
 			if (!datas.data.exchangeRate[i].saleRate) {
 var curency  = '\n' + datas.data.exchangeRate[i].baseCurrency + ' -> ' +  datas.data.exchangeRate[i].currency + ' ' + "купівля : " + datas.data.exchangeRate[i].purchaseRateNB + ' ' + ' продаж : ' + datas.data.exchangeRate[i].saleRateNB ;
@@ -137,6 +74,7 @@ bot.sendMessage(response1,[new TextMessage(
 		'\n' + 'актуальний курс Валют :'   
 		+ '\n' + ex 
         ),new KeyboardMessage(keys)])
+		}
 	})
 .catch(error => {
     console.log(error);

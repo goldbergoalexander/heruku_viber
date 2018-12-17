@@ -1,168 +1,27 @@
 
 'use strict';
-const keyboard = require('./routes/keyboards.js');
-const edrModule = require('./routes/edrsearch.js');
-const curensy_search = require('./routes/Curency_search.js');
-const news_search = require('./routes/news_search.js');
-const car_search = require('./routes/Car_search.js');
-const weatherkeyboard = require('./weather.js');
-const KeyboardGeneratorModule = require('./keyboard_generator.js');
-const ViberBot = require('viber-bot').Bot;
-const BotEvents = require('viber-bot').Events;
-const TextMessage = require('viber-bot').Message.Text;
-const RichMediaMessage = require('viber-bot').Message.RichMedia;
-const ex = edrModule.search();
-var ProgressBar = require('progressbar.js');
+const keyboard = require('./routes/keyboards.js'),
+edrModule = require('./routes/edrsearch.js'),
+curensy_search = require('./routes/Curency_search.js'),
+news_search = require('./routes/news_search.js'),
+car_search = require('./routes/Car_search.js'),
+weatherkeyboard = require('./weather.js'),
+KeyboardGeneratorModule = require('./keyboard_generator.js'),
+ViberBot = require('viber-bot').Bot,
+BotEvents = require('viber-bot').Events,
+TextMessage = require('viber-bot').Message.Text,
+RichMediaMessage = require('viber-bot').Message.RichMedia,
+ex = edrModule.search(),
+ProgressBar = require('progressbar.js'),
+winston = require('winston'),
+toYAML = require('winston-console-formatter'),
+ngrok = require('./get_public_url'),
+KeyboardMessage = require('viber-bot').Message.Keyboard,
+request = require('request'),
+benefic = require('./routes/benefic_search.js'),
+LocationMessage = require('viber-bot').Message.Location;
 
-
-//const ex = require('./edrsearch.js');
-require('dotenv').config();
-
-const winston = require('winston');
-const toYAML = require('winston-console-formatter');
-const ngrok = require('./get_public_url');
-const KeyboardMessage = require('viber-bot').Message.Keyboard;
-
-var request = require('request');
-
-//############### keyboard ######################
-var keys  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "weather",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Transport",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Cash",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "benefic",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "EDR",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "news",
-		"BgColor": "#a8aaba",
-		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	}]
-};		
-function get_keyboard(response) {
-	bot.sendMessage(response.userProfile,new KeyboardMessage(keys))
-}
-//###############################################keyboard for EDR ####################################################
-var keys_edr  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Звичайний</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Simple",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>2 параметри</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "two_parameters",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>3 параметри</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "3_parameters",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>кведи</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "kved",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 6,
-		"Rows":2,
-		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "main_menu",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	} ]
-};	
-
-
-
-//###############################################keyboard for EDR ####################################################
+require('dotenv').config()
 
 
 
@@ -397,16 +256,94 @@ function hear(response, messages) {
 //#####################################    Weather #####################################################
 bot.onTextMessage(/weather/, (message, response) => {
 	
-	bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
+
+	
+	//############################################################################################################
+	
+		bot.sendMessage(response.userProfile, [new TextMessage("для отримання данних оберіть тип способу отримання погоднії умов з меню  \ud83d\udc47 ")/*, new KeyboardMessage(keys_edr)*/])
+	.then(()=>{
+		//console.log(`${message.latitude}, ${message.longitude}`);
+		keyboard.get_keyboard_weather(response.userProfile);
+		
+		//keyboard.get_keyboard_weather(response.userProfile);
+		//####################### take simple search ##############################
+			say(response,'Для пошуку за один день по геолокацІї натисніть 1 день та підтвердіть надання геолокаційних данних .... \ud83d\udc47 ')
+		//keyboard.get_keyboard_weather_oneday(response.userProfile);
+			//bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+				bot.onTextMessage(/oneday/, (messages, response) => {
+					//const messageson = new LocationMessage(latitude, longitude);
+		       //const messagessso = new LocationMessage(messages.latitude, longitude);
+			console.log(messages);
+            var response1 = response.userProfile;
+            //edrModule.search(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " /*+ lat + '  '+ lon + */+ " надійде якнайшвидше \ud83d\udd50  "));
+				   })
+		
+	         /*
+//############################ take search 2 parameters #############################################
+         bot.onTextMessage(/two_parameters|2 параметри/, (message,response) => {  
+		  say(response,'для отримання данних введіть Запит за 2 параметрами наприклад : "Комунальне Київ" або "Фермерське Київська" .... \ud83d\udc47 ');
+		  bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            edrModule.search_two(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+		       })
+			})
+		 
+	//############################ take search 3 parameters #############################################
+     bot.onTextMessage(/3_parameters|3 параметри/, (message,response) => {  
+		  say(response,'для отримання данних введіть Запит за 3 параметрами наприклад : "81.10 Київська зареєстровано" або "Комунальне Київ зареєстровано" \ud83d\udc47 .... ');
+		  bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            edrModule.search_three(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+		       })
+			})
+		 //############################ take search kved ###########################################################
+     bot.onTextMessage(/kved|кведи/, (message,response) => {  
+		  say(response,'для отримання данних введіть Запит за 3 параметрами наприклад : Номер або назву кведу : "81.10", або "Діяльність посередників у торгівлі товарами широкого асортименту" \ud83d\udc47 .... ');
+		  bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            edrModule.search_kved(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+		       })
+			})*/
+		 //############################ switch to main menu  ###########################################################
+bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
+	       keyboard.get_keyboard(response.userProfile);
+	
+             })
+          })
+       
+	//##############################################################################################################
+	
+	
+	
+	
+	
+	
 })
 //#######################################    Benefic ###################################################
 bot.onTextMessage(/benefic/, (message, response) => {
+	 	say(response,'Для пошуку беніфіціарів введіть фамілію або назву компаніі латиницею  .... \ud83d\udc47 ');
+			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            benefic.search_benefic(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+				   })
+				
+	//bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...')/*,new KeyboardMessage(keys)*/] );
+	//keyboard.get_keyboard(response.userProfile);	
 	
-	bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...'),new KeyboardMessage(keys)] );
+	
 })
 //#######################################    News   ####################################################
 bot.onTextMessage(/news|новини/, (message,response) => {
-	var response1 = response;//.userProfile;
+	var response1 = response.userProfile;
 	say(response, 'Привіт ви обрали новини : ');
 	news_search.news(response1);
 	})
@@ -430,8 +367,9 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 		})
 //#######################################   edr_search  ####################################################
 bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
-		bot.sendMessage(response.userProfile, [new TextMessage("для отримання данних оберіть тип пошуку з меню  \ud83d\udc47 "), new KeyboardMessage(keys_edr)])
+		bot.sendMessage(response.userProfile, [new TextMessage("для отримання данних оберіть тип пошуку з меню  \ud83d\udc47 ")/*, new KeyboardMessage(keys_edr)*/])
 	.then(()=>{
+		keyboard.get_keyboard_edr(response.userProfile);
 		//####################### take simple search ##############################
 		bot.onTextMessage(/Simple|звичайний/, (message,response) => { 
 		say(response,'Для простого пошкук введіть назву компанії, код едрпоу, фіо керівника .... \ud83d\udc47 ');
@@ -476,7 +414,7 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			})
 		 //############################ switch to main menu  ###########################################################
 bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
-	bot.sendMessage(response.userProfile,new KeyboardMessage(keys));
+	       keyboard.get_keyboard(response.userProfile);
 	
              })
           })
@@ -502,7 +440,8 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 	} else if (messageActionBody === actionBodyNo.toUpperCase()) {
 		// TODO: Handle no!
 		response.send(new TextMessage('Lets see what i can do else ;-)'));
-	} 
+	} //
+	/*
 	else if (messageActionBody === actionBodyweather.toUpperCase()) {
 		// TODO: Handle no!
 		const weatherModule1 = new weatherkeyboard();
@@ -511,9 +450,10 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 		function weather(response) {
     response.send(new TextMessage('укажите как выхотите узнать погоду '), weatherkeyboard);
 }
-		*/
+		
 		
 	}
+	*/
 	
 	else if (messageActionBody === actionBodybase.toUpperCase()) {
 		

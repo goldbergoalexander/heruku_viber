@@ -1,16 +1,15 @@
 'use strict';
-var util = require('util');
-const axios = require('axios');
-//const iconv = require('iconv');
-//const utf8 = require('utf8');	
-const response1 = require('../index.js');
-const ViberBot = require('viber-bot').Bot;
-const BotEvents = require('viber-bot').Events;
-const RichMedia = require('viber-bot').Message.RichMedia;
-const TextMessage = require('viber-bot').Message.Text;
-const KeyboardMessage = require('viber-bot').Message.Keyboard;
-const winston = require('winston');
-const toYAML = require('winston-console-formatter');
+const util = require('util'),
+keyboard = require('./keyboards.js'),
+axios = require('axios'),
+response1 = require('../index.js'),
+ViberBot = require('viber-bot').Bot,
+BotEvents = require('viber-bot').Events,
+RichMedia = require('viber-bot').Message.RichMedia,
+TextMessage = require('viber-bot').Message.Text,
+KeyboardMessage = require('viber-bot').Message.Keyboard,
+winston = require('winston'),
+toYAML = require('winston-console-formatter');
 //############### keyboard ######################
 
 function createLogger() {
@@ -48,100 +47,8 @@ var datas1 = [];
 		console.log(datas.length);
 		
 			for (var a =0 ; a<=5;a++){
-				 var URL = datas[a].url,
-	                 IMAGE = datas[a].urlToImage;
-//################################################## rich media ###################
-var keys  = {
-	"Type": "keyboard",
-	"Buttons": [{
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "weather",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Transport",
-		"BgColor": "#7eceea",
-		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "Cash",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "benefic",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "EDR",
-		"BgColor": "#f6f7f9",
-		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
-	}, {
-		"Columns": 2,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "news",
-		"BgColor": "#a8aaba",
-		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	}]
-};
+				 var URL = datas[a].url;
 
-
-
-//################################################## rich media ###################				
-				
-				
-				
-				
-		/*		
-var news = 
-	'\n'+ datas[a].source.name +
-	'\n' + datas[a].title +
-	'\n' + datas[a].url +
-	'\n' + datas[a].urlToImage +
-    '\n';
-	*/
-	
-var SAMPLE_ALT_TEXT = "upgrade now!"
-
-//const message = new RichMedia(SAMPLE_RICH_MEDIA);
-//datas1.push(message);
 			}
 var SAMPLE_RICH_MEDIA = {
 	"Type": 'rich_media',
@@ -311,22 +218,15 @@ var SAMPLE_RICH_MEDIA = {
 				   //####################  fourth news #####################################################
 	]
 };
-
-
-
-//var fname = messages.chat.first_name.toUpperCase();
-
 var ex = datas1;
-var response = response1;
-		//console.log(datas1);
-		bot.sendMessage(response.userProfile,[new TextMessage('Останні новини \ud83d\udc47'),new RichMedia(SAMPLE_RICH_MEDIA),new KeyboardMessage(keys)]);
-		//set.Tkeyboard.get_keyboard(response.userProfile);
-		
+		bot.sendMessage(response1,[new TextMessage('Останні новини \ud83d\udc47'),new RichMedia(SAMPLE_RICH_MEDIA)]).then(()=>{
+		keyboard.get_keyboard(response1);	
+		})
+	
 })
 .catch(error => {
     console.log(error);
   });
 }
 
-
-module.exports = {news:news };
+module.exports = {news:news};
