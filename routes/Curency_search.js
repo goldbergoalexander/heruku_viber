@@ -49,8 +49,11 @@ var date = new Date(),
 var datas = result;
 		var datas1 = [];
 		var curen = [];
-		if(datas.data.exchangeRate.length<=0){bot.sendMessage(response1,[new TextMessage('\n' + 'Вибачте сервіс тимчасово недоступний :-( :')/*,new KeyboardMessage(keys)*/])
-		keyboard.get_keyboard(response1);	
+		console.log(datas.data.exchangeRate.length);
+		if(datas.data.exchangeRate.length<=0){bot.sendMessage(response1,[new TextMessage('\n' + 'Вибачте сервіс тимчасово недоступний :-( :')/*,new KeyboardMessage(keys)*/]).then(()=>{
+		keyboard.get_keyboard(response1);		
+					})
+		
 		
 		
 		
