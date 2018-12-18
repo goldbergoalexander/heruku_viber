@@ -76,8 +76,10 @@ var ex = curen;
 bot.sendMessage(response1,[new TextMessage(
 		'\n' + 'актуальний курс Валют :'   
 		+ '\n' + ex 
-        ),new KeyboardMessage(keys)])
-		}
+        )/*,new KeyboardMessage(keys)*/]).then(()=>{
+		keyboard.get_keyboard(response1);			
+		})
+				}
 	})
 .catch(error => {
     console.log(error);
