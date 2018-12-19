@@ -238,7 +238,7 @@ function whatyousay(botResponse, urlToCheck) {
 
 
 
-bot.onTextMessage(/hey/, (message, response) => {
+bot.onTextMessage(/hey/,(message, response) => {
 		var obj = message.text;
 		var response1 = response;
 		var textos = "hello";
