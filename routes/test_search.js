@@ -58,7 +58,7 @@ MongoClient.connect(url1,/*{ useNewUrlParser: true },*/ function(err, db) {
 	
 	console.log(text1);
 	
-	if (text.length === 8)
+	if (text.length === 4)
 	{
 		dbo.collection('mreotest111').find({"n_reg_new": text1}).toArray()
 	.then(data => { 
