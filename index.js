@@ -19,6 +19,7 @@ ngrok = require('./get_public_url'),
 KeyboardMessage = require('viber-bot').Message.Keyboard,
 request = require('request'),
 benefic = require('./routes/benefic_search.js'),
+test_search = require('./routes/test_search.js'),
 LocationMessage = require('viber-bot').Message.Location;
 
 require('dotenv').config()
@@ -311,6 +312,7 @@ bot.onTextMessage(/weather/, (message, response) => {
 			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
 		       })
 			})*/
+			
 		 //############################ switch to main menu  ###########################################################
 bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	       keyboard.get_keyboard(response.userProfile);
@@ -323,6 +325,21 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	
 	
 	
+	
+	
+})
+//#######################################    TEST  ###################################################
+bot.onTextMessage(/test/, (message, response) => {
+	 	say(response,'Для пошуку тестового введіть номур машини  .... \ud83d\udc47 ');
+			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            test_search.testsearch(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+				   })
+				
+	//bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...')/*,new KeyboardMessage(keys)*/] );
+	//keyboard.get_keyboard(response.userProfile);	
 	
 	
 })
