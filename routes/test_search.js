@@ -60,7 +60,7 @@ MongoClient.connect(url1,/*{ useNewUrlParser: true },*/ function(err, db) {
 	
 	//if (text.length <8)
 	//{
-		dbo.collection('mreotest111').find({"n_reg_new": text1}).toArray()
+		dbo.collection('mreotest111').find({"n_reg_new": new RegExp(text1)}).toArray()
 	.then(data => { 
 	var datas = '';
 for (var i= 0; i< data.length; i++) {
