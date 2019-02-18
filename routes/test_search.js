@@ -55,12 +55,13 @@ MongoClient.connect(url1,/*{ useNewUrlParser: true },*/ function(err, db) {
 		
 	console.log(text.length);
 	var text1  = resultstring.toUpperCase();
+	var text2  = text.toUpperCase();
 	
 	console.log(text1);
 	
 	//if (text.length <8)
 	//{
-		dbo.collection('mreotest111').find({"n_reg_new": new RegExp(text1)}).toArray()
+		dbo.collection('mreotest111').find({"n_reg_new": new RegExp(text2)}).toArray()
 	.then(data => { 
 	var datas = '';
 for (var i= 0; i< data.length; i++) {
