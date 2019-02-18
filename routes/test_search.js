@@ -67,25 +67,25 @@ MongoClient.connect(url1,/*{ useNewUrlParser: true },*/ function(err, db) {
 for (var i= 0; i< data.length; i++) {
 	var obj = Object.values(data[i]);
 		var datas = [
-		data[i].n_reg_new
+		data[i].N_REG
 		+'\n',
-		data[i].brand
+		data[i].BRAND
 		+'\n',
-		data[i].model
+		data[i].MODEL
 		+'\n',
-		data[i].body
+		data[i].BODY
 		+'\n',
-		data[i].color
+		data[i].COLOR
 		+'\n',
-		data[i].d_reg
+		data[i].D_REG
 		+'\n',
-		data[i].make_year
+		data[i].MAKE_YEAR
 		+'\n',
-		data[i].oper_name
+		data[i].OPER_NAME
 		+'\n',
-		data[i].reg_addr_koatuu
+		data[i].REG_ADDR_KOATUU
 		+'\n',
-		data[i].dep
+		data[i].DEP
 		
 		
 		];
