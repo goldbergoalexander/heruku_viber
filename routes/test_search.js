@@ -58,8 +58,8 @@ MongoClient.connect(url1,/*{ useNewUrlParser: true },*/ function(err, db) {
 	
 	console.log(text1);
 	
-//	if (text.length === 3)
-	//{
+	if (text.length <8)
+	{
 		dbo.collection('mreotest111').find({"n_reg_new": text1}).toArray()
 	.then(data => { 
 	var datas = '';
@@ -126,22 +126,21 @@ if (datas.length > 0) {
 .catch(error => {
     console.log(error);
   });
-//}
+}
 //############################# if user enter not 8 chars ##############################
-/*else if (text.length > 8) { 
+else if (text.length > 8) { 
 	
 	bot.sendMessage(response1, [new TextMessage( 'Привіт' + ' ' + ' Ви обрали розділ авто :' + '\n' +  " ви не вказали невірну кількість знаків. У Вашому випадку :" + resultstring.length +   " Знаків. Повторіть спробу, або звернітся до розділу /help" + ' ' +  
         'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року  ')/*, new KeyboardMessage(keys)*/]);
-		//keyboard.get_keyboard(response1);	
-/*
+		keyboard.get_keyboard(response1);	
+
 	}
 	else { 
 		bot.sendMessage(response1, [new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' +  '\n' +  " ви не вказали невірну кількість знаків. У Вашому випадку :" + resultstring.length  +   " Знаків Повторіть спробу, або звернітся до розділу /help" + ' ' +  
         'Можливо Номер введеного Вами авто зареєсрований не в Україні або до 2013 року ')/*,new KeyboardMessage(keys)*/]);
-		//keyboard.get_keyboard(response1);	
+		keyboard.get_keyboard(response1);	
 		
-	//}
-	
+	}
 //############################# if user enter not 8 chars ##############################
 
 })
