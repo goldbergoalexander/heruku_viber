@@ -88,6 +88,29 @@ for (var i= 0; i< data.length; i++) {
 		
 		
 		];
+		var datas1 = [
+		data[i].N_REG
+		+'\n',
+		data[i].BRAND
+		+'\n',
+		data[i].MODEL
+		+'\n',
+		data[i].BODY
+		+'\n',
+		data[i].COLOR
+		+'\n',
+		data[i].D_REG
+		+'\n',
+		data[i].MAKE_YEAR
+		+'\n',
+		data[i].OPER_NAME
+		+'\n',
+		data[i].REG_ADDR_KOATUU
+		+'\n',
+		data[i].DEP
+		
+		
+		];
 		console.log(data[i].reg_addr_koatuu);
 		console.log(data[i].oper_name);
 		console.log(data[i].dep);
@@ -97,8 +120,9 @@ for (var i= 0; i< data.length; i++) {
 	console.log(datas);
 console.log(datas);
 console.log(datas.length);
-if (datas.length > 0) {
+if (datas.length > 0 || datas1.length>0)  {
 	
+	if (datas[1]===undefined){
 		bot.sendMessage(response1,[new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '*' + '\n' +  "інформацІя згідно Вашого Запиту до боту @alldata : " + ' ' +  
         'Реєстраційни номер : ' +  datas[0] + 
 		'Марка : '  + datas[1] + 
@@ -112,7 +136,26 @@ if (datas.length > 0) {
 		'Де зареєстровано : '  + datas[9] + 
 		'\n' + ' \n')/*,new KeyboardMessage(keys)*/]);
 		keyboard.get_keyboard(response1);
+	}
+	else{
+	bot.sendMessage(response1,[new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '*' + '\n' +  "інформацІя згідно Вашого Запиту до боту @alldata : " + ' ' +  
+        'Реєстраційни номер : ' +  datas1[0] + 
+		'Марка : '  + datas1[1] + 
+		'Модель : ' + datas1[2]  + 
+		'Тип : ' + datas1[3] + 
+		'Колір : '  + datas1[4] + 
+		'Рік реєстрації : '  + datas1[5] + 
+		'Рік випуску : '  + datas1[6] + 
+		'Тип реєстрації : ' + datas1[7] + 
+		'Код Коатуу : '  + datas1[8] + 
+		'Де зареєстровано : '  + datas1[9] + 
+		'\n' + ' \n')/*,new KeyboardMessage(keys)*/]);
+		keyboard.get_keyboard(response1);	
 		
+		
+		
+		
+	}
 	
 	
 		
