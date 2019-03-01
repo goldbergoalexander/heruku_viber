@@ -122,7 +122,7 @@ console.log(datas);
 console.log(datas.length);
 if (datas.length > 0 || datas1.length>0)  {
 	
-	if (datas[1]===undefined){
+	if (datas[1]==='undefined\n'){
 		bot.sendMessage(response1,[new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '*' + '\n' +  "інформацІя згідно Вашого Запиту до боту @alldata : " + ' ' +  
         'Реєстраційни номер : ' +  datas[0] + 
 		'Марка : '  + datas[1] + 
