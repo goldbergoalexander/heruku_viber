@@ -378,7 +378,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 			var obj = messages.text.toUpperCase();
             var response1 = response.userProfile;
             car_search.carsearch(obj,response1);
-		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером авто = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером авто = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  "));
 				   })
 			 })
 		})
