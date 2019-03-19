@@ -98,19 +98,8 @@ var keys  = {
 		"ActionBody": "news",
 		"BgColor": "#dd8157",
 		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	},
-	{
-		"Columns": 1,
-		"Rows": 1,
-		"Text": "<br><font color=\"#494E67\"><b>ТЕСТ</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "test",
-		"BgColor": "#dd8157",
-		"Image": "https://s18.postimg.org/ylmyu98et/more_Options.png"
-	}]
+	}
+	]
 };
 //############### keyboard ######################
 //#######################################################   Keyboard_edr    ######################################################################################
