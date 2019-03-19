@@ -178,7 +178,7 @@ var keys_edr  = {
 		'Map.Longitude':'Longitude',
 		},
 				"ActionBody": "oneday",
-		"BgColor": "#f7bb3f",
+		"BgColor": "#7eceea",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	},
 	{
@@ -212,7 +212,7 @@ var keys_edr  = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "main_menu",
-		"BgColor": "#f7bb3f",
+		"BgColor": "#7eceea",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
 	]
