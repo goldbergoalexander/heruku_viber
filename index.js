@@ -19,6 +19,7 @@ ngrok = require('./get_public_url'),
 KeyboardMessage = require('viber-bot').Message.Keyboard,
 request = require('request'),
 benefic = require('./routes/benefic_search.js'),
+wheather = require('./routes/wheather.js'),
 test_search = require('./routes/test_search.js'),
 LocationMessage = require('viber-bot').Message.Location;
 
@@ -80,13 +81,15 @@ function hear(response, messages) {
     response.send(new TextMessage(messages));
 }
 //#####################################    Weather #####################################################
-bot.onTextMessage(/weather/, (message, response) => {
-	
+bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
+	var response1 = response.userProfile;
+	wheather.wheather(obj,response1);
+			
 
 	//############################################################################################################
 	
-		bot.sendMessage(response.userProfile, [new TextMessage("для отримання данних оберіть тип способу отримання погоднії умов з меню  \ud83d\udc47 ")/*, new KeyboardMessage(keys_edr)*/])
-	.then(()=>{
+		//bot.sendMessage(response.userProfile, [new TextMessage("для отримання данних оберіть тип способу отримання погоднії умов з меню  \ud83d\udc47 ")/*, new KeyboardMessage(keys_edr)*/])
+	//.then(()=>{
 		//console.log(`${message.latitude}, ${message.longitude}`);
 		keyboard.get_keyboard_weather(response.userProfile);
 		
@@ -145,7 +148,7 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	
              })
 			 */
-          })
+          //})
        
 	//##############################################################################################################
 	
