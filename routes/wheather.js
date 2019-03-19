@@ -30,7 +30,7 @@ const bot = new ViberBot(logger, {
 });
 
 
-function wheather (){
+function wheather (response1){
 	bot.sendMessage(response1,[new TextMessage('Привіт' + ' ' + ' Оберіть за якими параметрами Ви хочете отримати погодні умови ?')/*,new KeyboardMessage(keys)*/]).then(()=>{keyboard.get_keyboard_weather(response1);}).catch(err=>{throw err})
 	}
 
