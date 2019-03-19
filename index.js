@@ -353,7 +353,7 @@ bot.onTextMessage(/benefic/, (message, response) => {
             var response1 = response.userProfile;
             benefic.search_benefic(obj,response1);
 			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
-				   })
+				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
 				
 	//bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...')/*,new KeyboardMessage(keys)*/] );
 	//keyboard.get_keyboard(response.userProfile);	
@@ -380,7 +380,7 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 			var obj = messages.text.toUpperCase();
             var response1 = response.userProfile;
             car_search.carsearch(obj,response1);
-		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером авто = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  "));
+		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером авто = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
 				   })
 			 })
 		})
@@ -396,7 +396,7 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			var obj = messages.text;
             var response1 = response.userProfile;
             edrModule.search(obj,response1);
-			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
 				   })
 				})
 	         
