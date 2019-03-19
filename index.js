@@ -330,6 +330,7 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 })
 //#######################################    TEST  ###################################################
 bot.onTextMessage(/./, (message, response) => {
+	if (messages.text!='hi' || messages.text!='hello' || messages.text!= 'main_menu' ) {
 	 	say(response,'Для пошуку тестового введіть номур машини  .... \ud83d\udc47 ');
 			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
@@ -340,7 +341,7 @@ bot.onTextMessage(/./, (message, response) => {
 				
 	//bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...')/*,new KeyboardMessage(keys)*/] );
 	//keyboard.get_keyboard(response.userProfile);	
-	
+	}
 	
 })
 //#######################################    Benefic ###################################################
