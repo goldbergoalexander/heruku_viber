@@ -239,7 +239,7 @@ function whatyousay(botResponse, urlToCheck) {
 
 
 
-bot.onTextMessage('text',(message, response) => {
+bot.onTextMessage(//,(message, response) => {
 		var obj = message.text;
 		var response1 = response;
 		var textos = "hello";
@@ -329,7 +329,7 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	
 })
 //#######################################    TEST  ###################################################
-bot.onTextMessage(/test/, (message, response) => {
+bot.onTextMessage(text, (message, response) => {
 	 	say(response,'Для пошуку тестового введіть номур машини  .... \ud83d\udc47 ');
 			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
