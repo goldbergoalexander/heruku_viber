@@ -92,6 +92,7 @@ bot.onTextMessage(/weather/, (message, response) => {
 		
 		//keyboard.get_keyboard_weather(response.userProfile);
 		//####################### take simple search ##############################
+		/*
 			say(response,'Для пошуку за один день по геолокацІї натисніть 1 день та підтвердіть надання геолокаційних данних .... \ud83d\udc47 ')
 		//keyboard.get_keyboard_weather_oneday(response.userProfile);
 			//bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
@@ -101,8 +102,12 @@ bot.onTextMessage(/weather/, (message, response) => {
 			console.log(messages);
             var response1 = response.userProfile;
             //edrModule.search(obj,response1);
-			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " /*+ lat + '  '+ lon + */+ " надійде якнайшвидше \ud83d\udd50  "));
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + " надійде якнайшвидше \ud83d\udd50  "));
 				   })
+				   
+				   */
+			}).catch(err=>{throw err})
+	})
 		
 	         /*
 //############################ take search 2 parameters #############################################
