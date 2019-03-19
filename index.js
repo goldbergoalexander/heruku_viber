@@ -50,161 +50,7 @@ function main_keyboard(response){
 //##################### fuction keyboard ######################
 module.exports = {main_keyboard:main_keyboard};
 
-//add keyboard 
-const actionBodyYes = 'Yes';
-const actionBodyNo = 'No';
-const actionBodyweather = 'weather';
-const actionBodybot = 'bot';
-const actionBodyNumber = 'Number';
-const actionBodybase = '';
-const actionBodyweatherName = weatherkeyboard.actionBodyweatherName;
-const actionBodyweatherLocation =weatherkeyboard.actionBodyweatherLocation;
-
-
-
-
-function redeemCanDoKeyboard() {
-	let keyboardGenerator1 = new KeyboardGeneratorModule();
-	keyboardGenerator1.addElement('Узнать погоду', actionBodyweather, '#57B8FF');
-	keyboardGenerator1.addElement('Построить бот', actionBodybot, '#DB3069');
-	keyboardGenerator1.addElement('поиск', actionBodybase, '#57B8FF');
-	keyboardGenerator1.addElement('узнать номер', actionBodyNumber, '#DB3069');
-	return keyboardGenerator1.build();
-}
-
-
-
-function redeemYesOrNoKeyboard() {
-	let keyboardGenerator = new KeyboardGeneratorModule();
-	keyboardGenerator.addElement('Yes I would', actionBodyYes, '#57B8FF');
-	keyboardGenerator.addElement('Not now', actionBodyNo, '#DB3069');
-	return keyboardGenerator.build();
-}
-
-
-
-// add keyboard 
-/*
-function sendQuestion(response) {
-	 response.send(new TextMessage('что вы хотите делать ?',
-		redeemYesOrNoKeyboard()));
-		
-}
-*/
-function sendQuestion1(response) {
-	 response.send(new TextMessage('Привет Выберите действие ниже',
-		redeemCanDoKeyboard()));
-		
-}
-
-//saerch in base 
-
-function search(response) {
-	response.send(new TextMessage('начнем поиск',
-		redeemCanDoKeyboard()));
-	console.log('this is search : ' + Object.keys(Object.values(response)[1]) + ' ' );
-	/*
-	    if (search === '' ) {
-        say(botResponse, 'Ок прверим Сайт на его доступность');
-			return;
-	}
-	*/
-}
-
-
-
-//saerch in base 
-
-
-
-
-
-
-
-
-
-function checkUrlAvailability(botResponse, urlToCheck) {
-	
-	    if (urlToCheck === '' ) {
-        say(botResponse, 'Ок прверим Сайт на его доступность');
-			return;
-	}
-    
-    say(botResponse, 'Подождите ...дайте мне проверить!');
-	
-	
-    var url = urlToCheck.replace(/^http:\/\//, '');
-	
-	    request('http://isup.me/' + url, function(error, requestResponse, body) {
-        if (error || requestResponse.statusCode !== 200) {
-            say(botResponse, 'Something is wrong with isup.me.');
-            return;
-        }
-
-        if (!error && requestResponse.statusCode === 200) {
-            if (body.search('is up') !== -1) {
-                				say(botResponse, 'ОК! ' + urlToCheck + '. Єтот сайт работает.');
-			 		
-            } else if (body.search('Мда') !== -1) {
-                say(botResponse, 'Емм  ' + urlToCheck + '. Єто не похоже на адрес веб-сайта.? Пожалуйста придерживайтесь формата `test.com`');
-				
-				
-				
-				
-				
-				
-            } else if (body.search('down from here') !== -1) {
-                say(botResponse, 'Мда! ' + urlToCheck + '. Не рабочий.');
-            } else {
-				say(botResponse,'Проблемка...Что-то не так с   isup.me.' );
-				
-			
-			
-			
-			
-			
-			
-			
-			
-				
-				console.log(botResponse.userProfile.name);
-				
-								
-				
-				/*
-				var options = {
-           method: 'POST',
-           url: 'https://chatapi.viber.com/pa/send_message',
-           body: {
-               // some required body properties here
-			   
-               text: 'Welcome to SUSI.AI!, ' + '' + '.',
-               // code for showing the get started button here.
-        }
-           //json: true
-       };
- */
-        
-	   
-				
-				
-            }
-        }
-    })
-	
-}
-
 const logger = createLogger();
-//const HEROKU_URL = 'https://hidden-harbor-18514.herokuapp.com';
-//const NOW_URL = 
-//const VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY = '4870a95da0e7d652-3fd1d514a93e52c2-18a38455c3f26ee6';
-/*
-if (!process.env.VIBER_PUBLIC_ACCOUNT_ACCESS_TOKEN_KEY) {
-    logger.debug('Could not find the Viber account access token key in your environment variable. Please make sure you followed readme guide.');
-    return;
-}
-*/
-
 // Creating the bot with access token, name and avatar
 const bot = new ViberBot(logger, {
     authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
@@ -218,12 +64,6 @@ bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
 });
 
-
-
-
-
-
-
 var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
 
 function whatyousay(botResponse, urlToCheck) {
@@ -235,21 +75,6 @@ function whatyousay(botResponse, urlToCheck) {
 }	
 
 
-
-
-
-
-bot.on('text',(message, response) => {
-		var obj = message.text;
-		var response1 = response;
-		var textos = "hello";
-		console.log('this is message text : ' + message.text);	
-		var name = Object.values(response1.userProfile)[1];
-		bot.sendMessage(response1.userProfile, new TextMessage('Привіт обери пункт який Вам необхідний '));
-		//bot.sendMessage(response1.userProfile, new KeyboardMessage(keys,textos));
-		keyboard.get_keyboard(response.userProfile);
-			
-	});
 	
 function hear(response, messages) {
     response.send(new TextMessage(messages));
@@ -258,7 +83,6 @@ function hear(response, messages) {
 bot.onTextMessage(/weather/, (message, response) => {
 	
 
-	
 	//############################################################################################################
 	
 		bot.sendMessage(response.userProfile, [new TextMessage("для отримання данних оберіть тип способу отримання погоднії умов з меню  \ud83d\udc47 ")/*, new KeyboardMessage(keys_edr)*/])
@@ -345,6 +169,22 @@ bot.onTextMessage(/./, (message, response) => {
 	
 })
 */
+//####################################### Wheather ###################################################
+/*
+bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
+	 	say(response,'Для пошуку погоди оберіть параметри пошуку  .... \ud83d\udc47 ');
+			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+            benefic.search_benefic(obj,response1);
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
+				
+	
+	
+	
+})
+*/
 //#######################################    Benefic ###################################################
 bot.onTextMessage(/benefic/, (message, response) => {
 	 	say(response,'Для пошуку беніфіціарів введіть фамілію або назву компаніі латиницею  .... \ud83d\udc47 ');
@@ -360,6 +200,7 @@ bot.onTextMessage(/benefic/, (message, response) => {
 	
 	
 })
+
 //#######################################    News   ####################################################
 bot.onTextMessage(/news|новини/, (message,response) => {
 	var response1 = response.userProfile;
@@ -396,7 +237,7 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			var obj = messages.text;
             var response1 = response.userProfile;
             edrModule.search(obj,response1);
-			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "))
 				   })
 				})
 	         
@@ -439,93 +280,6 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
           })
        })
 //#######################################   edrsearch  ####################################################
-	
-
-
-
-bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
-	
-	
-    // This sample bot can answer only text messages, let's make sure the user is aware of that.
-    if (!(message instanceof TextMessage)) {
-        say(response, `Извените. ямогу понимать только текстовые сообщения.`);
-    }
-	let messageActionBody = message.text.toUpperCase();
-
-	if (messageActionBody === actionBodyYes.toUpperCase()) {
-		// TODO: Handle yes!
-		response.send(new TextMessage('Ok. lets start to build. How name will be :?'));
-		redeemYesOrNoKeyboard(response);
-	} else if (messageActionBody === actionBodyNo.toUpperCase()) {
-		// TODO: Handle no!
-		response.send(new TextMessage('Lets see what i can do else ;-)'));
-	} //
-	/*
-	else if (messageActionBody === actionBodyweather.toUpperCase()) {
-		// TODO: Handle no!
-		const weatherModule1 = new weatherkeyboard();
-		response.send(new TextMessage('укажи данные для поиска погоды',weatherModule1));
-		/*
-		function weather(response) {
-    response.send(new TextMessage('укажите как выхотите узнать погоду '), weatherkeyboard);
-}
-		
-		
-	}
-	*/
-	
-	else if (messageActionBody === actionBodybase.toUpperCase()) {
-		
-		var obj = message.text;
-		var response1 = response;
-		console.log('this is message text : ' + message.text);	
-		console.log('this is response : ' + response);	
-		say(response, 'Ваш запит обробляється....');
-		
-		edrModule.search(obj,response1);
-		
-		
-	}
-	else if (messageActionBody === actionBodyNumber.toUpperCase()) {
-		// TODO: Handle no!
-   	say(response, 'введите в поиск номер после #' );
-	   
-    
-		
-		
-    
-
-
-		
-		
-		
-		//response.send(new TextMessage('укажи данные для поиска номера '));
-	}	
-	
-	else if (messageActionBody === actionBodyweatherName) {
-		// TODO: Handle no!
-		response.send(new TextMessage('укажи имя города гапример Kyiv'));
-	}	
-	else if (messageActionBody === actionBodyweatherLocation) {
-		// TODO: Handle no!
-		response.send(new TextMessage('Нажмите на кнопку поиск по геолокации',geolocationKeyboard));
-	}
-	
-	/*
-	else {
-		sendQuestion1(response);
-	}
-	*/
-	
-	
-});
-/*bot.onTextMessage(/./, (message, response) => {
-	if (obj.indexOf('#')===1)
-	 	say(response, 'Вы написали # ' + '' + obj );
-	   
-    
-});
-*/
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>
     response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am ${bot.name}`)).then(()=>{
