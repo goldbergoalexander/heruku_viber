@@ -9,7 +9,7 @@ BotEvents = require('viber-bot').Events,
 TextMessage = require('viber-bot').Message.Text,
 KeyboardMessage = require('viber-bot').Message.Keyboard,
 winston = require('winston'),
-LocationMessage = require('viber-bot').Message.Location;
+LocationMessage = require('viber-bot').Message.Location,
 toYAML = require('winston-console-formatter');
 
 function createLogger() {
