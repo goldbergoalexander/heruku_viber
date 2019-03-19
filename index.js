@@ -329,7 +329,7 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	
 })
 //#######################################    TEST  ###################################################
-bot.onTextMessage('*', (message, response) => {
+bot.onTextMessage(/./, (message, response) => {
 	 	say(response,'Для пошуку тестового введіть номур машини  .... \ud83d\udc47 ');
 			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
