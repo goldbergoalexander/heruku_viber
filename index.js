@@ -88,7 +88,7 @@ bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 			//}).cath(err=>{throw err})
 
 			
-			bot.onTextMessage(/За один день|oneday/, (message,response) => {
+			bot.onTextMessage(/За один день|oneday/, (message,response) => {  
 	bot.sendMessage(response1,[new LocationMessage(latitude, longitude)]).then(()=>{bot.sendMessage(response1,[new TextMessage('Привіт отже твоя локація' + response1.latitude + ' ' + response1.longitude)])  }).catch(err=>{throw err})
 
 	})
