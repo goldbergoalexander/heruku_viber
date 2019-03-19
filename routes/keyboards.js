@@ -172,11 +172,11 @@ var keys_edr  = {
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
-		"ActionType": 'reply',
-		'Map':{
-		'Map.Latitude': 'latitude',
-		'Map.Longitude':'Longitude',
-		},
+		"ActionType": 'location',
+		"location":{
+      "lat":"37.7898",
+      "lon":"-122.3942"
+                  },
 				"ActionBody": "oneday",
 		"BgColor": "#7eceea",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
