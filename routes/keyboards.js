@@ -211,7 +211,7 @@ var keys_edr  = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
-		"ActionBody": "main_menu_weather",
+		"ActionBody": "main_menu",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
