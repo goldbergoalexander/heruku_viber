@@ -239,7 +239,7 @@ var keys_weather_oneday = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "main_menu_weather",
-		"BgColor": "#f7bb3f",
+		"BgColor": "#7eceea",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}]
 };
@@ -257,5 +257,9 @@ function get_keyboard_weather(response) {
 	bot.sendMessage(response,new KeyboardMessage(keys_weather))
 	
 }
+function get_keyboard_weather_one(response) {
+	bot.sendMessage(response,new KeyboardMessage(keys_weather_oneday))
+	
+}
 
-module.exports = {get_keyboard:get_keyboard, get_keyboard_edr:get_keyboard_edr,get_keyboard_weather:get_keyboard_weather};
+module.exports = {get_keyboard:get_keyboard, get_keyboard_edr:get_keyboard_edr,get_keyboard_weather:get_keyboard_weather,get_keyboard_weather_one:get_keyboard_weather_one};
