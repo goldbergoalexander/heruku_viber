@@ -172,7 +172,7 @@ var keys_edr  = {
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
-		"ActionType": 'location',
+		"ActionType": 'reply',
 		'Map':{
 		'Map.Latitude': 'latitude',
 		'Map.Longitude':'Longitude',
