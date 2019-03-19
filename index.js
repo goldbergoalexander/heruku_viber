@@ -165,7 +165,7 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 })
 bot.onTextMessage(/За один день|oneday/, (message,response) => {  
     var response1 = response.userProfile;
-	console.log('this is response' + " " + Object.keys(response));
+	console.log('this is response' + " " + Object.keys(response.userProfile));
 	//bot.sendMessage(response1,[new LocationMessage(latitude, longitude)])
 	bot.sendMessage(response1,[new LocationMessage(response1.latitude, response1.longitude)]).then(()=>{
 	bot.sendMessage(response1,[new TextMessage('Привіт отже твоя локація' + ' ' + response1.latitude + ' ' + response1.longitude)])  
