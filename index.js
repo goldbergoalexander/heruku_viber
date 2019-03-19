@@ -80,7 +80,7 @@ function hear(response, messages) {
     response.send(new TextMessage(messages));
 }
 //#####################################    Weather #####################################################
-bot.onTextMessage(/weather/, (message, response) => {
+bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 	
 
 	//############################################################################################################
@@ -147,7 +147,7 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	       keyboard.get_keyboard(response.userProfile);
 	
              })
-          })
+          
        
 	//##############################################################################################################
 	
