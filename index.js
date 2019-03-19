@@ -81,6 +81,11 @@ function hear(response, messages) {
     response.send(new TextMessage(messages));
 }
 //#####################################    Weather #####################################################
+bot.onTextMessage(/За один день|oneday/, (message,response) => {  
+    var response1 = response.userProfile;
+	bot.sendMessage(response1,[new LocationMessage(latitude, longitude)]).then(()=>{bot.sendMessage(response1,[new TextMessage('Привіт отже твоя локація' + response1.latitude + ' ' + response1.longitude)])  }).catch(err=>{throw err})
+
+	})
 bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 	//bot.sendMessage(response.userProfile, [new TextMessage("Привіт Ви обрали погодні умови \ud83d\udc47 ")/*, new KeyboardMessage(keys_edr)*/]).then(()=>{
 	var response1 = response.userProfile;
@@ -88,10 +93,7 @@ bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 			//}).cath(err=>{throw err})
 
 			
-			bot.onTextMessage(/За один день|oneday/, (message,response) => {  
-	bot.sendMessage(response1,[new LocationMessage(latitude, longitude)]).then(()=>{bot.sendMessage(response1,[new TextMessage('Привіт отже твоя локація' + response1.latitude + ' ' + response1.longitude)])  }).catch(err=>{throw err})
-
-	})
+			
 			
 	//############################################################################################################
 	
