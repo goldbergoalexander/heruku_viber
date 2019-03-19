@@ -82,9 +82,10 @@ function hear(response, messages) {
 }
 //#####################################    Weather #####################################################
 bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
+	bot.sendMessage(response.userProfile, [new TextMessage("Привіт Ви обрали погодні умови \ud83d\udc47 ")/*, new KeyboardMessage(keys_edr)*/]).then(()=>{
 	var response1 = response.userProfile;
-	wheather.wheather(obj,response1);
-			
+	wheather.wheather(response1);
+			}).cath(err=>{throw err})
 
 	//############################################################################################################
 	
