@@ -526,7 +526,7 @@ bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 */
 
 bot.onTextMessage(/^hi|hello$/i, (message, response) =>
-    response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am ${bot.name}`))
+    response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am ${bot.name}`));
 	keyboard.get_keyboard(response.userProfile);
 	);
 
