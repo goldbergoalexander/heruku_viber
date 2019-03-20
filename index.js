@@ -173,7 +173,7 @@ bot.onTextMessage(/За один день|oneday/, (message,response) => {
 	console.log('this is replyType' + " " + response.replyType);
 	console.log('this is chatid' + " " + response.chatId);
 	console.log('this is message.trackingData' + " " + Object.keys(message));
-	console.log('this is message.trackingData' + " " + message.trackingData);
+	console.log('this is message.trackingData' + " " + Object.keys(message.trackingData));
 	//bot.sendMessage(response1,[new LocationMessage(latitude, longitude)])
 	bot.sendMessage(response1,[new LocationMessage(latitude, longitude)]).then(()=>{
 	bot.sendMessage(response1,[new TextMessage('Привіт отже твоя локація' + ' ' + response1.latitude + ' ' + response1.longitude)])  
