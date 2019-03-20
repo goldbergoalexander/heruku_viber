@@ -163,6 +163,11 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	
 	
 })
+bot.onTextMessage(/./, (message,response) => { 
+console.log('this is message' + " " + Object.keys(message));
+console.log('this is message.trackingData' + " " + Object.keys(message.trackingData));
+
+ })
 bot.onTextMessage(/За один день|oneday/, (message,response) => {  
     var response1 = response.userProfile;
 	console.log('this is response' + " " + Object.keys(response.userProfile));
