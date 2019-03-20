@@ -87,7 +87,7 @@ bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 	keyboard.get_keyboard_weather(response1);
 	//if search by one day
 bot.onTextMessage(/За один день|oneday/, (message, response) => {
-	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди оберіть параметри пошуку .... \ud83d\udc47 ")).then(()=>{
+	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди за один день вкажіть назву міста, населеного пункту .... \ud83d\udc47 ")).then(()=>{
 	bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
             var response1 = response.userProfile;
@@ -97,7 +97,18 @@ bot.onTextMessage(/За один день|oneday/, (message, response) => {
 	}).catch(err=>{throw err})
 })
 //if search by one day	
-		
+	//if search by one day
+bot.onTextMessage(/за 5 днів|five_days/, (message, response) => {
+	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди за п'ять днів вкажіть назву міста, населеного пункту .... \ud83d\udc47 ")).then(()=>{
+	bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+			wheather.wheather_5days(obj,response1);
+            bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
+				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})	
+	}).catch(err=>{throw err})
+})
+//if search by one day		
 	
 	}).catch(err=>{throw err})
 	

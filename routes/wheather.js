@@ -30,21 +30,15 @@ const bot = new ViberBot(logger, {
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
 });
 
-
+//################################################################  Wheather for 1 day ##########################################################
 function wheather (obj1,response1){
 	var query1 = encodeURI(obj1);
-	
-	axios({ method: 'get',
-	
-	    headers: {'Content-type': 'application/json; charset=utf8'
-  },
-	
-	  url : ('http://api.openweathermap.org/data/2.5/weather?q='+query1+'&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
-	  
-	     })
+		axios({ method: 'get',
+	     headers: {'Content-type': 'application/json; charset=utf8'},
+	     url : ('http://api.openweathermap.org/data/2.5/weather?q='+query1+'&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
+	  	     })
 		 .then(result=>{
-			 
-			 var datas = result['data'];
+		var datas = result['data'];
 		var coord1 = Object.values(datas.coord)[1];   //latitude
 		var coord2 = Object.values(datas.coord)[0];
 		var weather1  = Object.values(datas.weather)[0]; 
@@ -52,7 +46,6 @@ function wheather (obj1,response1){
 		var wind1  = Object.values(datas.wind)[0];
 		var main11 = Object.values(datas.main)[0];
 		var main1 = parseInt(main11);
-			 
 		bot.sendMessage(response1,new TextMessage(
         + '\n' + 'коротко'
 		+ '\n'
@@ -64,25 +57,57 @@ function wheather (obj1,response1){
 		+ '\n'
 		+ ' Швидкість вітру: ' + ' ' + wind1 + '.m/с' 
 		+ '\n'
-
-
-
-
-
 		)).then(()=>{keyboard.get_keyboard(response1);})
-			 
-			 
 		 }).catch(err=>{console.log(err); console.log(err.result)})
-	
-	
-		
-		
-		
-		
+}
+//################################################################  END Wheather for 1 day ##########################################################
+//################################################################# Wheather for 5 days ##########################################################
+function wheather_5days(obj1,response1){
+	var query1 = encodeURI(obj1);
+		axios({ method: 'get',
+	     headers: {'Content-type': 'application/json; charset=utf8'},
+	     url : ('http://api.openweathermap.org/data/2.5/forecast?q='+query1+'&units=metric&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua'),
+		 	  	     })
+		 .then(result=>{
+		var datas = result['data'];
+		var ex = datas;
+		var weather1 = [];
+		var weather2 = [];
+		for (var i=0; i<datas.list.length;i++) {
+			var time  = datas.list[i].dt_txt;
+			var icon  = 'http://openweathermap.org/img/w/'+ datas.list[i].weather[0].icon;
+			if (time.match(/12:00:00/) ||  time.match(/18:00:00/)){
+			var weather = 
+		'\n'
+        +'<b>'+'День :'+ '</b>'+ ' ' + time.substring(0,10)
+        +'\n'
+        + '<b>'+'час:' + '</b>'+ time.substring(10,16)
+        +'\n'
+        +'<b>'+ 'дата та час:'+ '</b>'+ datas.list[i].dt_txt
+        + '\n'
+        + '<b>'+'температура мін:'+ '</b>'+ datas.list[i].main.temp_min
+        +'\n'
+        + '<b>'+'температура макс:'+ '</b>'+ datas.list[i].main.temp_max 
+        +'\n'
+        + '<b>'+ 'погода:'+ '</b>'+ datas.list[i].weather[0].description  
+        +'\n'
+        + '<b>'+ 'вітер:'+ ' ' + 'швидкість' + ' ' +  datas.list[i].wind.speed + '' + 'м/с'+' ' + 'направлення' + ' ' + datas.list[i].wind.deg + '' + 'град.' + '</b>'
+        +'\n';
+			weather1.push(weather);
+			}
+			}
+		bot.sendMessage(response1,new TextMessage(
+        + '\n' + 'Детально : '
+		+ '\n' + weather1 + '\n'
+		)).then(()=>{keyboard.get_keyboard_weather(response1);})
+		 }).catch(err=>{console.log(err); console.log(err.result)})
 		}
+//################################################################  END Wheather for 5 days ##########################################################
 
-
-module.exports  = {wheather:wheather}
+module.exports  = {
+	wheather:wheather,
+    wheather_5days:wheather_5days
+	}
 
 
 /*
