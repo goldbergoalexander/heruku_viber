@@ -53,7 +53,8 @@ module.exports = {main_keyboard:main_keyboard};
 const logger = createLogger();
 // Creating the bot with access token, name and avatar
 const bot = new ViberBot(logger, {
-    authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
+    //authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
+	authToken: '4966dd3eb727d23a-2ca02550dcb5fdd8-ed95a9ede4160c32', // Learn how to get your access token at developers.viber.com
     name: "alldata",
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
@@ -83,8 +84,7 @@ function hear(response, messages) {
 
 bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди оберіть параметри пошуку .... \ud83d\udc47 ")).then(()=>{
-	var response1 = response.userProfile;
-	keyboard.get_keyboard_weather(response1);
+	keyboard.get_keyboard_weather(response.userProfile);
 	//if search by one day
 bot.onTextMessage(/За один день|oneday/, (message, response) => {
 	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди за один день вкажіть назву міста, населеного пункту .... \ud83d\udc47 ")).then(()=>{
