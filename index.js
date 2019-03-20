@@ -360,14 +360,14 @@ bot.onTextMessage(/^hi|hello$/i, (message, response) =>
 //if (process.env.NOW_URL || process.env.HEROKU_URL) {
 	if (process.env.HEROKU_URL) {
     const http = require('http');
-    const port = process.env.PORT || 8090;
+    const port = process.env.PORT || 8091;
 
     http.createServer(bot.middleware()).listen(port, () => bot.setWebhook(process.env.HEROKU_URL));
 } else {
     logger.debug('Could not find the now.sh/Heroku environment variables. Trying to use the local ngrok server.');
     return ngrok.getPublicUrl().then(publicUrl => {
         const http = require('http');
-        const port = process.env.PORT || 8090;
+        const port = process.env.PORT || 8091;
 
         http.createServer(bot.middleware()).listen(port, () => bot.setWebhook(publicUrl));
 
