@@ -164,8 +164,8 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	
 })
 bot.onTextMessage(/./, (message,response) => { 
-console.log('this is message' + " " + Object.keys(message));
-console.log('this is message.trackingData' + " " + Object.keys(message.trackingData));
+console.log('this is message from any text' + " " + Object.keys(message));
+console.log('this is message.trackingData from any text' + " " + Object.keys(message.trackingData));
 
  })
 bot.onTextMessage(/За один день|oneday/, (message,response) => {  
