@@ -83,9 +83,14 @@ function hear(response, messages) {
 //#####################################    Weather #####################################################
 
 bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
-	//bot.sendMessage(response.userProfile, [new TextMessage("Привіт Ви обрали погодні умови \ud83d\udc47 ")/*, new KeyboardMessage(keys_edr)*/]).then(()=>{
-	var response1 = response.userProfile;
-	wheather.wheather(response1);
+	bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text;
+            var response1 = response.userProfile;
+			wheather.wheather(obj,response1);
+            bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  "));
+				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
+	
+	
 			//}).cath(err=>{throw err})
 
 			
