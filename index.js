@@ -1,6 +1,6 @@
-
 'use strict';
 const keyboard = require('./routes/keyboards.js'),
+request = require('request'),
 edrModule = require('./routes/edrsearch.js'),
 curensy_search = require('./routes/Curency_search.js'),
 news_search = require('./routes/news_search.js'),
@@ -172,8 +172,33 @@ bot.onTextMessage(/За один день|oneday/, (message,response) => {
 	console.log('this is silent' + " " + response.silent);
 	console.log('this is replyType' + " " + response.replyType);
 	console.log('this is chatid' + " " + response.chatId);
-	console.log('this is message.trackingData' + " " + Object.keys(message));
+	console.log('this is message' + " " + Object.keys(message));
 	console.log('this is message.trackingData' + " " + Object.keys(message.trackingData));
+	console.log('this is message.keyboard' + " " + Object.keys(message.keyboard));
+	var options = {
+                method: 'POST',
+                url: 'https://chatapi.viber.com/pa/send_message',
+                headers: headerBody,
+                body: {
+                    receiver: response.id,
+                    min_api_version: 1,
+                    sender: {
+                        name: 'alldata',
+                        avatar: 'https://media-direct.cdn.viber.com/download_photo?dlid=p0C9p1jR56oDp2tIg6n3heksxlgr1KDpi7CCWgF0WG29sDsja5I7w37_fFyjCBSoPweGKz3peg7I6exp_WR9RoqdiUhdTZ-1l7jBXSlk2Bhbsr_pVuzO8NgCOqDSlavWNlTKgw&fltp=jpg&imsz=0000'
+                    },
+                    tracking_data: 'tracking data',
+                    type: 'location',
+                    location: {
+                           lat: latitude,
+                           lon: longitude
+                       }
+                },
+                json: true
+            };
+request(options, function(err, res, body) {
+                   if (err) throw new Error(err);
+                   console.log(body);
+               });
 	//bot.sendMessage(response1,[new LocationMessage(latitude, longitude)])
 	bot.sendMessage(response1,[new LocationMessage(latitude, longitude)]).then(()=>{
 	bot.sendMessage(response1,[new TextMessage('Привіт отже твоя локація' + ' ' + response1.latitude + ' ' + response1.longitude)])  
