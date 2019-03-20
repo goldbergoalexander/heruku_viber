@@ -83,7 +83,8 @@ function hear(response, messages) {
 
 bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди оберіть параметри пошуку .... \ud83d\udc47 ")).then(()=>{
-	keyboard.get_keyboard_weather;
+	var response1 = response.userProfile;
+	keyboard.get_keyboard_weather(response1);
 	//if search by one day
 bot.onTextMessage(/За один день|oneday/, (message, response) => {
 	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди оберіть параметри пошуку .... \ud83d\udc47 ")).then(()=>{
