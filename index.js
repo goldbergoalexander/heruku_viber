@@ -177,7 +177,7 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	
 	
 })
-
+/*
 bot.onTextMessage(/За один день|oneday/, (message,response) => {  
     var response1 = response.userProfile;
 	console.log('this is response' + " " + Object.keys(response.userProfile));
@@ -196,6 +196,7 @@ bot.onTextMessage(/За один день|oneday/, (message,response) => {
 	})
 
 	})
+	*/
 //#######################################    TEST  ###################################################
 /*
 bot.onTextMessage(/./, (message, response) => {
