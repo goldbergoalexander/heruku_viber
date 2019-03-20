@@ -82,19 +82,26 @@ function hear(response, messages) {
 //#####################################    Weather #####################################################
 
 bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
-	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди введіть назву міста .... \ud83d\udc47 ")).then(()=>{
+	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди оберіть параметри пошуку .... \ud83d\udc47 ")).then(()=>{
+	get_keyboard_weather;
+	//if search by one day
+bot.onTextMessage(/За один день|oneday/, (message, response) => {
+	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди оберіть параметри пошуку .... \ud83d\udc47 ")).then(()=>{
 	bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
             var response1 = response.userProfile;
 			wheather.wheather(obj,response1);
             bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
-				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
-	})
+				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})	
+	}).catch(err=>{throw err})
+})
+//if search by one day	
+		
+	
+	}).catch(err=>{throw err})
 	
 	
-			//}).cath(err=>{throw err})
-
-			
+				
 			
 			
 	//############################################################################################################
@@ -229,13 +236,14 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
              })
 //#######################################    Benefic ###################################################
 bot.onTextMessage(/benefic/, (message, response) => {
-	 	say(response,'Для пошуку беніфіціарів введіть фамілію або назву компаніі латиницею  .... \ud83d\udc47 ');
+	 	say(response,'Для пошуку беніфіціарів введіть фамілію або назву компаніі латиницею  .... \ud83d\udc47 ').then(()=>{
 			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
             var response1 = response.userProfile;
             benefic.search_benefic(obj,response1);
 			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
 				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
+				   }).catch(err=>{throw err})
 				
 	//bot.sendMessage(response.userProfile,[new TextMessage('Сервіс в розробці...')/*,new KeyboardMessage(keys)*/] );
 	//keyboard.get_keyboard(response.userProfile);	

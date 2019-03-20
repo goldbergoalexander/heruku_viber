@@ -192,18 +192,8 @@ var keys_edr  = {
 		"ActionBody": "five_days",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
-	}, {
-		"Columns": 3,
-		"Rows": 2,
-		"Text": "<br><font color=\"#494E67\"><b>за назвою міста</b></font>",
-		"TextSize": "large",
-		"TextHAlign": "center",
-		"TextVAlign": "middle",
-		"ActionType": "reply",
-		"ActionBody": "name_city",
-		"BgColor": "#f7bb3f",
-		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
-	}, {
+	},
+	{
 		"Columns": 3,
 		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
@@ -230,7 +220,8 @@ var keys_weather_oneday = {
 		"ActionBody": "oneday_key",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
-	}, {
+	},
+	{
 		"Columns": 3,
 		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
