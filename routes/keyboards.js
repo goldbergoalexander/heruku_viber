@@ -202,7 +202,7 @@ var keys_edr  = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "main_menu",
-		"BgColor": "#7eceea",
+		"BgColor": "#a5ff33",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
 	]
