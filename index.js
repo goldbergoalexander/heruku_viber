@@ -83,6 +83,7 @@ function hear(response, messages) {
 //#####################################    Weather #####################################################
 
 bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
+	say(response,'Для пошуку Погоди введіть назву міста .... \ud83d\udc47 ')
 	bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
             var response1 = response.userProfile;
