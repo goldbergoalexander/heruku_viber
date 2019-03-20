@@ -32,16 +32,16 @@ const bot = new ViberBot(logger, {
 
 
 function wheather (obj1,response1){
-	var query1 = obj1.toLowerCase();
+	
 	axios({ method: 'get',
 	
 	    headers: {'Content-type': 'application/json; charset=utf8'
   },
 	
-	  url : ('http://api.openweathermap.org/data/2.5/weather?q='+ query1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
+	  url : ('http://api.openweathermap.org/data/2.5/weather?q='+ obj1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
 	     })
 		 .then(result => { 
-		console.log('this is url : ' + 'http://api.openweathermap.org/data/2.5/weather?q='+ query1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric' )
+		console.log('this is url : ' + 'http://api.openweathermap.org/data/2.5/weather?q='+ obj1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric' )
 		var datas = result['data'];
 		var data1 = datas.datas;
 		var ex = datas;
