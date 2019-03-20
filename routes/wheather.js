@@ -41,7 +41,7 @@ function wheather (obj1,response1){
 	  url : ('http://api.openweathermap.org/data/2.5/weather?q=Хмельницький&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
 	     })
 		 .then(result => { 
-		..console.log('this is url : ' + 'http://api.openweathermap.org/data/2.5/weather?q='+ obj1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric' )
+		console.log('this is url : ' + 'http://api.openweathermap.org/data/2.5/weather?q='+ obj1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric' )
 		var datas = result['data'];
 		var data1 = datas.datas;
 		var ex = datas;
