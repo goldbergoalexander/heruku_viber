@@ -164,6 +164,7 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
 	
 })
 bot.onTextMessage(/./, (message,response) => { 
+console.log('this is message from any text' + " " + Object.values(message));
 console.log('this is message from any text' + " " + Object.keys(message));
 console.log('this is message.trackingData from any text' + " " + Object.keys(message.trackingData));
 
