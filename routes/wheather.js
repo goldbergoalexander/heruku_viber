@@ -48,6 +48,8 @@ function wheather (obj1,response1){
 		var weather1  = Object.values(datas.weather)[0]; 
 		var weather2  = Object.values(weather1)[2];
 		var wind1  = Object.values(datas.wind)[0];
+		var main11 = Object.values(datas.main)[0];
+		var main1 = parseInt(main11);
 			 
 		bot.sendMessage(response1,new TextMessage(
         + '\n' + 'коротко'
