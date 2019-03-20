@@ -82,7 +82,7 @@ function hear(response, messages) {
 //#####################################    Weather #####################################################
 
 bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
-	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди введіть назву міста .... \ud83d\udc47 "));
+	bot.sendMessage(response.userProfile, new TextMessage("Для пошуку Погоди введіть назву міста .... \ud83d\udc47 ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
 	bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
             var response1 = response.userProfile;
