@@ -31,8 +31,8 @@ const bot = new ViberBot(logger, {
 });
 
 
-function wheather (obj,response1){
-	var query1 = obj.toLowerCase();
+function wheather (obj1,response1){
+	var query1 = obj1.toLowerCase();
 	axios({ method: 'get',
 	
 	    headers: {'Content-type': 'application/json; charset=utf8'
