@@ -249,7 +249,8 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
              })
 //#######################################    Benefic ###################################################
 bot.onTextMessage(/benefic/, (message, response) => {
-	 	say(response,'Для пошуку беніфіціарів введіть фамілію або назву компаніі латиницею  .... \ud83d\udc47 ').then(()=>{
+	bot.sendMessage(response.userProfile, [new TextMessage("Для пошуку беніфіціарів введіть фамілію або назву компаніі латиницею  .... \ud83d\udc47  ")/*, new KeyboardMessage(keys_edr)*/])
+	 	.then(()=>{
 			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text;
             var response1 = response.userProfile;
