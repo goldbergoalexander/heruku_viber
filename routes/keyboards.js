@@ -194,7 +194,7 @@ var keys_edr  = {
 		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
 	},
 	{
-		"Columns": 3,
+		"Columns": 6,
 		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
 		"TextSize": "large",
