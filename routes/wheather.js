@@ -41,6 +41,7 @@ function wheather (obj,response1){
 	  url : ('http://api.openweathermap.org/data/2.5/weather?q='+ query1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
 	     })
 		 .then(result => { 
+		console.log('this is url : ' + 'http://api.openweathermap.org/data/2.5/weather?q='+ query1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric' )
 		var datas = result['data'];
 		var data1 = datas.datas;
 		var ex = datas;
@@ -67,13 +68,8 @@ function wheather (obj,response1){
 		var weather2  = Object.values(weather1)[2];
 		var wind1  = Object.values(datas.wind)[0];
 		var icon = Object.values(weather1)[3]; 
-				axios({ method: 'get',
-		    headers: {'Content-type': 'image/png; charset=utf8'
-  },
-			url : ('http://openweathermap.org/img/w/'+icon+'.png'), 
-		})
-  .then(response => {
-		  
+				
+  
 	  var icon1 = 'http://openweathermap.org/img/w/'+icon+'.png';
 	  var img = response.data.explanation;
 	  var img2 = response.data.url;
@@ -95,10 +91,8 @@ function wheather (obj,response1){
 		
 		
 	)]).then(()=>{keyboard.get_keyboard_weather(response1)}).catch(err=>{throw err})
-	 })
-  .catch(error => {
-    console.log(error);
-  });
+	
+  
 	}).catch(error => {throw error}) //then
 	
 	
