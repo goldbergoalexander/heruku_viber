@@ -79,19 +79,19 @@ function wheather_5days(obj1,response1){
 			if (time.match(/12:00:00/) ||  time.match(/18:00:00/)){
 			var weather = 
 		'\n'
-        +<b>+'День :'+ </b>+ ' ' + time.substring(0,10)
+        +'День :' + ' ' + time.substring(0,10)
         +'\n'
-        + '<b>'+'час:' + '</b>'+ time.substring(10,16)
+        + ''+'час:' + ''+ time.substring(10,16)
         +'\n'
-        +'<b>'+ 'дата та час:'+ '</b>'+ datas.list[i].dt_txt
+        +''+ 'дата та час:'+ ''+ datas.list[i].dt_txt
         + '\n'
-        + '<b>'+'температура мін:'+ '</b>'+ datas.list[i].main.temp_min
+        + ''+'температура мін:'+ ''+ datas.list[i].main.temp_min
         +'\n'
-        + '<b>'+'температура макс:'+ '</b>'+ datas.list[i].main.temp_max 
+        + ''+'температура макс:'+ ''+ datas.list[i].main.temp_max 
         +'\n'
-        + '<b>'+ 'погода:'+ '</b>'+ datas.list[i].weather[0].description  
+        + ''+ 'погода:'+ ''+ datas.list[i].weather[0].description  
         +'\n'
-        + '<b>'+ 'вітер:'+ ' ' + 'швидкість' + ' ' +  datas.list[i].wind.speed + '' + 'м/с'+' ' + 'направлення' + ' ' + datas.list[i].wind.deg + '' + 'град.' + '</b>'
+        + ''+ 'вітер:'+ ' ' + 'швидкість' + ' ' +  datas.list[i].wind.speed + '' + 'м/с'+' ' + 'направлення' + ' ' + datas.list[i].wind.deg + '' + 'град.' + ''
         +'\n';
 			weather1.push(weather);
 			}
