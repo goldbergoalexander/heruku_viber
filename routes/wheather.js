@@ -47,7 +47,7 @@ function wheather (obj1,response1){
 		var main11 = Object.values(datas.main)[0];
 		var main1 = parseInt(main11);
 		bot.sendMessage(response1,new TextMessage(
-        + '\n' + 'коротко'
+        'Коротко'
 		+ '\n'
 		+ ' координати міста: ' + ' ' + ' дов.'+ coord1 + ' ' + ' шир.' + coord2
 		+ '\n'
@@ -79,7 +79,7 @@ function wheather_5days(obj1,response1){
 			if (time.match(/12:00:00/) ||  time.match(/18:00:00/)){
 			var weather = 
 		'\n'
-        +'<b>'+'День :'+ '</b>'+ ' ' + time.substring(0,10)
+        +<b>+'День :'+ </b>+ ' ' + time.substring(0,10)
         +'\n'
         + '<b>'+'час:' + '</b>'+ time.substring(10,16)
         +'\n'
@@ -97,7 +97,7 @@ function wheather_5days(obj1,response1){
 			}
 			}
 		bot.sendMessage(response1,new TextMessage(
-        + '\n' + 'Детально : '
+        'Детально : '
 		+ '\n' + weather1 + '\n'
 		)).then(()=>{keyboard.get_keyboard_weather(response1);})
 		 }).catch(err=>{console.log(err); console.log(err.result)})
