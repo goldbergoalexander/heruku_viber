@@ -39,6 +39,7 @@ function wheather (obj1,response1){
   },
 	
 	  url : ('http://api.openweathermap.org/data/2.5/weather?q='+query1+'&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
+	  
 	     })
 		 .then(result=>{
 			 
@@ -70,9 +71,9 @@ function wheather (obj1,response1){
 		)).then(()=>{keyboard.get_keyboard(response1);})
 			 
 			 
-		 })
+		 }).catch(err=>{console.log(err); console.log(err.result)})
 	
-	console.log('http://api.openweathermap.org/data/2.5/weather?q='+ query1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric');
+	
 		
 		
 		
