@@ -87,7 +87,7 @@ bot.onTextMessage(/ПОГОДА|weather/, (message, response) => {
 			var obj = messages.text;
             var response1 = response.userProfile;
 			wheather.wheather(obj,response1);
-            bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  "));
+            bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
 				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
 	
 	

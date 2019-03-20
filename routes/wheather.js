@@ -32,7 +32,7 @@ const bot = new ViberBot(logger, {
 
 
 function wheather (obj1,response1){
-	var query1 = obj1;
+	var query1 = obj1.toLowerCase();
 	axios({ method: 'get',
 	
 	    headers: {'Content-type': 'application/json; charset=utf8'
@@ -40,6 +40,35 @@ function wheather (obj1,response1){
 	
 	  url : ('http://api.openweathermap.org/data/2.5/weather?q='+ query1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
 	     })
+		 .then(result=>{
+			 
+			 var datas = result['data'];
+		var coord1 = Object.values(datas.coord)[1];   //latitude
+		var coord2 = Object.values(datas.coord)[0];
+		var weather1  = Object.values(datas.weather)[0]; 
+		var weather2  = Object.values(weather1)[2];
+		var wind1  = Object.values(datas.wind)[0];
+			 
+		bot.sendMessage(response1,new TextMessage(
+        + '\n' + 'коротко'
+		+ '\n'
+		+ ' координати міста: ' + ' ' + ' дов.'+ coord1 + ' ' + ' шир.' + coord2
+		+ '\n'
+		+ ' Погодні умови: ' + ' ' + weather2 
+		+ '\n'
+		+ ' Температура: ' + ' ' + main1 + '.cel' 
+		+ '\n'
+		+ ' Швидкість вітру: ' + ' ' + wind1 + '.m/с' 
+		+ '\n'
+
+
+
+
+
+		)).then(()=>{keyboard.get_keyboard(response1);})
+			 
+			 
+		 })
 	
 	console.log('http://api.openweathermap.org/data/2.5/weather?q='+ query1 + '&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric');
 		
