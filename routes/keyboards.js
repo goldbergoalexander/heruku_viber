@@ -167,7 +167,7 @@ var keys_edr  = {
 	"Type": "keyboard",
 	"Buttons": [{
 		"Columns": 3,
-		"Rows": 2,
+		"Rows": 1,
 		"Text": "<br><font color=\"#494E67\"><b>За один день</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
@@ -183,7 +183,7 @@ var keys_edr  = {
 	},
 	{
 		"Columns": 3,
-		"Rows": 2,
+		"Rows": 1,
 		"Text": "<br><font color=\"#494E67\"><b>за 5 днів</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
@@ -194,8 +194,8 @@ var keys_edr  = {
 		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
 	},
 	{
-		"Columns": 4,
-		"Rows": 2,
+		"Columns": 6,
+		"Rows": 1,
 		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
