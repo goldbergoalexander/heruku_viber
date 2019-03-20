@@ -227,6 +227,11 @@ var keys_weather_oneday = {
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
+		"type":"location",
+   "location":{
+      "lat":latitude,
+      "lon":longitude,
+   }
 		"ActionBody": "oneday_key",
 		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
