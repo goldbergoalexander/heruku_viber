@@ -6,7 +6,7 @@ KeyboardMessage = require('viber-bot').Message.Keyboard,
 winston = require('winston'),
 toYAML = require('winston-console-formatter'),
 ViberBot = require('viber-bot').Bot,
-config = require('./conf.js').Bot,
+config = require('./conf.js'),
 bot = config.bot;
 
 //############### keyboard ######################
