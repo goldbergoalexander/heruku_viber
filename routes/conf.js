@@ -1,4 +1,5 @@
 'use strict';
+const winston = require('winston')'
 //############################################################# bot Connect #################################################
 function createLogger() {
     const logger = winston.createLogger({
