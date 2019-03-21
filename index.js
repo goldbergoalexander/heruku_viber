@@ -282,27 +282,31 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 	})
 //#######################################    carsearch   ####################################################
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sdsd
-	bot.sendMessage(response.userProfile, new TextMessage("для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 "))
+	bot.sendMessage(response.userProfile, new TextMessage("для отримання данних оберіть тип пошуку \ud83d\udc47 "))
 	.then(()=>{
 		keyboard.get_keyboard_avto(response.userProfile);
 		//####################### take search by number in avto ##############################
 		bot.onTextMessage(/number_avto|пошук авто за номером/, (message,response) => { 
+		say(response,'Для пошуку за номером авто введіть номер авто наприклад : ВХХХХХВО \ud83d\udc47 ').then(()=>{
 			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text.toUpperCase();
             var response1 = response.userProfile;
             car_search.carsearch(obj,response1);
 		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером авто = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_avto(response1);}).catch(err=>{throw err})
-				   })
+				       })
+		            }).catch(err=>{throw err})
 		         }) 
     //######################################################## end search by number in avto ############################################################
 	//######################################################## search by number passport in avto ############################################################
-	bot.onTextMessage(/texpass_avto|пошук авто за техпаспортом/, (message,response) => { 
+	bot.onTextMessage(/texpass_avto|пошук авто за техпаспортом/, (message,response) => {
+    say(response,'Для пошуку за номером свідоцтва введіть номер свідоцтва без пробілів наприклад : ХХХХХХХХХ \ud83d\udc47 ').then(()=>{		
 			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text.toUpperCase();
             var response1 = response.userProfile;
             car_search.carsearch_texpassport(obj,response1);
 		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером свідоцтва = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_avto(response1);}).catch(err=>{throw err})
-				   })
+				                  })
+						  }).catch(err=>{throw err})
 		         })
 	//######################################################## End search by number passport in avto ############################################################
 	 
