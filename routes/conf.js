@@ -1,16 +1,5 @@
-const
-util = require('util'),
-keyboard = require('./keyboards.js'),
-axios = require('axios'),
-response1 = require('../index.js'),
-obj = require('../index.js'),
-ViberBot = require('viber-bot').Bot,
-BotEvents = require('viber-bot').Events,
-TextMessage = require('viber-bot').Message.Text,
-KeyboardMessage = require('viber-bot').Message.Keyboard,
-winston = require('winston'),
-toYAML = require('winston-console-formatter');
-
+'use strict';
+//############################################################# bot Connect #################################################
 function createLogger() {
     const logger = winston.createLogger({
         level: "debug" // We recommend using the debug level for development
@@ -29,7 +18,4 @@ const bot = new ViberBot(logger, {
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
 });
-// Multiple messages
-function say(response, message) {
-    response.send(new TextMessage(message));
-}
+//############################################################# bot Connect #################################################
