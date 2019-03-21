@@ -348,8 +348,8 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
        })
 //#######################################   edrsearch  ####################################################
 
-//bot.onTextMessage(/^hi|hello$/i, (message, response) => {
-bot.onTextMessage(/./i, (message, response) => {
+bot.onTextMessage(/^hi|hello$/i, (message, response) => {
+//bot.onTextMessage(/./i, (message, response) => {
     response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am ${bot.name}`)).then(()=>{
 		
 	keyboard.get_keyboard(response.userProfile);	
