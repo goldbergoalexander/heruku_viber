@@ -1,5 +1,6 @@
 'use strict';
-const keyboard = require('./routes/keyboards.js'),
+const 
+keyboard = require('./routes/keyboards.js'),
 edrModule = require('./routes/edrsearch.js'),
 curensy_search = require('./routes/Curency_search.js'),
 news_search = require('./routes/news_search.js'),

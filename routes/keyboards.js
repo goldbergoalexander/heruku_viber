@@ -1,4 +1,6 @@
 'use strict';
+import './conf.js';
+/*
 const TextMessage = require('viber-bot').Message.Text;
 const KeyboardMessage = require('viber-bot').Message.Keyboard;
 const winston = require('winston');
@@ -17,12 +19,13 @@ logger.add(new winston.transports.Console({
 }
 const logger = createLogger();
 const bot = new ViberBot(logger, {
-    authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
+    //authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
+	authToken: '4966dd3eb727d23a-2ca02550dcb5fdd8-ed95a9ede4160c32',
     name: "alldata",
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
 });
-
+*/
 //############################################################# bot Connect #################################################
 
 
