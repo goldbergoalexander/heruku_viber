@@ -348,14 +348,14 @@ bot.onTextMessage(/main_menu|Головне меню/, (message,response) => {
        })
 //#######################################   edrsearch  ####################################################
 
-bot.onTextMessage(/^hi|hello$/i, (message, response) =>
+bot.onTextMessage(/^hi|hello$/i, (message, response) => {
     response.send(new TextMessage(`Hi there ${response.userProfile.name}. I am ${bot.name}`)).then(()=>{
 		
 	keyboard.get_keyboard(response.userProfile);	
 		
 	})
 	
-	);
+});
 
 //if (process.env.NOW_URL || process.env.HEROKU_URL) {
 	if (process.env.HEROKU_URL) {
