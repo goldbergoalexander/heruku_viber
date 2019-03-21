@@ -1,6 +1,5 @@
 'use strict';
 const
-ViberBot = require('viber-bot').Bot,
 TextMessage = require('viber-bot').Message.Text,
 KeyboardMessage = require('viber-bot').Message.Keyboard,
 winston = require('winston'),
