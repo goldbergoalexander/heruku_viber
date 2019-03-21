@@ -1,6 +1,5 @@
 'use strict';
-import './conf.js';
-/*
+
 const TextMessage = require('viber-bot').Message.Text;
 const KeyboardMessage = require('viber-bot').Message.Keyboard;
 const winston = require('winston');
@@ -25,7 +24,6 @@ const bot = new ViberBot(logger, {
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
 });
-*/
 //############################################################# bot Connect #################################################
 
 
