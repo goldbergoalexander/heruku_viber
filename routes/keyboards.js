@@ -2,12 +2,12 @@
 
 const
 config = require('./conf.js'),
-bot = config.bot;
+bot = config.bot,
 TextMessage = require('viber-bot').Message.Text,
 KeyboardMessage = require('viber-bot').Message.Keyboard,
 winston = require('winston'),
 toYAML = require('winston-console-formatter'),
-ViberBot = require('viber-bot').Bot,
+ViberBot = require('viber-bot').Bot;
 
 
 //############### keyboard ######################
