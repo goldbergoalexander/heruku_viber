@@ -287,8 +287,8 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
 		keyboard.get_keyboard_avto(response.userProfile);
 		//####################### take search by number in avto ##############################
 		bot.onTextMessage(/number_avto|пошук авто за номером/, (message,response) => { 
-		say(response,'Для пошуку за номером авто введіть номер авто наприклад : ВХХХХХВО \ud83d\udc47 ').then(()=>{
-			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+		bot.sendMessage(response.userProfile, new TextMessage("Для пошуку за номером авто введіть номер авто наприклад : ВХХХХХВО \ud83d\udc47 ")).then(()=>{
+					bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text.toUpperCase();
             var response1 = response.userProfile;
             car_search.carsearch(obj,response1);
@@ -299,8 +299,8 @@ bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sd
     //######################################################## end search by number in avto ############################################################
 	//######################################################## search by number passport in avto ############################################################
 	bot.onTextMessage(/texpass_avto|пошук авто за техпаспортом/, (message,response) => {
-    say(response,'Для пошуку за номером свідоцтва введіть номер свідоцтва без пробілів наприклад : ХХХХХХХХХ \ud83d\udc47 ').then(()=>{		
-			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+		bot.sendMessage(response.userProfile, new TextMessage("Для пошуку за номером свідоцтва введіть номер свідоцтва без пробілів наприклад : ХХХХХХХХХ \ud83d\udc47  ")).then(()=>{
+    			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text.toUpperCase();
             var response1 = response.userProfile;
             car_search.carsearch_texpassport(obj,response1);
