@@ -1,4 +1,3 @@
-
 'use strict';
 const keyboard = require('./routes/keyboards.js'),
 edrModule = require('./routes/edrsearch.js'),
@@ -56,7 +55,7 @@ const bot = new ViberBot(logger, {
     //authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
 	authToken: '4966dd3eb727d23a-2ca02550dcb5fdd8-ed95a9ede4160c32', // Learn how to get your access token at developers.viber.com
 	//sdsdsds
-    name: "alldata",
+    name: "ALLDATA",
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
 });
@@ -66,9 +65,9 @@ bot.onSubscribe(response => {
     say(response, `Hi there ${response.userProfile.name}. I am ${bot.name}! Feel free to ask me if a web site is down for everyone or just you. Just send me a name of a website and I'll do the rest!`);
 });
 
-//var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
+var HEROKU_URL = "https://hidden-harbor-18514.herokuapp.com/";
 
-var HEROKU_URL = "https://alldata.herokuapp.com/";
+//var HEROKU_URL = "https://alldata.herokuapp.com/";
 
 function whatyousay(botResponse, urlToCheck) {
 	
@@ -360,14 +359,14 @@ bot.onTextMessage(/^hi|hello$/i, (message, response) =>
 //if (process.env.NOW_URL || process.env.HEROKU_URL) {
 	if (process.env.HEROKU_URL) {
     const http = require('http');
-    const port = process.env.PORT || 8091;
+    const port = process.env.PORT || 8090;
 
     http.createServer(bot.middleware()).listen(port, () => bot.setWebhook(process.env.HEROKU_URL));
 } else {
     logger.debug('Could not find the now.sh/Heroku environment variables. Trying to use the local ngrok server.');
     return ngrok.getPublicUrl().then(publicUrl => {
         const http = require('http');
-        const port = process.env.PORT || 8091;
+        const port = process.env.PORT || 8090;
 
         http.createServer(bot.middleware()).listen(port, () => bot.setWebhook(publicUrl));
 
