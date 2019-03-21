@@ -95,8 +95,8 @@ bot.onTextMessage(/За один день|oneday/, (message, response) => {
 			var obj = messages.text;
             var response1 = response.userProfile;
 			wheather.wheather(obj,response1);
-            bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
-				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})	
+            bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_weather(response1);}).catch(err=>{throw err})
+				   }).then(()=>{keyboard.get_keyboard_weather(response1);}).catch(err=>{throw err})	
 	}).catch(err=>{throw err})
 })
 //if search by one day	
@@ -107,8 +107,8 @@ bot.onTextMessage(/за 5 днів|five_days/, (message, response) => {
 			var obj = messages.text;
             var response1 = response.userProfile;
 			wheather.wheather_5days(obj,response1);
-            bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
-				   }).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})	
+            bot.sendMessage(response.userProfile, new TextMessage("Погодні умови за Вашим запитом = > " + messages.text + " надійдуть якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_weather(response1);}).catch(err=>{throw err})
+				   }).then(()=>{keyboard.get_keyboard_weather(response1);}).catch(err=>{throw err})	
 	}).catch(err=>{throw err})
 })
 //if search by one day		
@@ -304,7 +304,7 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			var obj = messages.text;
             var response1 = response.userProfile;
             edrModule.search(obj,response1);
-			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "))
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_edr(response1);}).catch(err=>{throw err})
 				   })
 				})
 	         
@@ -315,7 +315,7 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			var obj = messages.text;
             var response1 = response.userProfile;
             edrModule.search_two(obj,response1);
-			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_edr(response1);}).catch(err=>{throw err})
 		       })
 			})
 		 
@@ -326,7 +326,7 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			var obj = messages.text;
             var response1 = response.userProfile;
             edrModule.search_three(obj,response1);
-			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_edr(response1);}).catch(err=>{throw err})
 		       })
 			})
 		 //############################ take search kved ###########################################################
@@ -336,7 +336,7 @@ bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd
 			var obj = messages.text;
             var response1 = response.userProfile;
             edrModule.search_kved(obj,response1);
-			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  "));
+			bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим запитом = > " + messages.text + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_edr(response1);}).catch(err=>{throw err})
 		       })
 			})
 		 //############################ switch to main menu  ###########################################################
