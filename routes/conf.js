@@ -1,5 +1,10 @@
 'use strict';
 const winston = require('winston'),
+ViberBot = require('viber-bot').Bot,
+TextMessage = require('viber-bot').Message.Text,
+KeyboardMessage = require('viber-bot').Message.Keyboard,
+winston = require('winston'),
+toYAML = require('winston-console-formatter'),
 ViberBot = require('viber-bot').Bot;
 //############################################################# bot Connect #################################################
 function createLogger() {
