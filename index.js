@@ -284,13 +284,29 @@ bot.onTextMessage(/Валюта|Cash/, (message,response) => {
 bot.onTextMessage(/Transport|Транспорт/, (message,response) => {   //sdsd
 	bot.sendMessage(response.userProfile, new TextMessage("для отримання данних введівть номер авто ВХХХХХВО  \ud83d\udc47 "))
 	.then(()=>{
+		keyboard.get_keyboard_avto(response.userProfile);
+		//####################### take search by number in avto ##############################
+		bot.onTextMessage(/number_avto|пошук авто за номером/, (message,response) => { 
 			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
 			var obj = messages.text.toUpperCase();
             var response1 = response.userProfile;
             car_search.carsearch(obj,response1);
-		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером авто = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard(response1);}).catch(err=>{throw err})
+		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером авто = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_avto(response1);}).catch(err=>{throw err})
 				   })
-			 })
+		         }) 
+    //######################################################## end search by number in avto ############################################################
+	//######################################################## search by number passport in avto ############################################################
+	bot.onTextMessage(/texpass_avto|пошук авто за техпаспортом/, (message,response) => { 
+			bot.once(BotEvents.MESSAGE_RECEIVED,(messages)=>{
+			var obj = messages.text.toUpperCase();
+            var response1 = response.userProfile;
+            car_search.carsearch_texpassport(obj,response1);
+		bot.sendMessage(response.userProfile, new TextMessage(" інформація за Вашим номером свідоцтва = > " + messages.text.toUpperCase() + " надійде якнайшвидше \ud83d\udd50  ")).then(()=>{keyboard.get_keyboard_avto(response1);}).catch(err=>{throw err})
+				   })
+		         })
+	//######################################################## End search by number passport in avto ############################################################
+	 
+			 }).catch(err=>{throw err})
 		})
 //#######################################   edr_search  ####################################################
 bot.onTextMessage(/EDR|ЕДР/, (message,response) => {   //sdsd

@@ -232,8 +232,49 @@ var keys_weather_oneday = {
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}]
 };
-//#######################################################   Reyboard_edr    ######################################################################################
-
+//#######################################################   keyboard_wheather    ######################################################################################
+//#######################################################   keyboard_avto    ######################################################################################
+var keys_avto  = {
+	"Type": "keyboard",
+	"Buttons": [{
+		"Columns": 3,
+		"Rows": 1,
+		"Text": "<br><font color=\"#494E67\"><b>пошук авто за номером</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": 'reply',
+		"ActionBody": "number_avto",
+		"BgColor": "#7eceea",
+		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
+	},
+	{
+		"Columns": 3,
+		"Rows": 1,
+		"Text": "<br><font color=\"#494E67\"><b>пошук авто за техпаспортом</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "texpass_avto",
+		"BgColor": "#f7bb3f",
+		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
+	},
+	{
+		"Columns": 6,
+		"Rows": 1,
+		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
+		"TextSize": "large",
+		"TextHAlign": "center",
+		"TextVAlign": "middle",
+		"ActionType": "reply",
+		"ActionBody": "main_menu",
+		"BgColor": "#a5ff33",
+		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
+	}
+	]
+};
+//#######################################################   keyboard_avto    ######################################################################################
   
 function get_keyboard(response) {
 	bot.sendMessage(response,new KeyboardMessage(keys))
@@ -250,5 +291,14 @@ function get_keyboard_weather_one(response) {
 	bot.sendMessage(response,new KeyboardMessage(keys_weather_oneday))
 	
 }
+function get_keyboard_avto(response) {
+	bot.sendMessage(response,new KeyboardMessage(keys_avto))
+	
+}
 
-module.exports = {get_keyboard:get_keyboard, get_keyboard_edr:get_keyboard_edr,get_keyboard_weather:get_keyboard_weather,get_keyboard_weather_one:get_keyboard_weather_one};
+module.exports = {
+	get_keyboard:get_keyboard,
+    get_keyboard_edr:get_keyboard_edr,
+	get_keyboard_weather:get_keyboard_weather,
+	get_keyboard_weather_one:get_keyboard_weather_one,
+	get_keyboard_avto:get_keyboard_avto};

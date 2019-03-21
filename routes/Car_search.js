@@ -183,5 +183,61 @@ else if (text.length > 8) {
 
 })
 }
+function carsearch_texpassport (obj,response1){
+	
+	                    var fullnumber = obj.toUpperCase(),
+						seria = fullnumber.substr(0,3),
+						number =  fullnumber.substr(3,9);
+						console.log('http://api.hsc.gov.ua/gateway-edrmvs/api/verification/spr/'+seria+'/'+ number);
+	
+	//if mess.length less  then 9
+if (obj.length<9) {bot.sendMessage(response1,[new TextMessage("Ви ввели невірну кількість знаків меньше необхідної кількості (3 серія та 6 номер свідоцтва) повторіть спробу \u2753 " )])}
+//if mess.length biggest then 9
+else if (obj.length>9) {bot.sendMessage(response1,[new TextMessage("Ви ввели невірну кількість знаків - більше необхідної кількості (3 серія та 6 номер свідоцтва) повторіть спробу \u2753 ")]) }
+	
+	axios({ method: 'get',
 
-module.exports = {carsearch:carsearch};
+	    headers: {'Content-type': 'application/json; charset=utf8'
+  },
+	//headers: {'Content-Type': 'application/x-www-form-urlencoded' },
+
+      url: ('http://api.hsc.gov.ua/gateway-edrmvs/api/verification/spr/'+seria+'/'+ number),
+    }).then(result=>{
+		//if result is empty
+	console.log(result.data[0])
+	bot.sendMessage(response1,[new TextMessage('Привіт' + ' ' + ' Ви обрали розділ авто :' + '\n' +  "інформацІя згідно Вашого Запиту до боту @alldata : " + ' ' +  
+	'*' + "###### - Свідоцтво дійсне - #####"  + '\n'+
+	'Марка : ' + result.data[0].brand + '\n' +
+	'Вага : ' + result.data[0].capacity + '\n' +
+	'Колір : ' + result.data[0].color + '\n' +
+	'Дата першої реєстрації : ' + result.data[0].dFirstReg + '\n' +
+	'Дата реєстрації : ' + result.data[0].dReg + '\n' +
+	'Тип палива : ' + result.data[0].fuel + '\n' +
+	'Тип : ' + result.data[0].kind + '\n' +
+	'Рік виготовлення : ' + result.data[0].makeYear + '\n' +
+	'Модель : ' + result.data[0].model + '\n' +
+	'номер свідоцтва : ' + result.data[0].nDoc + '\n' +
+	'Реєстраційний номер : ' + result.data[0].nRegNew + '\n' +
+	'кількість сидінь : ' + result.data[0].nSeating + '\n' +
+	'кількість місць : ' + result.data[0].nStanding + '\n' +
+	'Власна вага : ' + result.data[0].ownWeight + '\n' +
+	'категорія : ' + result.data[0].rankCategory + '\n' +
+	'серія свідоцтва : ' + result.data[0].sDoc + '\n' +
+	'Повна вага : ' + result.data[0].totalWeight + '\n' +
+	'Він код : ' + result.data[0].vin + '\n'
+	)])
+				//if result is empty
+		//#####################################################   if result is not empty ##################################
+
+		//#####################################################   if result is not empty ##################################
+	}).catch(()=>{bot.sendMessage(response1,[new TextMessage( "введене Вами свідоцтво недійсне або відсутнє :-( ")]) })
+	
+	
+	
+	
+	
+}
+
+module.exports = {
+	carsearch:carsearch,
+    carsearch_texpassport:carsearch_texpassport};
