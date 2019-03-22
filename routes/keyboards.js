@@ -32,7 +32,7 @@ var keys  = {
 	"Type": "keyboard",
 	"Buttons": [{
 		"Columns": 2,
-		"Rows": 1,
+		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>ПОГОДА</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
@@ -43,7 +43,7 @@ var keys  = {
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	}, {
 		"Columns": 2,
-		"Rows": 1,
+		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>Транспорт</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
@@ -54,7 +54,7 @@ var keys  = {
 		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
 	}, {
 		"Columns": 2,
-		"Rows": 1,
+		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>Валюта</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
@@ -65,7 +65,7 @@ var keys  = {
 		"Image": "https://s18.postimg.org/t8y4g4kid/mexican.png"
 	}, {
 		"Columns": 2,
-		"Rows": 1,
+		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>БЕНІФІЦІАРИ</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
@@ -76,7 +76,7 @@ var keys  = {
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}, {
 		"Columns": 2,
-		"Rows": 1,
+		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>ЄДР</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
@@ -87,7 +87,7 @@ var keys  = {
 		"Image": "https://s18.postimg.org/wq06j3jkl/indi.png"
 	}, {
 		"Columns": 2,
-		"Rows": 1,
+		"Rows": 2,
 		"Text": "<br><font color=\"#494E67\"><b>Новини</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
