@@ -166,7 +166,7 @@ var keys_edr  = {
 	"Buttons": [{
 		"Columns": 3,
 		"Rows": 1,
-		"Text": "<br><font color=\"#FFFF\"><b>За один день</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>За один день</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
@@ -200,7 +200,7 @@ var keys_edr  = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "main_menu",
-		"BgColor": "#a5ff33",
+		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
 	]
@@ -269,7 +269,7 @@ var keys_avto  = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "main_menu",
-		"BgColor": "#FFDD33",
+		"BgColor": "#f7bb3f",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
 	]
