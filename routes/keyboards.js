@@ -239,7 +239,7 @@ var keys_avto  = {
 	"Buttons": [{
 		"Columns": 3,
 		"Rows": 1,
-		"Text": "<br><font color=\"#494E67\"><b>пошук авто за номером</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>номер авто</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
@@ -251,7 +251,7 @@ var keys_avto  = {
 	{
 		"Columns": 3,
 		"Rows": 1,
-		"Text": "<br><font color=\"#494E67\"><b>пошук авто за техпаспортом</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>номер свідоцтва</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
