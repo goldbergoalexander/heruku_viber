@@ -263,7 +263,7 @@ var keys_avto  = {
 	{
 		"Columns": 6,
 		"Rows": 1,
-		"Text": "<br><font color=\"#ffff\"><b>Головне меню</b></font>",
+		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
