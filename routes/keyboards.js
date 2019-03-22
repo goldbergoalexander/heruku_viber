@@ -176,7 +176,7 @@ var keys_edr  = {
 		'Map.Longitude':'Longitude',
 		},
 				"ActionBody": "oneday",
-		"BgColor": "#8D33FF",
+		"BgColor": "#33BBFF",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	},
 	{
@@ -188,7 +188,7 @@ var keys_edr  = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "five_days",
-		"BgColor": "#f7bb3f",
+		"BgColor": "#33FF90",
 		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
 	},
 	{
@@ -228,7 +228,7 @@ var keys_weather_oneday = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "main_menu_weather",
-		"BgColor": "#7eceea",
+		"BgColor": "#FFDD33",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}]
 };
@@ -245,7 +245,7 @@ var keys_avto  = {
 		"TextVAlign": "middle",
 		"ActionType": 'reply',
 		"ActionBody": "number_avto",
-		"BgColor": "#7eceea",
+		"BgColor": "#33BBFF",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	},
 	{
@@ -257,7 +257,7 @@ var keys_avto  = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "texpass_avto",
-		"BgColor": "#f7bb3f",
+		"BgColor": "#33FF90",
 		"Image": "https://s18.postimg.org/ntpef5syd/french.png"
 	},
 	{
@@ -269,7 +269,7 @@ var keys_avto  = {
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "main_menu",
-		"BgColor": "#33CEFF",
+		"BgColor": "#FFDD33",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
 	]
