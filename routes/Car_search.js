@@ -225,12 +225,12 @@ else if (obj.length>9) {bot.sendMessage(response1,[new TextMessage("Ви вве�
 	'серія свідоцтва : ' + result.data[0].sDoc + '\n' +
 	'Повна вага : ' + result.data[0].totalWeight + '\n' +
 	'Він код : ' + result.data[0].vin + '\n'
-	)])
+	)]).then(()=>{keyboard.get_keyboard_avto(response1);}).catch(err=>{throw err})
 				//if result is empty
 		//#####################################################   if result is not empty ##################################
 
 		//#####################################################   if result is not empty ##################################
-	}).catch(()=>{bot.sendMessage(response1,[new TextMessage( "введене Вами свідоцтво недійсне або відсутнє :-( ")]) })
+	}).catch(()=>{bot.sendMessage(response1,[new TextMessage( "введене Вами свідоцтво недійсне або відсутнє :-( ")]).then(()=>{keyboard.get_keyboard_avto(response1);}).catch(err=>{throw err}) })
 	
 	
 	
