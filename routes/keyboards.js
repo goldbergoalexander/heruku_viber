@@ -166,7 +166,7 @@ var keys_edr  = {
 	"Buttons": [{
 		"Columns": 3,
 		"Rows": 1,
-		"Text": "<br><font color=\"#ffff\"><b>За один день</b></font>",
+		"Text": "<br><font color=\"#FFFF\"><b>За один день</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
