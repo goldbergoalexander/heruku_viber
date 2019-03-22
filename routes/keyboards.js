@@ -166,7 +166,7 @@ var keys_edr  = {
 	"Buttons": [{
 		"Columns": 3,
 		"Rows": 1,
-		"Text": "<br><font color=\"#494E67\"><b>За один день</b></font>",
+		"Text": "<br><font color=\"#ffff\"><b>За один день</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
@@ -176,7 +176,7 @@ var keys_edr  = {
 		'Map.Longitude':'Longitude',
 		},
 				"ActionBody": "oneday",
-		"BgColor": "#7eceea",
+		"BgColor": "#8D33FF",
 		"Image": "https://s18.postimg.org/9tncn0r85/sushi.png"
 	},
 	{
@@ -263,13 +263,13 @@ var keys_avto  = {
 	{
 		"Columns": 6,
 		"Rows": 1,
-		"Text": "<br><font color=\"#494E67\"><b>Головне меню</b></font>",
+		"Text": "<br><font color=\"#ffff\"><b>Головне меню</b></font>",
 		"TextSize": "large",
 		"TextHAlign": "center",
 		"TextVAlign": "middle",
 		"ActionType": "reply",
 		"ActionBody": "main_menu",
-		"BgColor": "#a5ff33",
+		"BgColor": "#33CEFF",
 		"Image": "https://s18.postimg.org/x41iip3o5/itallian.png"
 	}
 	]
