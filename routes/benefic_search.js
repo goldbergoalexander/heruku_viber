@@ -37,9 +37,10 @@ function say(response, message) {
 
 //#################################################################### - search kved -  ############################################################
 function search_benefic(obj1,response1){
+/*
 var MongoClient = require('mongodb').MongoClient;
 var url1 = "mongodb://goldberg:tugdUqXR1885210623@104.248.71.0:27017/admin";
-MongoClient.connect(url1,/*{ useNewUrlParser: true },*/ function(err, db) {
+MongoClient.connect(url1, function(err, db) {
   if (err) throw err;
 var dbo = db.db("work");
 	var numbers = /[0-9]/;
@@ -113,7 +114,52 @@ for (var i= 0; i< data.length; i++) {
     console.log(error);
                  })
 	          }
-	      })
+	      })*/
+		  //mongo client connect
+//############################################################## Search from EDR #######################################################
+var string  = encodeURI(obj1);
+axios({ method: 'get',
+
+	    headers: {'Content-type': 'application/json; charset=utf8'
+  },
+	//headers: {'Content-Type': 'application/x-www-form-urlencoded' },
+      url: ('http://93.188.161.182:10010/telegramkved/'+ string ),
+    })
+.then(result => {
+		var datas = result['data'];
+		if (datas) {
+		var ex = datas;
+bot.sendMessage(response1, [new TextMessage(
+	'Привіт' + ' ' + ' Ви обрали розділ Бенефіціари :' + 
+	'\n' +  "інформацІя згідно Вашого Запиту до боту @alldata : " + ' ' +  
+        ' \n' +  ex
+		 )])
+	.then(()=>{
+	keyboard.get_keyboard(response1);	
+	})		
+
+
+
+}
+else {
+			var ex = datas;
+bot.sendMessage(response1, [new TextMessage(
+	'Привіт' + ' ' + ' Ви обрали розділ Бенефіціари :' + 
+	'\n' +  "інформацІя згідно Вашого Запиту до боту @alldata : " + ' ' +  
+        ' \n' +  " Нажаль за Вашим запитом" + ' ' + '*' + kved2 + '*'+ " " +  "нічого не знайдено " + ' ' )])
+	.then(()=>{
+	keyboard.get_keyboard(response1);	
+	})
+
+}
+
+
+	}
+		).catch((err)=>{if (err) { bot.sendMessage(response1, [new TextMessage(	'Привіт' + ' ' + ' Ви обрали розділ Бенефіціари :' + '\n' +  "Сервіс тимчасово недоступний  " + ' ' )]).then(()=>{keyboard.get_keyboard(response1);}) }})
+//############################################################## Search from EDR #######################################################  
+		  
+		  
+		  
        }
 function answear(response) {
  console.log('This is EX : ' + ex);
