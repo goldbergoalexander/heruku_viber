@@ -123,7 +123,7 @@ axios({ method: 'get',
 	    headers: {'Content-type': 'application/json; charset=utf8'
   },
 	//headers: {'Content-Type': 'application/x-www-form-urlencoded' },
-      url: ('http://93.188.161.182:10010/telegramkved/'+ string ),
+      url: ('http://93.188.161.182:10010/benefic/'+ string ),
     })
 .then(result => {
 		var datas = result['data'];
