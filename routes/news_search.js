@@ -24,8 +24,8 @@ logger.add(new winston.transports.Console({
 }
 const logger = createLogger();
 const bot = new ViberBot(logger, {
-    //authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
-	authToken: '4966dd3eb727d23a-2ca02550dcb5fdd8-ed95a9ede4160c32',
+    //authToken: process.env.TOKEN, // Learn how to get your access token at developers.viber.com
+	authToken: process.env.TOKEN,
     name: "alldata",
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
@@ -40,7 +40,7 @@ function news(response1){
    axios({ method: 'get',
 	    headers: {'Content-type': 'application/json; charset=utf8'
   },
-      url: ('https://newsapi.org/v2/top-headlines?country=ua&apiKey=4b80f3fbc58c4a96b1ecff9d84c38b05'),
+      url: ('https://newsapi.org/v2/top-headlines?country=ua&apiKey='+ process.env.TOKEN_NEWS),
     })
 .then(result => {
 var datas = result.data.articles;
