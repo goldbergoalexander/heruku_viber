@@ -23,7 +23,7 @@ logger.add(new winston.transports.Console({
 }
 const logger = createLogger();
 const bot = new ViberBot(logger, {
-    authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
+    authToken: process.env.TOKEN, // Learn how to get your access token at developers.viber.com
     name: "alldata",
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
@@ -36,7 +36,7 @@ function say(response, message) {
 
 function testsearch(obj,response1){ 
 var MongoClient = require('mongodb').MongoClient;
-var url1 = "mongodb://goldberg:tugdUqXR1885210623@104.248.71.0:27017/admin";
+var url1 = process.env.DB;
 
 MongoClient.connect(url1,/*{ useNewUrlParser: true },*/ function(err, db) {
 
