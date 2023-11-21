@@ -24,8 +24,8 @@ logger.add(new winston.transports.Console({
 }
 const logger = createLogger();
 const bot = new ViberBot(logger, {
-    //authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
-	authToken: '4966dd3eb727d23a-2ca02550dcb5fdd8-ed95a9ede4160c32',
+    //authToken: process.env.TOKEN, // Learn how to get your access token at developers.viber.com
+	authToken: process.env.TOKEN,
     name: "alldata",
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
@@ -39,7 +39,7 @@ function say(response, message) {
 function search_benefic(obj1,response1){
 /*
 var MongoClient = require('mongodb').MongoClient;
-var url1 = "mongodb://goldberg:tugdUqXR1885210623@104.248.71.0:27017/admin";
+var url1 = process.env.DB;
 MongoClient.connect(url1, function(err, db) {
   if (err) throw err;
 var dbo = db.db("work");
@@ -123,7 +123,7 @@ axios({ method: 'get',
 	    headers: {'Content-type': 'application/json; charset=utf8'
   },
 	//headers: {'Content-Type': 'application/x-www-form-urlencoded' },
-      url: ('http://93.188.161.182:10010/benefic/'+ string ),
+      url: ('process.env.DB_PORT/benefic/'+ string ),
     })
 .then(result => {
 		var datas = result['data'];
