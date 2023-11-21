@@ -28,7 +28,7 @@ logger.add(new winston.transports.Console({
 const logger = createLogger();
 
 const bot = new ViberBot(logger, {
-    authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
+    authToken: process.env.TOKEN, // Learn how to get your access token at developers.viber.com
     name: "alldata",
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
