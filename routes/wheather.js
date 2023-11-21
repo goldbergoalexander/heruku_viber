@@ -24,8 +24,8 @@ logger.add(new winston.transports.Console({
 }
 const logger = createLogger();
 const bot = new ViberBot(logger, {
-    //authToken: '486ba703aae7d158-a62a910dc54084e9-4bc7cfea4a8d72f5', // Learn how to get your access token at developers.viber.com
-	authToken: '4966dd3eb727d23a-2ca02550dcb5fdd8-ed95a9ede4160c32',
+    //authToken: process.env.TOKEN, // Learn how to get your access token at developers.viber.com
+	authToken: process.env.TOKEN,
     name: "alldata",
     //avatar: "http://api.adorable.io/avatar/200/isitup" // Just a placeholder avatar to display the user
 	avatar: "https://raw.githubusercontent.com/goldbergoalexander/heruku_viber/master/alldata_avatar.jpg"
@@ -36,7 +36,7 @@ function wheather (obj1,response1){
 	var query1 = encodeURI(obj1);
 		axios({ method: 'get',
 	     headers: {'Content-type': 'application/json; charset=utf8'},
-	     url : ('http://api.openweathermap.org/data/2.5/weather?q='+query1+'&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua&units=metric'),
+	     url : ('http://api.openweathermap.org/data/2.5/weather?q='+query1+'&appid='+process.env.TOKEN_WHEATHER+'=ua&units=metric'),
 	  	     })
 		 .then(result=>{
 		var datas = result['data'];
@@ -67,7 +67,7 @@ function wheather_5days(obj1,response1){
 	var query1 = encodeURI(obj1);
 		axios({ method: 'get',
 	     headers: {'Content-type': 'application/json; charset=utf8'},
-	     url : ('http://api.openweathermap.org/data/2.5/forecast?q='+query1+'&units=metric&appid=e6463c8b6e961ecb1bdb04de35d1d8e7&lang=ua'),
+	     url : ('http://api.openweathermap.org/data/2.5/forecast?q='+query1+'&units=metric&appid=+process.env.TOKEN_WHEATHER+'&lang=ua'),
 		 	  	     })
 		 .then(result=>{
 		var datas = result['data'];
